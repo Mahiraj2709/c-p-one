@@ -1,0 +1,122 @@
+<ion-view title="Request Details">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="ReqCtrl" ng-init="reloadData(1)">
+        <section class="bg-main">
+            <div class="main">
+                <form method="" action="" name="">
+                    <div class="forms_login requeset_detail">
+                        <ul>
+                            <li>
+                                <label> Property Type </label>
+                                <span>  <select ng-model="requestDetail.property_type_id" ng-change="reloadData(requestDetail.property_type_id)"
+                                                ng-options="property.property_id as property.property_type for property in property_type" >
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> Sq Ft </label>
+                                <span>  <select ng-model="requestDetail.square_feet_id" >
+                                    <option ng-repeat="sq_ft in squre_feet"
+                                            value="{{sq_ft.id}}">{{sq_ft.sq_ft}}</option>
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> How many Bedrooms? </label>
+                                <span>  <select ng-model="requestDetail.bedroom_id" >
+
+                                    <option ng-repeat="b_room in bedroom"
+                                            value="{{b_room.id}}">{{b_room.bedroom}}</option>
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> How many Bathrooms? </label>
+                                <span>  <select ng-model="requestDetail.bathroom_id" >
+                                    <option ng-repeat="bed_room in bathroom" value="{{bed_room.id}}">{{bed_room.bathroom}}</option>
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> Select Style </label>
+                                <span>  <select ng-model="requestDetail.clean_style_id" >
+
+                                    <option ng-repeat="c_style in clean_style"
+                                            value="{{c_style.id}}">{{c_style.name}}</option>
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> Confirm Price </label>
+                                <input placeholder="$" required="required" type="text" ng-model="requestDetail.confirm_price">
+                            </li>
+
+
+                            <li>
+                                <label> How can cleaner get into home? </label>
+                                <span>  <select ng-model="requestDetail.cleaner_entry_id" >
+                                    <option ng-repeat="entry_style in cleaner_entry_type" value="{{entry_style.entry_id}}">{{entry_style.entry_type}}</option>
+                                     </select>
+                                </span>
+                            </li>
+                            <li>
+                                <label> Please provide work order details </label>
+                                <input placeholder="" required="required" type="text" ng-model="requestDetail.work_order_details">
+                            </li>
+                            <!--<li> <input placeholder="" required="required" type="text"> </li>
+                            <li> <input placeholder="" required="required" type="text"> </li>-->
+
+                            <label> Your location </label>
+                            <li>
+                                <input placeholder="Search Location." ng-model="requestDetail.address" required="required" type="text"
+                                       ng-change="getPlacePredictions(requestDetail.address)"
+                                       ng-focus="showCurrentIcon = false; clearIcon = true"
+                                       ng-blur="showCurrentIcon = true; clearIcon = false">
+                                <img src="img/map-point-con.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
+                                <img src="img/cancel_icon.png" ng-hide="showCurrentIcon" ng-click="clearAll()"
+                                     class="right-txt-icons">
+                                <div ng-show="predictions.length > 0" class="address_bar">
+
+                                    <div class="list location-results-list">
+                                        <a ng-repeat="prediction in predictions"
+                                           class="item item-icon-left location-item"
+                                           ng-click="selectSearchResult(prediction)">
+                                            <i class="icon ion-location"></i>
+                                            <h3 class="location-name">{{prediction.terms[0].value}}</h3>
+                                            <span class="location-desc">{{prediction.description}}</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <label> Select Date </label>
+                            <li>
+                                <input type="date" placeholder="Select date" ng-model="date"/>
+                                <img src="img/cal.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
+                            </li>
+                            <label> Select Time </label>
+                            <li>
+
+                                <input type="time" placeholder="Select Time" ng-model="time">
+                                <img src="img/time.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
+                            </li>
+
+                            <li>
+                                <label> Do you have coupon code? </label>
+                                <span class="third-one"> <input type="text" placeholder="Enter Coupon Code" required="required" class="ac-input" ng-model="requestDetail.coupon_code" > </span>                                    <span class="one-forth btns black_btn" ng-click="showAlert('Coming soon')"> Apply </span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <aside class="btn_set mar0">
+                        <div class="full" ><span class="btns pink_btn" ng-click="sendRequest()"> Confirm </span></div>
+                    </aside>
+                </form>
+            </div>
+        </section>
+
+    </ion-content>
+</ion-view>

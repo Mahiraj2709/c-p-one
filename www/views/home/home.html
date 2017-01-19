@@ -1,0 +1,46 @@
+<ion-view title="Online Cleanosuar">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+  <ion-content ng-controller="HomeCtrl" scroll="false">
+
+
+    <div id="map" data-tap-disabled="true">
+
+
+    </div>
+
+    <div style="position: absolute; z-index:9;top: 54px; left:0; width: 100%; padding: 0 4%;">
+      <h4 align="center">Set Location</h4>
+      <div class="map_sec_field">
+        <input placeholder="Search places" required="required" type="text" ng-model="user.address" googleplace=""
+               ng-focus="showCurrentIcon = false; clearIcon = true" ng-blur="showCurrentIcon = true; clearIcon = false"
+               class="ng-pristine ng-valid" ng-change="getPlacePredictions(user.address)">
+
+        <img src="img/address.png" alt="" class="left-txt-icons">
+        <img src="img/cancel_icon.png"  ng-hide="showCurrentIcon" ng-click="clearAll()" class="right-txt-icons">
+        <img src="img/map-point-con.png" alt="" ng-hide="clearIcon" class="right-txt-icons">
+
+      </div>
+      <div ng-show="predictions.length > 0" class="row row-no-padding search-results">
+        <div class="col">
+          <div class="list location-results-list">
+            <a ng-repeat="prediction in predictions" class="item item-icon-left location-item" ng-click="selectSearchResult(prediction)">
+              <i class="icon ion-location"></i>
+              <h3 class="location-name">{{prediction.terms[0].value}}</h3>
+
+
+              <span class="location-desc">{{prediction.description}}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="position: absolute; z-index: 9;bottom:0px; left:0; width: 100%; padding:0;">
+      <div class="full" ng-click="sendRequest()"><span class="btns pink_btn"> Send Request </span></div>
+    </div>
+  </ion-content>
+
+</ion-view>

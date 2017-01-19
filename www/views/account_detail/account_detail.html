@@ -1,0 +1,37 @@
+<ion-view title="Account Details">
+
+    <ion-nav-bar class="bar-dark" align-title="center">
+        <ion-nav-buttons side="right">
+            <button class="button" ui-sref="home">
+        Skip
+      </button>
+        </ion-nav-buttons>
+
+    </ion-nav-bar>
+
+    <ion-content>
+        <section class="bg-sec account-deatils-bg">
+            <div class="main">
+                <div class="space_top">
+                    <form method="" action="" name="">
+                        <div class="forms_login">
+                            <ul>
+                                <li> <span class="third-one"> <input type="text" placeholder="123 6516516 16" required="required" class="ac-input" ng-model="accountDetails.cardNumber" > </span>                                    <span class="one-forth btns black_btn" ng-click="addCard()"> Done </span>
+                                    <img src="img/account-details.png" alt="" class="textbox_icons ac-details">
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <aside class="btn_set mar0">
+                            <div class="full" ng-click="scanCard()"> <span class="btns pink_btn camera_icon"> <i class="fa fa-camera" aria-hidden="true"></i> Scan The Card </span>                                </div>
+                        </aside>
+                    </form>
+
+
+                </div>
+            </div>
+        </section>
+
+    </ion-content>
+</ion-view>
