@@ -12,9 +12,8 @@
     </div>
 
     <div style="position: absolute; z-index:9;top: 54px; left:0; width: 100%; padding: 0 4%;">
-      <h4 align="center">Set Location</h4>
       <div class="map_sec_field">
-        <input placeholder="Search places" required="required" type="text" ng-model="user.address" googleplace=""
+        <input placeholder="Set Location" required="required" type="text" ng-model="user.address" googleplace=""
                ng-focus="showCurrentIcon = false; clearIcon = true" ng-blur="showCurrentIcon = true; clearIcon = false"
                class="ng-pristine ng-valid" ng-change="getPlacePredictions(user.address)">
 

@@ -27,11 +27,12 @@ angular.module('starter')
         $scope.time = undefined;
         $scope.requestDetail = {
             property_type_id: 0,
-            square_feet_id: 0,
-            bathroom_id: 0,
-            bedroom_id: 0,
+            bathroom: 0,
+            bedroom: 0,
+            kitchen: 0,
+            living_rooms: 0,
+            extra_rooms: 0,
             clean_style_id: 0,
-            cleaner_entry_id: 0,
             device_type: CONSTANTS.deviceType(),
             session_token: window.localStorage.getItem("sess_tok"),
             address: undefined,
@@ -77,20 +78,12 @@ angular.module('starter')
                 entry_type: "Not Available"
             }
         ];
-        $scope.squre_feet = [
-            {
-                id: "3",
-                sq_ft: "Not Available",
-            }
-        ];
         function getDataCallback(responseData) {
             console.log(responseData);
             $scope.property_type = responseData.property_type;
-            $scope.squre_feet = responseData.squre_feet;
             $scope.bathroom = responseData.bathroom;
             $scope.bedroom = responseData.bedroom;
             $scope.clean_style = responseData.clean_style;
-            $scope.cleaner_entry_type = responseData.cleaner_entry_type;
         }
 
         $scope.reloadData = function (property_id) {

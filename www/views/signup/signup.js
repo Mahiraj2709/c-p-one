@@ -23,9 +23,12 @@ angular.module('starter')
         $scope.signupDetails = {
             first_name: '',
             last_name: '',
-            day: 'Day',
+            /*day: 'Day',
             month: 'Month',
-            year: 'Year',
+            year: 'Year',*/
+            day: '01',
+            month: '01',
+            year: '1970',
             email: '',
             password: '',
             device_token: 'ad',

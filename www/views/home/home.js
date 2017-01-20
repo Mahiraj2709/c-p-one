@@ -50,7 +50,7 @@ angular.module('starter')
         var mapOptions = {
             center: new google.maps.LatLng(28.541525, 77.39872),
 //            center: new google.maps.LatLng(43.07493, -89.381388),
-            zoom: 15,
+            zoom: 13,
             disableDefaultUI: true, // a way to quickly hide all controls
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -159,14 +159,14 @@ angular.module('starter')
                 icon: {
                     url: 'img/map-marker.png',
                     size: new google.maps.Size(40, 40),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(10, 20)
+                    /*origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(0, 0)*/
                 }
             });
 // Add circle overlay and bind to marker
             var circle = new google.maps.Circle({
                 map: $scope.map,
-                radius: 300,
+                radius: 1200,
                 strokeWeight: 0,
                 fillColor: '#adadad'
             });
@@ -175,7 +175,7 @@ angular.module('starter')
             //another circle
             var outerCirle = new google.maps.Circle({
                 map: $scope.map,
-                radius: 600,
+                radius: 2400,
                 strokeWeight: 0,
                 fillColor: '#ADADAD'
             });
@@ -189,7 +189,7 @@ angular.module('starter')
                 console.log(address.address_components[0].long_name + ", " + address.address_components[1].long_name);
             });
             SearchCleaner.searchNearbyCleaner($scope.map.getCenter(), $scope.user.address, function (cleanerArray) {
-                console.log(cleanerArray);
+                //console.log(cleanerArray);
                 //clear map
                 //$scope.map.clear();
                 window.cleanerIds = '';
@@ -201,7 +201,7 @@ angular.module('starter')
                         position: new google.maps.LatLng(cleanerArray[i].latitude, cleanerArray[i].longitude),
                         icon: {
                             url: 'img/mapcar-icon.png',
-                            size: new google.maps.Size(40, 40),
+                            size: new google.maps.Size(40, 40)
                         }
                     });
                     addMarker(marker);
@@ -216,6 +216,7 @@ angular.module('starter')
         });
         // Adds a marker to the map and push to the array.
         function addMarker(marker) {
+            console.log("marker pushed")
             markers.push(marker);
         }
 
@@ -271,5 +272,4 @@ angular.module('starter')
             $scope.payload = undefined;
             $scope.cleaner_profile_pic = undefined;
         }
-
     });

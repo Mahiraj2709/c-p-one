@@ -20,7 +20,7 @@
                                        type="text">
                                 <img src="img/user.png" alt="" class="textbox_icons">
                             </li>
-                            <li class="date_list_sec">
+                            <li class="date_list_sec" ng-hide="true">
                                 <label> Date of Birth </label>
                                 <span>  <select ng-model="signupDetails.day">  
                                     <option ng-repeat="day in dropDownData.dates" value="{{day}}">{{day}}</option>

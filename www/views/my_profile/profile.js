@@ -175,10 +175,10 @@ angular.module('starter')
             latitude : '0.0',
             longitude : '0.0',
             profile_pic : undefined,
-            address : profile.address,
-            day : _day,
-            month : _month,
-            year : _year,
+            address : "na",
+            day : "01",
+            month : "01",
+            year : "1970",
             reference_mode : profile.reference_mode,
             quick_blox_id : profile.quick_blox_id
         }

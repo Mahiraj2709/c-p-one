@@ -152,6 +152,7 @@ input[type="text"],input[type="password"],input[type="tel"],input[type="date"],i
 .requeset_detail label{ text-align:left; display:block; font-weight:600; margin:8px 0;}
 .requeset_detail ul li select,.requeset_detail ul li input[type="text"]{ padding:0 8px;}
 .requeset_detail{ margin-bottom:15px;}
+.requeset_detail ul li textarea{ height:initial; text-align:left; padding:4px;}
 .right-txt-icons{height: auto; position: absolute; right: 12px; top: 12px;  width: 16px;}
 .left-txt-icons { height: auto;  left: 12px;  position: absolute;  top: 12px;  width: 12px;}
 .date_select_scr{ width:100%; float:left; margin:0px 0 15px 0;}
