@@ -1,5 +1,5 @@
 angular.module('starter')
-    .controller('AccountDetailsCtrl', function($scope, $ionicPopup, $http, $ionicLoading, $location,$ionicSideMenuDelegate, $ionicViewService,CONSTANTS,ScanCard) {
+    .controller('AccountDetailsCtrl', function($scope, $ionicPopup, $http, $ionicLoading, $location,$ionicSideMenuDelegate, $ionicViewService,CONSTANTS) {
         $ionicViewService.clearHistory();
         $ionicSideMenuDelegate.canDragContent(false);
         $scope.accountDetails = {
@@ -43,10 +43,7 @@ angular.module('starter')
             //     $scope.makeRequest();
             // }
         };
-        $scope.scanCard = function() {
-            ScanCard.scanCard();
-            return;
-        }
+
 
         // NOW UPLOAD THE FILES.
         $scope.makeRequest = function() {

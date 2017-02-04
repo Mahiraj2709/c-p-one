@@ -11,35 +11,25 @@
                         <ul>
                             <li>
                                 <label> Property Type </label>
-                                <span>  <select ng-model="requestDetail.property_type_id" ng-change="reloadData(requestDetail.property_type_id)"
-                                                ng-options="property.property_id as property.property_type for property in property_type" >
+                                <span>  <select ng-model="requestDetail.property_type_id">
+                                    <option value="1">Home</option>
+                                    <option value="2">Apartment</option>
+                                    <option value="3">Short Term Rental</option>
                                      </select>
                                 </span>
                             </li>
 
                             <li>
                                 <label> Select Style </label>
-                                <span>  <select ng-model="requestDetail.clean_style_id" >
-
-                                    <option ng-repeat="c_style in clean_style"
-                                            value="{{c_style.id}}">{{c_style.name}}</option>
-                                     </select>
-                                </span>
-                            </li>
-                            <li ng-hide="true">
-                                <label> Sq Ft </label>
-                                <span>  <select ng-model="requestDetail.square_feet_id" >
-                                    <option ng-repeat="sq_ft in squre_feet"
-                                            value="{{sq_ft.id}}">{{sq_ft.sq_ft}}</option>
-                                     </select>
+                                <span>  <select ng-model="requestDetail.clean_style_id">
+                                    <option value="1">Standard Clean</option>
+                                    <option value="2">Deep Clean</option>
+                                </select>
                                 </span>
                             </li>
                             <li>
                                 <label> Bedrooms </label>
-                                <span>  <select ng-model="requestDetail.bedroom_id" >
-
-                                    <!--<option ng-repeat="b_room in bedroom"
-                                            value="{{b_room.id}}">{{b_room.bedroom}}</option>-->
+                                <span>  <select ng-model="requestDetail.bedroom">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -51,8 +41,7 @@
                             </li>
                             <li>
                                 <label> Bathrooms </label>
-                                <span>  <select ng-model="requestDetail.bathroom_id" >
-                                    <!--<option ng-repeat="bed_room in bathroom" value="{{bed_room.id}}">{{bed_room.bathroom}}</option>-->
+                                <span>  <select ng-model="requestDetail.bathroom">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -64,10 +53,8 @@
                             </li>
                             <li>
                                 <label> Kitchens </label>
-                                <span>  <select ng-model="requestDetail.clean_style_id" >
+                                <span>  <select ng-model="requestDetail.kitchen">
 
-                                    <!--<option ng-repeat="c_style in clean_style"
-                                            value="{{c_style.id}}">{{c_style.name}}</option>-->
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -79,10 +66,8 @@
                             </li>
                             <li>
                                 <label> Living Rooms </label>
-                                <span>  <select ng-model="requestDetail.clean_style_id" >
+                                <span>  <select ng-model="requestDetail.living_rooms">
 
-                                    <!--<option ng-repeat="c_style in clean_style"
-                                            value="{{c_style.id}}">{{c_style.name}}</option>-->
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -94,31 +79,54 @@
                             </li>
 
                             <li>
-                                <label> Extra Rooms( Offices, laundry,dining rooms)? </label>
-                                <span>  <select ng-model="requestDetail.clean_style_id" >
+                                <label> Extra Rooms (Offices, laundry,dinning rooms) </label>
+                                <span>  <select ng-model="requestDetail.extra_rooms">
 
-                                    <!--<option ng-repeat="c_style in clean_style"
-                                            value="{{c_style.id}}">{{c_style.name}}</option>-->
-                                    <option value="1">Standard</option>
-                                    <option value="2">Deep Clean</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="No">No</option>
                                      </select>
                                 </span>
                             </li>
-
-                            <li>
-                                <label> Confirm Price </label>
-                                <input placeholder="$" required="required" type="text" ng-model="requestDetail.confirm_price">
-                            </li>
-
                             <li>
                                 <label> Request Details </label>
-                                <textarea rows="3" placeholder="" required="required" type="text" ng-model="requestDetail.work_order_details"> </textarea>
+                                <textarea rows="3" placeholder="" required="required" type="text"
+                                          ng-model="requestDetail.work_order_details"> </textarea>
                             </li>
 
+                            <label> Select Date </label>
+                            <li>
+                                <input type="date" placeholder="Select date" ng-model="date"/>
+                                <img src="img/cal.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
+                            </li>
+
+                            <label> Select Time </label>
+                            <li>
+                                <input type="time" placeholder="Select Time" ng-model="time">
+                                <img src="img/time.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
+                            </li>
+
+                            <li>
+                                <label> Do you have coupon code? </label>
+                                <span class="third-one"> <input type="text" placeholder="Enter Coupon Code"
+                                                                required="required" class="ac-input"
+                                                                ng-model="requestDetail.coupon_code"> </span> <span
+                                    class="one-forth btns black_btn" ng-click="showAlert('Coming soon')"> Apply </span>
+                            </li>
+
+                            <li>
+                                <label> Set Price </label>
+                                <input placeholder="$" required="required" type="text"
+                                       ng-model="requestDetail.confirm_price">
+                            </li>
 
                             <li ng-hide="true">
                                 <label> Your location </label>
-                                <input placeholder="Search Location." ng-model="requestDetail.address" required="required" type="text"
+                                <input placeholder="Search Location." ng-model="requestDetail.address"
+                                       required="required" type="text"
                                        ng-change="getPlacePredictions(requestDetail.address)"
                                        ng-focus="showCurrentIcon = false; clearIcon = true"
                                        ng-blur="showCurrentIcon = true; clearIcon = false">
@@ -140,27 +148,10 @@
 
                             </li>
 
-                            <label> Select Date </label>
-                            <li>
-                                <input type="date" placeholder="Select date" ng-model="date"/>
-                                <img src="img/cal.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
-                            </li>
-
-                            <label> Select Time </label>
-                            <li>
-                                <input type="time" placeholder="Select Time" ng-model="time">
-                                <img src="img/time.png" alt="" class="right-txt-icons" ng-hide="clearIcon">
-                            </li>
-
-                            <li>
-                                <label> Do you have coupon code? </label>
-                                <span class="third-one"> <input type="text" placeholder="Enter Coupon Code" required="required" class="ac-input" ng-model="requestDetail.coupon_code" > </span>                                    <span class="one-forth btns black_btn" ng-click="showAlert('Coming soon')"> Apply </span>
-                            </li>
-
                         </ul>
                     </div>
                     <aside class="btn_set mar0">
-                        <div class="full" ><span class="btns pink_btn" ng-click="sendRequest()"> Confirm </span></div>
+                        <div class="full"><span class="btns pink_btn" ng-click="sendRequest()"> Confirm </span></div>
                     </aside>
                 </form>
             </div>

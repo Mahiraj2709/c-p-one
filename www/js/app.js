@@ -102,6 +102,10 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 }
             }
         });
+
+        //stripe payment
+        window.Stripe.setPublishableKey('pk_test_th4VoSs8VNZLY3WiIrblBoUG');
+
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
         // Set up the various states which the app can be in.
@@ -159,12 +163,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 templateUrl: 'views/my_profile/profile_two.html',
                 controller: 'ProfileCtrl'
             })
-            //history
-            .state('history', {
-                url: '/history',
-                templateUrl: 'views/history/history.html',
-                controller: 'HistoryCtrl'
-            })
+
             //about page router
             .state('about', {
                 url: '/about',
@@ -173,7 +172,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
             })
             //request detail
             .state('request_detail', {
-                url: '/request_detail',
+                url: '/request_detail/:address',
                 templateUrl: 'views/request_detail/request_detail.html',
                 controller: 'ReqCtrl'
             })
@@ -190,11 +189,89 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 templateUrl: 'views/mechanic_profile/mech_profile.html',
                 controller: 'MechProfileCtrl'
             })
+
+            //mechanic on the way
+            .state('on_the_way', {
+                url: '/on_the_way/:appointment_id',
+                templateUrl: 'views/on_the_way/on_the_way.html',
+                controller: 'OnTheWayCtrl'
+            })
+
+            //rate your mechanic
+            .state('rate_mech', {
+                url: '/rate_mech',
+                templateUrl: 'views/rate_mechanic/rate_your_mech.html',
+                controller: 'RateMechCtrl'
+            })
+
+            //payment screens
+            .state('payment', {
+                url: '/payment',
+                templateUrl: 'views/payment/card_payment.html',
+                controller: 'PaymentCtrl'
+            })
+
+            //add new card
+            .state('edit_card', {
+                url: '/edit_card',
+                templateUrl: 'views/payment/edit_card.html',
+                controller: 'PaymentCtrl'
+            })
+
+            //payment screens
+            .state('pending_appointment', {
+                url: '/pending_appointment',
+                templateUrl: 'views/pending_appointment/pending_appointment.html',
+                controller: 'PendingAppointmentCtrl'
+            })
+            //payment screens
+            .state('history', {
+                url: '/history',
+                templateUrl: 'views/service_history/service_history.html',
+                controller: 'HistoryCtrl'
+            })
+
+            //service history details
+            .state('history_detail', {
+                url: '/history_detail',
+                templateUrl: 'views/service_history/service_history_detail.html',
+                //controller: 'HistoryCtrl'
+            })
+
+            //service history details
+            .state('notification', {
+                url: '/notification',
+                templateUrl: 'views/notification/notification.html',
+                //controller: 'HistoryCtrl'
+            })
+
+            //work as cleaner
+            .state('help', {
+                url: '/help',
+                templateUrl: 'views/help/help.html',
+                //controller: 'HistoryCtrl'
+            })
+
+            //work as cleaner
+            .state('work_as_cleaner', {
+                url: '/work_as_cleaner',
+                templateUrl: 'views/sign_as_cleaner/work_as_cleaner.html',
+                //controller: 'HistoryCtrl'
+            })
+
+
             .state('chat_room', {
-            url: '/chat_room',
+            url: '/chat_room/:appointment_id',
             templateUrl: 'views/chat_room/chat_room.html',
             controller: 'ChatCtrl'
         })
+            //settings
+            .state('setting', {
+                url: '/setting',
+                templateUrl: 'views/setting/setting.html',
+                //controller: 'HistoryCtrl'
+            })
+
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/splash');
     });

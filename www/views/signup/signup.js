@@ -260,7 +260,9 @@ angular.module('starter')
                 for (var key in $scope.signupDetails) {
                     if (key == "profile_pic") {
                         //userImage = getBase64Image(document.getElementById("profile_pic"));
-                        formdata.append(key, dataURItoBlob(userImage), 'sdfsdf' + '.jpeg');
+                        if(userImage != undefined) {
+                            formdata.append(key, dataURItoBlob(userImage), 'sdfsdf' + '.jpeg');
+                        }
                         if (!String(userImage)) {
                         }
                     }

@@ -1,5 +1,5 @@
 angular.module('starter')
-    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner,
+    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner,LocationData,
                                       $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService, CONSTANTS) {
         var formdata = new FormData();
         var cleanerIds = '';
@@ -58,6 +58,8 @@ angular.module('starter')
         //related to the home screen
         var options = {timeout: 10000, enableHighAccuracy: true};
         $cordovaGeolocation.getCurrentPosition(options).then(function (position) {
+            LocationData.latitude = position.coords.latitude;
+            LocationData.longitude = position.coords.longitude
             var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             $scope.map.panTo(latLng);
         }, function (error) {
@@ -182,12 +184,14 @@ angular.module('starter')
             outerCirle.bindTo('center', centerMarker, 'position');
             addMarker(centerMarker);
             addCircle(outerCirle);
-            GooglePlacesService.getAddress($scope.map.getCenter(), function (address) {
+
+            /*GooglePlacesService.getAddress($scope.map.getCenter(), function (address) {
                 $timeout(function () {
                     $scope.user.address = address.address_components[0].long_name + ", " + address.address_components[1].long_name;
                 }, 000);
                 console.log(address.address_components[0].long_name + ", " + address.address_components[1].long_name);
-            });
+            });*/
+
             SearchCleaner.searchNearbyCleaner($scope.map.getCenter(), $scope.user.address, function (cleanerArray) {
                 //console.log(cleanerArray);
                 //clear map
@@ -245,7 +249,7 @@ angular.module('starter')
 
         $scope.sendRequest = function () {
             //send request
-            $location.path('request_detail');
+            $location.path('request_detail/'+$scope.user.address);
         }
 
         //request accepted dialog
@@ -271,5 +275,11 @@ angular.module('starter')
             //clear all the data associated this profile
             $scope.payload = undefined;
             $scope.cleaner_profile_pic = undefined;
+        }
+        
+        $scope.launchMechOnWay = function () {
+            $scope.myPopup.close();
+            $location.url('on_the_way/'+$scope.payload.app_appointment_id);
+
         }
     });

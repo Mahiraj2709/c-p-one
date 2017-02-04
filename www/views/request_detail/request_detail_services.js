@@ -57,26 +57,8 @@ angular.module('starter')
             console.log(requestData);
             var formdata = new FormData;
             //validate all the fields
-            if(requestData.property_type_id < 1){
-                showAlert("Please select property type!");
-            } else if (requestData.square_feet_id < 1) {
-                showAlert("Please give square feed of your property!");
-            }  else if (requestData.bedroom_id < 1) {
-                showAlert("How many bedrooms do you have?");
-            } else if (requestData.bathroom_id < 1) {
-                showAlert("How many bathrooms do you have?");
-            } else if (requestData.clean_style_id < 1) {
-                showAlert("Select your style!");
-            } else if (requestData.cleaner_entry_id < 1) {
-                showAlert("How will you enter?");
-            }else if (!requestData.confirm_price) {
-                showAlert("Please enter price!");
-            }else if (isNaN(requestData.confirm_price)) {
-                showAlert("Please enter valid price!");
-            }else if (!requestData.work_order_details) {
+            if (!requestData.work_order_details) {
                 showAlert("Provide work order detail!");
-            } else if (!requestData.address) {
-                showAlert("Please enter address!");
             }else if (!requestData.appointment_date) {
                 showAlert("Please choose appointment date!");
             } /*else if (!requestData.appointment_timezone) {
@@ -84,7 +66,11 @@ angular.module('starter')
             } */
             else if (!requestData.appointment_time) {
                 showAlert("Please select time!");
-            } else {
+            }else if (!requestData.confirm_price) {
+                showAlert("Please enter price!");
+            }else if (isNaN(requestData.confirm_price)) {
+                showAlert("Please enter valid price!");
+            }else {
                 //call signup api
                 for (var key in requestData) {
                     if (key == "profile_pic") {
@@ -109,7 +95,7 @@ angular.module('starter')
 
                 var request = {
                     method: 'POST',
-                    url: CONSTANTS.BASE_URL + 'sendrequest',
+                        url: CONSTANTS.BASE_URL + 'sendrequest',
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     },

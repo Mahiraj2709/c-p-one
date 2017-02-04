@@ -61,9 +61,22 @@
     <script src="views/mechanic_profile/mech_profile.js"></script> <!--Controller-->
     <script src="views/mechanic_profile/mech_profile_services.js"></script> <!--Controller-->
     <!--requst Details end here-->
+    <!--on the way starts here-->
+    <script src="views/on_the_way/on_the_way.js"></script>
+    <script src="views/on_the_way/on_the_way_service.js"></script>
+    <!--on the way ends here-->
     <!--chat room starts here-->
     <script src="views/chat_room/chat_room.js"></script> <!--select time ctrl-->
     <!--char room ends here-->
+
+    <script src="views/rate_mechanic/rate_your_mech.js"></script> <!--rate your mech ctrl-->
+    <script src="views/payment/card_payment.js"></script> <!--payment ctrl-->
+    <script src="views/service_history/service_history.js"></script>
+
+    <script src="views/pending_appointment/pending_appointment.js"></script> <!--payment ctrl-->
+
+    <!--stripe payment lib-->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </head>
 
 <body ng-app="starter">
@@ -102,7 +115,7 @@
                 <ul>
                     <li>
                         <a ui-sref='home' ng-click="closeSideMenu()">
-                            <img src="img/home_side_icon.png" width="32" height="37" alt=""> <span> Home </span>
+                            <img src="img/home_side_icon.png" width="32" height="37" alt=""> <span> Request </span>
                         </a>
                     </li>
                     <li>
@@ -111,26 +124,35 @@
                         </a>
                     </li>
                     <li>
-                        <a> <img src="img/left-nav-payment.png" width="32" height="28" alt=""> <span> Payment </span>
+                        <a ui-sref="payment" ng-click="closeSideMenu()"> <img src="img/left-nav-payment.png" width="32" height="28" alt=""> <span> Payment </span>
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="history"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>
+                        <a ui-sref="history" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>
+                        <!--$location.url('mech_profile/'+$scope.payload.cleaner_id);-->
+                        <!--<a ui-sref="on_the_way({ cleaner_id: '311'})" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>-->
                         </a>
                     </li>
+
                     <li>
-                        <a> <img src="img/left-nav-notification.png" width="32" height="32" alt="">
+                        <a ui-sref="pending_appointment" ng-click="closeSideMenu()">
+                            <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> My Booking </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="notification" ng-click="closeSideMenu()"> <img src="img/left-nav-notification.png" width="32" height="32" alt="">
                             <span> Notification </span> </a>
                     </li>
                     <li>
-                        <a> <img src="img/left-nav-help.png" width="32" height="32" alt=""> <span> Help </span> </a>
+                        <a ui-sref="help" ng-click="closeSideMenu()"> <img src="img/left-nav-help.png" width="32" height="32" alt=""> <span> Help </span> </a>
                     </li>
                     <li>
-                        <a> <img src="img/left-nav-customer.png" width="32" height="32" alt="">
+                        <a ui-sref="work_as_cleaner" ng-click="closeSideMenu()"> <img src="img/left-nav-customer.png" width="32" height="32" alt="">
                             <span> Become A Cleaner </span> </a>
                     </li>
                     <li>
-                        <a ui-sref="chat_room" ng-click="closeSideMenu()"> <img src="img/left-nav-settings.png" width="32" height="32"
+                        <a ui-sref="setting" ng-click="closeSideMenu()"> <img src="img/left-nav-settings.png" width="32" height="32"
                                                            alt=""> <span> Settings </span>
                         </a>
                     </li>

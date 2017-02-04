@@ -1,6 +1,7 @@
 /**
  * Created by admin on 1/18/2017.
  */
+
 angular.module('starter')
     .controller('MechProfileCtrl', function ($scope, $stateParams, MechanicData,CONSTANTS) {
         console.log($stateParams.cleaner_id);

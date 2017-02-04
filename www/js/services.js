@@ -160,4 +160,16 @@ angular.module('services', [])
             })
         };
     })
-    ;
+    .factory('AppointmentData',function () {
+        var appointment = {};
+
+        return appointment;
+    })
+    .factory('LocationData',function () {
+        var Location = {
+            longitude:undefined,
+            latitude:undefined
+        };
+
+        return Location;
+    });
