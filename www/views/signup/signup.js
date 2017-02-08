@@ -224,9 +224,13 @@ angular.module('starter')
         $scope.signupUser = function () {
             if (!$scope.signupDetails.first_name) {
                 $scope.showAlert("First Name is required");
+            } else if ($scope.signupDetails.first_name.length > 20) {
+                $scope.showAlert("First Name is not valid!");
             } else if (!$scope.signupDetails.last_name) {
                 $scope.showAlert("Last is required");
-            } else if ($scope.signupDetails.day == "Day") {
+            } else if ($scope.signupDetails.last_name.length > 20) {
+                $scope.showAlert("Last Name is not valid!");
+            }else if ($scope.signupDetails.day == "Day") {
                 $scope.showAlert("Date is required");
             } else if ($scope.signupDetails.month == "Month") {
                 $scope.showAlert("Month is required");

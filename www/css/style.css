@@ -42,13 +42,13 @@ header .icon-right {  position: absolute;  right: 9px;  top: 11px;   font-size: 
 .register-bg{background: #ffffff url("../img/register-screen-bg.jpg") no-repeat fixed center center / cover ;}
 .forgot-pass-bg{background: #ffffff url("../img/forgot-pass-bg.jpg") no-repeat fixed center center / cover ;}
 .main{ margin:10px auto 10px;   padding:0;    width:100%; height:100%;  box-sizing:border-box;}
-input[type="text"],input[type="password"],input[type="tel"],input[type="date"],input[type="time"],input[type="email"],textarea,select{ border:0; outline:0; background:0 none; text-align:left; width:100%; height:39px; color:#666666; font-size:15px; line-height:26px; font-weight:lighter; background:rgba(255,255,255,0.9); border: 1px solid #c9c9c9; padding: 0 10px;}
+input[type="text"],input[type="number"],input[type="password"],input[type="tel"],input[type="date"],input[type="time"],input[type="email"],textarea,select{ border:0; outline:0; background:0 none; text-align:left; width:100%; height:39px; color:#666666; font-size:15px; line-height:26px; font-weight:lighter; background:rgba(255,255,255,0.9); border: 1px solid #c9c9c9; padding: 0 10px;}
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: #666666; opacity:1;}::-moz-placeholder { /* Firefox 19+ */  color: #666666;opacity:1;}:-ms-input-placeholder { /* IE 10+ */  color: #666666;opacity:1;}:-moz-placeholder { /* Firefox 18- */  color: #666666; opacity:1;}
 .logo_section{ text-align:center; width:100%; float: left;}
 .logo_section img{  height:auto; display:block; margin:50px auto 55px auto;}
 .forms_login{ width:100%; float:left;}
 .forms_login ul li{ width:100%; margin:0 0 7px 0; position:relative; float:left; display:block;}
-.forms_login ul li input[type="text"],.forms_login ul li input[type="password"],.forms_login ul li input[type="tel"], .forms_login ul li input[type="email"],.forms_login ul li textarea{padding:0 10px 0 35px;}
+.forms_login ul li input[type="text"],.forms_login ul li input[type="number"],.forms_login ul li input[type="password"],.forms_login ul li input[type="tel"], .forms_login ul li input[type="email"],.forms_login ul li textarea{padding:0 10px 0 35px;}
 .forms_login ul li img.textbox_icons { height: auto;left: 12px; position: absolute;  top: 12px;  width: 12px; height:auto;}
 .forms_login ul li img.textbox_icons.email {top: 16px;width: 14px;}
 .forms_login ul li img.textbox_icons.phone {top: 14px;width: 14px;}
@@ -284,8 +284,15 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .setting_list li span.edit_seting{ position:relative; margin:0;}
 .setting_list li span.edit_seting > input{  border: 0 none;height: 24px;line-height: 24px;padding-right: 20px; padding-left:0;}
 .setting_list li span.edit_seting > img{ height: auto; position: absolute; right: 0px; top:4px; width: 16px;}
-
-
+.my_booking_sec{ border: 1px solid #2edc00;margin: 10px 0 0;padding: 10px;}
+.my_booking_sec.inprocess{ border: 1px solid #eedd1d;}
+.my_booking_sec.cancelled{ border: 1px solid #d11a1a;}
+.my_booking_sec.inprocess .status_text{ color:#eedd1d;}
+.my_booking_sec.cancelled .status_text{ color:#d11a1a;}
+.history_right_track {float: right;text-align: right;width: 28%; text-align:center;}
+.status_text{ color:#2edc00; font-size:12px; text-align:center; margin-top:25px; display:inline-block;}
+.my_booking_sec.inprocess .status_text{ color:#eedd1d;}
+.my_booking_sec.cancelled .status_text{ color:#d11a1a;}
 
 
 

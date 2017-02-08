@@ -1,0 +1,39 @@
+<ion-view>
+    <ion-content ng-controller="PaymentCtrl">
+
+        <section class="bg-main">
+            <div class="main">
+
+                <h3> Card Type </h3>
+                <aside class="card-slec">
+                    <input name="payment" type="radio"> <img src="img/visa-card.jpg" alt="" width="47" height="26">
+                    <input name="payment" type="radio"> <img src="img/master-card.jpg" alt="" width="48" height="26">
+                    <input name="payment" type="radio"> <img src="img/american-exp-card.jpg" alt="" width="50" height="28">
+                    <input name="payment" type="radio"> <img src="img/club-card.jpg" alt="" width="48" height="26">
+                </aside>
+
+                <section class="card_details">
+                    <ul>
+                        <li> <input placeholder="Card No" class="txt" type="text">  </li>
+                        <li> <input placeholder="Name On Card" class="txt" type="text">  </li>
+                        <li class="expi"> Expiry Date  <span>  CVV No. <strong>?</strong> </span></li>
+                        <li class="card_cvv">
+                            <span class="one-third"> <select>  <option> MM </option> <option> 1 </option><option> 2 </option> </select></span>
+                            <span class="one-third">  <select> <option> YYYY </option> <option> 2016 </option> <option> 2017 </option> </select></span>
+                            <span class="one-third">  <input placeholder="CVV No" type="text"> </span>
+                        </li>
+
+
+                    </ul>
+                </section>
+                <div class="btn_set">
+                    <div class="full"> <span class="btns pink_btn">  Pay Now  </span> </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+    </ion-content>
+</ion-view>

@@ -11,6 +11,7 @@ angular.module('starter')
 
         $scope.trackAppointment = function (appointmentId) {
             //track the current appointmnt id
+//            console.log(appointmentId)
             AppointmentService.getAppointmentDetails(appointmentId,function (customerData) {
                 AppointmentData.appointment = customerData;
                 $location.url('on_the_way/'+appointmentId);
@@ -47,7 +48,7 @@ angular.module('starter')
             .success(function (d) {
                 $ionicLoading.hide();
 
-                console.log(d)
+                console.log(JSON.stringify())
                 if (d.response_status == "1") {
                     callback(d.response_data.appointment)
                 } else {

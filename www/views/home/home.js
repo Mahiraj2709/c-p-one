@@ -48,7 +48,7 @@ angular.module('starter')
             $ionicSideMenuDelegate.toggleLeft()
         };
         var mapOptions = {
-            center: new google.maps.LatLng(28.541525, 77.39872),
+            center: new google.maps.LatLng(LocationData.latitude, LocationData.longitude),
 //            center: new google.maps.LatLng(43.07493, -89.381388),
             zoom: 13,
             disableDefaultUI: true, // a way to quickly hide all controls
@@ -124,9 +124,10 @@ angular.module('starter')
         }
         $scope.clearIcon = false;
         $scope.showCurrentIcon = true;
+
         $scope.$on('cloud:push:notification', function (event, data) {
             var msg = data.message;
-            //$scope.showAlert(msg.title + ': ' + msg.text);
+            $scope.showAlert(msg.title + ': ' + msg.text);
             console.log(data);
             if(msg.payload != undefined) {
                 if($scope.payload == undefined) {
@@ -202,7 +203,7 @@ angular.module('starter')
                         map: $scope.map,
                         // draggable:true,
                         // animation: google.maps.Animation.DROP,
-                        position: new google.maps.LatLng(cleanerArray[i].latitude, cleanerArray[i].longitude),
+                        position: new google.maps.LatLng(cleanerArray[i].current_latitude, cleanerArray[i].current_longitude),
                         icon: {
                             url: 'img/mapcar-icon.png',
                             size: new google.maps.Size(40, 40)
@@ -218,6 +219,9 @@ angular.module('starter')
                 //$scope.map.markers.push(marker);
             })
         });
+
+        //refresh map everytime when home screen resumes
+        document.addEventListener("resume", function () {google.maps.event.trigger($scope.map, 'resize');})
         // Adds a marker to the map and push to the array.
         function addMarker(marker) {
             console.log("marker pushed")
@@ -249,6 +253,11 @@ angular.module('starter')
 
         $scope.sendRequest = function () {
             //send request
+
+            if($scope.user.address == undefined || $scope.user.address == '') {
+                $scope.showAlert('Please select address')
+                return
+            }
             $location.path('request_detail/'+$scope.user.address);
         }
 

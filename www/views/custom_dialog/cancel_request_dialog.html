@@ -3,15 +3,15 @@
     <div>
         <form>
             <ul>
-                <li> <input type="radio" name="can_req_opt"> Cleanosaur Reach Was Very Late. </li>
-                <li> <input type="radio" name="can_req_opt"> No contact with Cleanosaur. </li>
-                <li> <input type="radio" name="can_req_opt"> Cleanosaur requests to cancel. </li>
-                <li> <input type="radio" name="can_req_opt"> Customer Requests to cancel. </li>
-                <li> <input type="radio" name="can_req_opt"> Changed Mind. </li>
-                <li> <input type="radio" name="can_req_opt"> Other Reason. </li>
-                <li><textarea rows="3" placeholder="Explain Reason"></textarea></li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="1"> Cleanosaur Reach Was Very Late. </li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="2"> No contact with Cleanosaur. </li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="3"> Cleanosaur requests to cancel. </li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="4"> Customer Requests to cancel. </li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="5"> Changed Mind. </li>
+                <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="6"> Other Reason. </li>
+                <li><textarea rows="3" placeholder="Explain Reason" ng-model="cancelRequestData.explain_reason"></textarea></li>
             </ul>
         </form>
     </div>
-    <div class="full"> <span class="btns pink_btn"> Submit </span> </div>
+    <div class="full"> <span class="btns pink_btn" ng-click="cancelRequest()"> Submit </span> </div>
 </div>

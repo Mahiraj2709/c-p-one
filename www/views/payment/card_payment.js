@@ -97,6 +97,12 @@ angular.module('starter')
         $scope.editCard = function () {
 
         }
+
+        $scope.addCard = function () {
+
+        }
+
+
     })
     .service('PaymentService',function ($ionicPopup) {
         // An alert dialog
