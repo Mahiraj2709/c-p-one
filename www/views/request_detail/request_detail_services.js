@@ -11,7 +11,7 @@ angular.module('starter')
         };
         return factory;
     })
-    .service('SendRequest', function ($http, $ionicLoading,CONSTANTS,$ionicPopup,$location) {
+    .service('SendRequest', function ($http, $ionicLoading,CONSTANTS,$ionicPopup,$location,$ionicHistory) {
         this.getPropertyType = function (property_id,callback) {
             $ionicLoading.show({
                 template: "Loading data..."
@@ -116,7 +116,10 @@ angular.module('starter')
                                 template: "Your request has been sent and will be answered by the first available Cleanosaur",
                                 okText: 'RAWR!'
                             });
-                            $location.url('/home');
+
+                            $ionicHistory.clearCache().then(function(){
+                                $location.url('/home');
+                            });
                             //return callback(d.response_data);
                         } else {
                         }

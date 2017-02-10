@@ -49,7 +49,7 @@ angular.module('starter')
             exp_year:'YYYY',
         }
 
-        $scope.generateToken = function () {
+         function generateToken() {
             if(!PaymentService.validateCardDetails($scope.cardDetail)) return
             $ionicLoading.show({
                 template: 'Loading....'
@@ -58,10 +58,10 @@ angular.module('starter')
 //                name: $scope.payment.first_name + ' ' + $scope.payment.last_name,
                 name: $scope.cardDetail.nameOnCard,
 //                number: $scope.payment.cardNumber,
-                number: '5105105105105100',
-                cvc: '320',
-                exp_month: '01',
-                exp_year: '2020'
+                number: $scope.cardDetail.nameOnCard,
+                cvc: $scope.cardDetail.cvc,
+                exp_month: $scope.cardDetail.exp_month,
+                exp_year: $scope.cardDetail.exp_year
             }, function (status, response) {
                 console.log(response)
                 $ionicLoading.hide();
@@ -99,7 +99,7 @@ angular.module('starter')
         }
 
         $scope.addCard = function () {
-
+            generateToken();
         }
 
 
@@ -143,16 +143,43 @@ angular.module('starter')
             return (sum % 10) == 0;
         }
 
+        /*function cardType(cardNo) {
+            var mastercard = new RegExp("/^5[1-5]/");
+            var visa = new RegExp("^[0-9]{16}$");
+            var amex = new RegExp("^[0-9]{16}$");
+            if (!regex.test(number))
+                return false;
+
+            if(String(cardNo).match(phoneno)) {
+            }
+        }*/
+
         this.validateCardDetails = function (cardDetails) {
             if(cardDetails.nameOnCard == undefined || cardDetails.nameOnCard == '') {
                 showAlert('Please enter name on card!')
                 return false
-            }else if(cardDetails.cardNumber != undefined || !this.validCreditCard(cardDetails.cardNumber) ) {
+            }else if(cardDetails.cardNumber != undefined ) {
                 showAlert('Please enter valid card number!')
                 return false
             }else if(cardDetails.cvc == undefined || !validCvc(cardDetails.cvc)) {
                 showAlert('Please enter valid three digit cvc number!')
                 return false
+            }else if(cardDetails.exp_month == 'MM') {
+                showAlert('Please select expiry month!')
+                return false
+            }else if(cardDetails.exp_year == 'YYYY') {
+                showAlert('Please select expiry year!')
+                return false
             }
         }
+/*|| !this.validCreditCard(cardDetails.cardNumber
+        scope.ccinfo.type =
+            (/^5[1-5]/.test(value)) ? "mastercard"
+                : (/^4/.test(value)) ? "visa"
+                    : (/^3[47]/.test(value)) ? 'amex'
+                        : (/^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5]))/.test(value)) ? 'discover'
+                            : undefined
+        ctrl.$setValidity('invalid',!!scope.ccinfo.type)*/
+
+
     });

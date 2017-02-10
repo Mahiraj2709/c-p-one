@@ -39,6 +39,7 @@ angular.module('starter')
 
 
         function getLocation() {
+            if(LocationData.latitude != undefined) return
             $ionicLoading.show({
                 template: 'Getting current location...'
             })

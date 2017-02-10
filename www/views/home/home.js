@@ -139,7 +139,6 @@ angular.module('starter')
                     $scope.payload = msg.payload;
                     $scope.showPopup();
                 }
-
             }
             //show popup dailog
         });

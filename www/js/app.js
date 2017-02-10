@@ -211,13 +211,18 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 controller: 'PaymentCtrl'
             })
 
-            //add new card
+            //edit card
             .state('edit_card', {
                 url: '/edit_card',
                 templateUrl: 'views/payment/edit_card.html',
                 controller: 'PaymentCtrl'
             })
-
+            //add new card
+            .state('add_card', {
+                url: '/add_card',
+                templateUrl: 'views/payment/add_card.html',
+                controller: 'PaymentCtrl'
+            })
             //payment screens
             .state('pending_appointment', {
                 url: '/pending_appointment',

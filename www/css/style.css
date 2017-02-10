@@ -167,7 +167,7 @@ input[type="text"],input[type="number"],input[type="password"],input[type="tel"]
 .popup_rwr_btn{     display: inline-block;padding: 0 30px; width: initial;}
 .request_sent_popup .ratings i {color:#adadad;}
 .request_sent_popup  .ratings span i {color:#fabb0c;}
-.chatting_sec{ width:100%; color:#b1b1b1; float:left;margin: 0px 0 60px;}
+.chatting_sec{ width:100%; color:#b1b1b1; float:left;margin: 45px 0 60px;}
 .chatting_sec aside{ margin:8px 0; width:100%; float:left;}
 .chat_txt_sec{float:left; padding-left:55px;color:#333333; text-align:left; position:relative;font-size:16px; width:100%; }
 .chat_txt_sec span{ display:block; color:#b1b1b1; font-weight:300;font-size:13px; line-height:16px; }
@@ -273,7 +273,7 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .logo_center{ text-align:center; margin:30px 0;}
 .sign_up_cleanosaur{ text-align:left;}
 .sign_up_cleanosaur p strong{ color:#000; margin:10px 0; display:block;}
-
+.seventy{width:70%; float:left;}
 .setting_sec {border-bottom: 1px solid #d8d8d8; float: left; margin-bottom: 10px; padding-bottom: 10px; text-align: left; width: 100%; }
 .setting_sec_figure_container {background: #ff2f92 none repeat scroll 0 0; float: left; height: 60px; margin-bottom: 40px; margin-top: 48px;  width: 100%;}
 .setting_pic{background: #e8e8e8 none repeat scroll 0 0; border-radius: 50%; height: 70px; margin:20px auto 0 auto;width: 70px; }
@@ -293,7 +293,8 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .status_text{ color:#2edc00; font-size:12px; text-align:center; margin-top:25px; display:inline-block;}
 .my_booking_sec.inprocess .status_text{ color:#eedd1d;}
 .my_booking_sec.cancelled .status_text{ color:#d11a1a;}
-
+.send{height: 45px;   text-align: center;    padding-top: 12px;}
+.smile{height: 45px;   text-align: center;    padding-top: 12px; }
 
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {

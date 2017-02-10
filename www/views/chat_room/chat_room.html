@@ -28,13 +28,14 @@
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
             <aside class="chat_footer">
             <div class="footer_txt_sec">
-                <label class="footer_txt_sec">
-                    <input type="text" placeholder="Type your message" class="footer_input"
-                           on-return="sendMessage();closeKeyboard()"
-                           ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()">
-                    <img src="img/smile.png" width="20" height="20" alt="" class="smile">
-                    <img src="img/send.png" width="22" height="19" alt="" class="send" ng-click="sendMessage()">
-                </label>
+                <div class="footer_txt_sec">
+                    <div class="fifteen send"><img src="img/smile.png" width="20" height="20" alt=""></div>
+                    <div class="seventy"><input type="text" placeholder="Type your message" class="footer_input"
+                                                on-return="sendMessage();closeKeyboard()"
+                                                ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()">
+                    </div>
+                    <div class="fifteen send" ng-click="sendMessage()"><img src="img/send.png" width="22" height="19" alt=""></div>
+                </div>
             </div>
             </aside>
         </ion-footer-bar>
