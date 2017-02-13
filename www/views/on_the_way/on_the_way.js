@@ -2,8 +2,9 @@
  * Created by admin on 1/20/2017.
  */
 angular.module('starter')
-    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData,
+    .controller('OnTheWayCtrl', function ($scope,AppointmentService, $stateParams, CONSTANTS, LocationData,AppointmentData,
                                           OnWayService, $ionicPopup, $location) {
+            $scope.viewTitle = AppointmentData.viewTitle;
             console.log('on the way' + $stateParams.appointment_id)
             $scope.cancelRequestData = {
                 app_appointment_id: $stateParams.appointment_id,

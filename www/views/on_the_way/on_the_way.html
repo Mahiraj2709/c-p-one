@@ -1,4 +1,6 @@
-<ion-view title="Cleanosaur on the Way">
+<ion-view >
+
+  <ion-nav-title>{{viewTitle}}</ion-nav-title>
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -35,7 +37,7 @@
             </aside>
             <aside class="btn_set"> <div class="half" ng-click="CallNumber()"> <span class="btns bdr_btn"> <i class="fa fa-phone" aria-hidden="true"></i>  Call </span> </div>
                 <div class="half fr" ui-sref="chat_room" ng-click="openChat()"> <span class="btns bdr_btn">  <i class="fa fa-commenting-o" aria-hidden="true"></i>  Chat </span> </div>  </aside>
-            <div class="full" ng-click="showCancelRequestPopup()"> <span class="btns pink_btn"> Cancel Request </span> </div>
+            <div class="full" ng-click="showCancelRequestPopup()" ng-hide="viewTitle == 'Cleanosaur has arrived'"> <span class="btns pink_btn"> Cancel Request </span> </div>
         </div>
     </ion-content>
 </ion-view>

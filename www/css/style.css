@@ -101,8 +101,11 @@ input[type="text"],input[type="number"],input[type="password"],input[type="tel"]
 .profile-pic img {border-radius: 50%; display: block; height: auto; margin: 0 auto; max-width: 100%; width: 70px; }
 .user-detail { color:#666666; text-align:center; font-size:16px;}
 .ratings{width:100%; float:left; text-align:center; line-height:15px;}
+.ratings_mech{width:100%; float:left; text-align:center; line-height:15px;}
 .ratings span i{ color:#fabb0c;}
 .ratings i{ color:#ebebeb;}
+.ratingYellow {color:#fabb0c}
+.ratingBrown {color:#ebebeb}
 .view_profile{width:100%; float:left; text-align:center; margin:6px 0;}
 .view_profile span{ color:#ff2f92; display:block; font-size:14px;}
 .view_profile strong{ font-size:18px;}

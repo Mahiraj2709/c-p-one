@@ -161,7 +161,11 @@ angular.module('services', [])
         };
     })
     .factory('AppointmentData',function () {
-        var appointment = {};
+        var appointment = {
+          viewTitle:'Cleanosaur on the way',
+          app_appointment_id:undefined,
+          appointment:undefined
+        };
 
         return appointment;
     })

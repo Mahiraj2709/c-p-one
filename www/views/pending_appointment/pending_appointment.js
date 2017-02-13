@@ -9,11 +9,13 @@ angular.module('starter')
         //date formatter   yourDate.toISOString().split('T')[0]
 
 
-        $scope.trackAppointment = function (appointmentId) {
+        $scope.trackAppointment = function (appointmentId,status) {
             //track the current appointmnt id
 //            console.log(appointmentId)
             AppointmentService.getAppointmentDetails(appointmentId,function (customerData) {
                 AppointmentData.appointment = customerData;
+
+                if(status == '4') AppointmentData.viewTitle = 'Cleanosaur has arrived'
                 $location.url('on_the_way/'+appointmentId);
             })
         }

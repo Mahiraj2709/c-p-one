@@ -22,5 +22,25 @@ angular.module('starter')
             $scope.modal.hide();
         }
 
-
+      $scope.rateOnGooglePlay = function () {
+        cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.app.cleanosaur', '_blank', 'location=yes');
+      }
+      $scope.rateOnITune = function () {
+        cordova.InAppBrowser.open('https://itunes.apple.com/in/genre/ios/id36?mt=8', '_blank', 'location=yes');
+      }
+      $scope.likeOnFacebook = function () {
+        cordova.InAppBrowser.open('https://www.facebook.com/cleanosaurrawr/', '_blank', 'location=yes');
+      }
+      $scope.watchOnYoutube = function () {
+        cordova.InAppBrowser.open('https://www.youtube.com/channel/UCY_a1vkcYPx5eJTr4k1GrNg', '_blank', 'location=yes');
+      }
+      $scope.followOnTwitter = function () {
+        cordova.InAppBrowser.open('https://twitter.com/cleanosaur', '_blank', 'location=yes');
+      }
+      $scope.followOnInstagram = function () {
+        cordova.InAppBrowser.open('https://www.instagram.com/cleanosaur/?hl=en', '_blank', 'location=yes');
+      }
+      $scope.visitOurWebsite = function () {
+        cordova.InAppBrowser.open('cleanosuarapp.onsisdev.info', '_blank', 'location=yes');
+      }
     })
