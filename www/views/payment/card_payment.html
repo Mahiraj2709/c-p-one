@@ -1,26 +1,26 @@
 <ion-view title="Edit Card">
-<ion-nav-buttons side="left">
-    <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-    </button>
-</ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
     <ion-content ng-controller="PaymentCtrl">
         <section class="bg-main">
             <div class="main">
                 <form>
                     <aside class="cards_view">
-                        <h2> ADDED CARD </h2>
+                        <h2> {{allCards.length === 0 ? 'NO ': '' }}ADDED CARD </h2>
                         <ul>
-                            <li> <input name="can_req_opt" type="radio"> 123 6516516 16  <span> <img src="img/edit-icon.png" alt="" ng-click="editCard()"></span> </li>
-                            <li> <input name="can_req_opt" type="radio"> 2131561561 65 <span> <img src="img/edit-icon.png" alt=""></span></li>
-                            <li> <input name="can_req_opt" type="radio"> 6514649847 78 <span> <img src="img/edit-icon.png" alt=""></span></li>
+                            <li ng-repeat="card in allCards">
+                                <input name="can_req_opt" type="radio"> ************{{card.last4}} <span> <img
+                                    src="img/edit-icon.png" alt="" ng-click="editCard()"></span></li>
                         </ul>
                     </aside>
 
-<!--
-                    <div class="full" ng-click="PayNow()"> <span class="btns pink_btn">  Pay Now  </span> </div>
-                    <aside class="line-sec gray-line"> <span> </span> <span> OR</span> <span> </span> </aside>
--->
-                    <div class="full" ui-sref="add_card"> <span class="btns pink_btn">  Add New Card  </span> </div>
+                    <!--
+                                        <div class="full" ng-click="PayNow()"> <span class="btns pink_btn">  Pay Now  </span> </div>
+                                        <aside class="line-sec gray-line"> <span> </span> <span> OR</span> <span> </span> </aside>
+                    -->
+                    <div class="full" ui-sref="add_card"><span class="btns pink_btn">  Add New Card  </span></div>
 
                 </form>
             </div>

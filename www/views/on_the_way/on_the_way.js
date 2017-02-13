@@ -2,8 +2,9 @@
  * Created by admin on 1/20/2017.
  */
 angular.module('starter')
-    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData,
-                                          OnWayService, $ionicPopup, $location) {
+    .controller('OnTheWayCtrl', function ($scope,AppointmentService, $stateParams, CONSTANTS, LocationData,AppointmentData,
+                                          OnWayService, $ionicPopup, $location,$rootScope,popups,$ionicHistory) {
+
             console.log('on the way' + $stateParams.appointment_id)
             $scope.cancelRequestData = {
                 app_appointment_id: $stateParams.appointment_id,
@@ -112,7 +113,15 @@ angular.module('starter')
                     $scope.showAlert('Please explain reason!')
                     return
                 } else {
-                    OnWayService.cancelRequest($scope.cancelRequestData, function () {
+                    OnWayService.cancelRequest($scope.cancelRequestData, function (response) {
+                        $scope.myPopup.close();
+                        $scope.showAlert(response.response_msg)
+                        if(response.response_status == '1') {
+
+                            $ionicHistory.clearCache().then(function(){
+                                $location.url('/home');
+                            });
+                        }
                     })
                 }
             }
@@ -131,6 +140,7 @@ angular.module('starter')
         formdata.append("cancel_status", cancelData.cancel_status);
         formdata.append("request_date", cancelData.request_date);
         formdata.append("explain_reason", cancelData.explain_reason);
+        formdata.append("user_timezone", 'Asia/Calcutta');
         console.log(formdata);
         var request = {
             method: 'POST',
@@ -148,10 +158,7 @@ angular.module('starter')
             .success(function (d) {
                 $ionicLoading.hide();
                 console.log(d)
-                if (d.response_status == "1") {
-                    callback(d.response_data.profile[0])
-                } else {
-                }
+                callback(d)
             })
             .error(function (err) {
                 $ionicLoading.hide();

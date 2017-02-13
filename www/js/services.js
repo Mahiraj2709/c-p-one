@@ -161,7 +161,11 @@ angular.module('services', [])
         };
     })
     .factory('AppointmentData',function () {
-        var appointment = {};
+        var appointment = {
+          viewTitle:'Cleanosaur on the way',
+          app_appointment_id:undefined,
+          appointment:undefined
+        };
 
         return appointment;
     })
@@ -172,4 +176,12 @@ angular.module('services', [])
         };
 
         return Location;
-    });
+    })
+    .factory('ReqeustAcceptedFactory',function () {
+    var payload = {
+        payload:undefined,
+        cleaner_profile_pic : undefined
+    };
+
+    return payload;
+});

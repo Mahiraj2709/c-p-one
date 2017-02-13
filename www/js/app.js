@@ -199,7 +199,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
 
             //rate your mechanic
             .state('rate_mech', {
-                url: '/rate_mech',
+                url: '/rate_mech/:appointment_id',
                 templateUrl: 'views/rate_mechanic/rate_your_mech.html',
                 controller: 'RateMechCtrl'
             })
@@ -254,9 +254,14 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
             .state('help', {
                 url: '/help',
                 templateUrl: 'views/help/help.html',
-                //controller: 'HistoryCtrl'
+                controller: 'HelpCtrl'
             })
-
+            //work as cleaner
+          .state('page_two', {
+            url: '/page_two',
+            templateUrl: 'views/help/page_two.html',
+            controller: 'HelpCtrl'
+          })
             //work as cleaner
             .state('work_as_cleaner', {
                 url: '/work_as_cleaner',
@@ -274,7 +279,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
             .state('setting', {
                 url: '/setting',
                 templateUrl: 'views/setting/setting.html',
-                //controller: 'HistoryCtrl'
+                controller: 'SettingCtrl'
             })
 
         // if none of the above states are matched, use this as the fallback

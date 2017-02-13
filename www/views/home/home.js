@@ -1,6 +1,6 @@
 angular.module('starter')
-    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner,LocationData,
-                                      $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService, CONSTANTS) {
+    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner, LocationData,$ionicHistory ,
+$ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService, CONSTANTS) {
         var formdata = new FormData();
         var cleanerIds = '';
         $ionicViewService.clearHistory();
@@ -20,10 +20,20 @@ angular.module('starter')
                 template: message
             });
         };
+        $scope.$on('$ionicView.enter', function () {
+            // Anything you can think of
+            console.log($ionicHistory.viewHistory());
+            //load the modal again we come from customer profile view
+            if ($ionicHistory.viewHistory().forwardView.stateName == 'mech_profile') {
+                //show the modal agian
+                $rootScope.requestAcceptedPopup.show();
+            }
+        });
         $scope.user = {
             address: undefined
         };
         $rootScope.userDetail = JSON.parse(window.localStorage.getItem("profile"));
+        console.log($rootScope.userDetail)
         $rootScope.profile_pic = CONSTANTS.PROFILE_IMAGE_URL + $rootScope.userDetail.profile_pic;
         //show logout popup
         // A confirm dialogF
@@ -124,24 +134,6 @@ angular.module('starter')
         }
         $scope.clearIcon = false;
         $scope.showCurrentIcon = true;
-
-        $scope.$on('cloud:push:notification', function (event, data) {
-            var msg = data.message;
-            $scope.showAlert(msg.title + ': ' + msg.text);
-            console.log(data);
-            if(msg.payload != undefined) {
-                if($scope.payload == undefined) {
-                    $scope.payload = msg.payload;
-                    $scope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
-                    $scope.showPopup();
-                }else if($scope.payload.cleaner_id != msg.payload.cleaner_id) {
-                    $scope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
-                    $scope.payload = msg.payload;
-                    $scope.showPopup();
-                }
-            }
-            //show popup dailog
-        });
         var markers = [];
         var circles = [];
         //idle event lister
@@ -162,7 +154,7 @@ angular.module('starter')
                     url: 'img/map-marker.png',
                     size: new google.maps.Size(40, 40),
                     /*origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(0, 0)*/
+                     anchor: new google.maps.Point(0, 0)*/
                 }
             });
 // Add circle overlay and bind to marker
@@ -184,14 +176,12 @@ angular.module('starter')
             outerCirle.bindTo('center', centerMarker, 'position');
             addMarker(centerMarker);
             addCircle(outerCirle);
-
             /*GooglePlacesService.getAddress($scope.map.getCenter(), function (address) {
-                $timeout(function () {
-                    $scope.user.address = address.address_components[0].long_name + ", " + address.address_components[1].long_name;
-                }, 000);
-                console.log(address.address_components[0].long_name + ", " + address.address_components[1].long_name);
-            });*/
-
+             $timeout(function () {
+             $scope.user.address = address.address_components[0].long_name + ", " + address.address_components[1].long_name;
+             }, 000);
+             console.log(address.address_components[0].long_name + ", " + address.address_components[1].long_name);
+             });*/
             SearchCleaner.searchNearbyCleaner($scope.map.getCenter(), $scope.user.address, function (cleanerArray) {
                 //console.log(cleanerArray);
                 //clear map
@@ -218,9 +208,10 @@ angular.module('starter')
                 //$scope.map.markers.push(marker);
             })
         });
-
         //refresh map everytime when home screen resumes
-        document.addEventListener("resume", function () {google.maps.event.trigger($scope.map, 'resize');})
+        document.addEventListener("resume", function () {
+            google.maps.event.trigger($scope.map, 'resize');
+        })
         // Adds a marker to the map and push to the array.
         function addMarker(marker) {
             console.log("marker pushed")
@@ -252,42 +243,16 @@ angular.module('starter')
 
         $scope.sendRequest = function () {
             //send request
-
-            if($scope.user.address == undefined || $scope.user.address == '') {
+            /*$location.path('rate_mech/' + '392');
+             return*/
+            if ($scope.user.address == undefined || $scope.user.address == '') {
                 $scope.showAlert('Please select address')
                 return
             }
-            $location.path('request_detail/'+$scope.user.address);
+            $location.path('request_detail/' + $scope.user.address);
         }
-
-        //request accepted dialog
-        // When button is clicked, the popup will be shown...
-        $scope.showPopup = function () {
-            $scope.data = {}
-            // Custom popup
-            $scope.myPopup = $ionicPopup.show({
-                templateUrl: 'views/custom_dialog/request_accepted.html',
-                scope: $scope,
-            });
-        };
         //scope close the pop-up on cancel icon clicked
         $scope.closePopUp = function () {
             $scope.myPopup.close();
-        }
-
-
-        $scope.viewMechProfile = function () {
-            $location.url('mech_profile/'+$scope.payload.cleaner_id);
-            //close popup
-            $scope.closePopUp();
-            //clear all the data associated this profile
-            $scope.payload = undefined;
-            $scope.cleaner_profile_pic = undefined;
-        }
-        
-        $scope.launchMechOnWay = function () {
-            $scope.myPopup.close();
-            $location.url('on_the_way/'+$scope.payload.app_appointment_id);
-
         }
     });

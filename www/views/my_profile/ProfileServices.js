@@ -12,7 +12,6 @@ angular.module('starter')
 
             navigator.device.capture.captureVideo(onSuccess, onError, options);
 
-            function onSuccess(mediaFiles) {
                 $ionicLoading.show({
                     template: 'Loading....'
                 });
@@ -49,7 +48,7 @@ angular.module('starter')
             function onError(error) {
                 console.log('Error code: ' + error.code, null, 'Capture Error');
             }
-        }
+
     })
     .service('UploadImageService',function (CONSTANTS,ImgFormData, $http,$ionicLoading) {
 

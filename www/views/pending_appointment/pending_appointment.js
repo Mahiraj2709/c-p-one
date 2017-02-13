@@ -2,18 +2,21 @@
  * Created by admin on 2/1/2017.
  */
 angular.module('starter')
-    .controller('PendingAppointmentCtrl',function ($scope,PendingAppointmentServices,$ionicPopup,$location,AppointmentData,AppointmentService) {
+    .controller('PendingAppointmentCtrl',function ($scope,PendingAppointmentServices,$rootScope,$ionicPopup,$location,AppointmentData,AppointmentService) {
         PendingAppointmentServices.getAppointment(function (appointmentArray) {
             $scope.appointmentArray = appointmentArray;
         });
         //date formatter   yourDate.toISOString().split('T')[0]
 
 
-        $scope.trackAppointment = function (appointmentId) {
+        $scope.trackAppointment = function (appointmentId,status) {
             //track the current appointmnt id
 //            console.log(appointmentId)
             AppointmentService.getAppointmentDetails(appointmentId,function (customerData) {
                 AppointmentData.appointment = customerData;
+
+                if(status == '4') $rootScope.mechOnWayViewTitle = 'Cleanosaur has arrived'
+                else $rootScope.mechOnWayViewTitle = 'Cleanosaur on the way'
                 $location.url('on_the_way/'+appointmentId);
             })
         }

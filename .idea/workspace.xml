@@ -2,7 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd026a46-604b-47d0-8f71-bc314998e5f4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/factories/popupFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/factories/servicesFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/factories/videoFactory.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/custom_dialog/newRequestCtrl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/custom_dialog/video_player.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/custom_dialog/video_select_dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/help/content_page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/help/helpController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/help/page_two.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/help/third_page.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/views/setting/settingController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hooks/after_prepare/010_add_platform_class.js" afterPath="$PROJECT_DIR$/hooks/after_prepare/010_add_platform_class.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/about/about.html" afterPath="$PROJECT_DIR$/www/views/about/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/about/about.js" afterPath="$PROJECT_DIR$/www/views/about/about.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/chat_room/chat_room.js" afterPath="$PROJECT_DIR$/www/views/chat_room/chat_room.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/help/help.html" afterPath="$PROJECT_DIR$/www/views/help/help.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/home/home.js" afterPath="$PROJECT_DIR$/www/views/home/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/my_profile/ProfileServices.js" afterPath="$PROJECT_DIR$/www/views/my_profile/ProfileServices.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/my_profile/profile.js" afterPath="$PROJECT_DIR$/www/views/my_profile/profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/my_profile/profile_one.html" afterPath="$PROJECT_DIR$/www/views/my_profile/profile_one.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/on_the_way/on_the_way.html" afterPath="$PROJECT_DIR$/www/views/on_the_way/on_the_way.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/on_the_way/on_the_way.js" afterPath="$PROJECT_DIR$/www/views/on_the_way/on_the_way.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/payment/add_card.html" afterPath="$PROJECT_DIR$/www/views/payment/add_card.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/payment/card_payment.js" afterPath="$PROJECT_DIR$/www/views/payment/card_payment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html" afterPath="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js" afterPath="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html" afterPath="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js" afterPath="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/setting/setting.html" afterPath="$PROJECT_DIR$/www/views/setting/setting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/signup/image_chooser.html" afterPath="$PROJECT_DIR$/www/views/signup/image_chooser.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/views/splash/splash.js" afterPath="$PROJECT_DIR$/www/views/splash/splash.js" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,21 +62,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="card_payment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/views/payment/card_payment.js">
+      <file leaf-file-name="profile_one.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/my_profile/profile_one.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="44" lean-forward="false" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+            <state relative-caret-position="330">
+              <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <file leaf-file-name="video_select_dialog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/video_select_dialog.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2873">
               <caret line="169" column="63" lean-forward="false" selection-start-line="169" selection-start-column="63" selection-end-line="169" selection-end-column="63" />
+=======
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
@@ -46,52 +90,65 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/views/home/home.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1428">
               <caret line="145" column="25" lean-forward="false" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="25" />
+=======
+            <state relative-caret-position="311">
+              <caret line="82" column="24" lean-forward="false" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding>
-                <element signature="e#1239#1914#0" expanded="false" />
-                <element signature="e#1963#2022#0" expanded="false" />
-                <element signature="e#2935#2997#0" expanded="false" />
-                <element signature="e#3062#4213#0" expanded="false" />
-                <element signature="e#4269#4615#0" expanded="false" />
-                <element signature="e#6570#6972#0" expanded="false" />
-                <element signature="e#7064#7212#0" expanded="false" />
-                <element signature="e#7390#7538#0" expanded="false" />
-                <element signature="e#9685#9771#0" expanded="false" />
-                <element signature="e#10884#11121#0" expanded="false" />
-                <element signature="e#11219#11266#0" expanded="false" />
-                <element signature="e#11314#11603#0" expanded="false" />
-                <element signature="e#11658#11782#0" expanded="false" />
+                <element signature="e#2621#2673#0" expanded="false" />
+                <element signature="e#3661#3931#0" expanded="false" />
+                <element signature="e#4880#5197#0" expanded="false" />
+                <element signature="e#5283#5393#0" expanded="false" />
+                <element signature="e#5547#5657#0" expanded="false" />
+                <element signature="e#7485#7555#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/my_profile/profile.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="901">
               <caret line="56" column="43" lean-forward="false" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+=======
+            <state relative-caret-position="449">
+              <caret line="369" column="9" lean-forward="false" selection-start-line="369" selection-start-column="9" selection-end-line="369" selection-end-column="9" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request_detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/views/request_detail/request_detail.js">
+      <file leaf-file-name="image_chooser.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/signup/image_chooser.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1190">
               <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+=======
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request_detail_services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/views/request_detail/request_detail_services.js">
+      <file leaf-file-name="chat_room.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2057">
               <caret line="121" column="31" lean-forward="false" selection-start-line="119" selection-start-column="28" selection-end-line="121" selection-end-column="31" />
+=======
+            <state relative-caret-position="436">
+              <caret line="99" column="25" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
@@ -100,13 +157,19 @@
       <file leaf-file-name="on_the_way.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="306">
               <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+=======
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="splash.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/views/splash/splash.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,6 +185,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="325">
               <caret line="41" column="11" lean-forward="true" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+=======
+      <file leaf-file-name="on_the_way.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="48" lean-forward="false" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
               <folding />
             </state>
           </provider>
@@ -130,8 +200,8 @@
       <file leaf-file-name="chat_room.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="235">
+              <caret line="27" column="68" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -142,26 +212,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>launchMechOnWay</find>
-      <find>alert</find>
-      <find>ng-click=&quot;showAlert('Coming soon.')&quot;</find>
-      <find>term</find>
-      <find>openTnC</find>
-      <find>chating</find>
-      <find>right_comment</find>
-      <find>history_left</find>
-      <find>history_right_track</find>
-      <find>ng-repe</find>
-      <find>mech</find>
-      <find>location</find>
-      <find>cleanerArray</find>
       <find>mobile</find>
       <find>input[type=&quot;text&quot;]</find>
       <find>send</find>
@@ -179,10 +236,25 @@
       <find>fifteen</find>
       <find>footer_input</find>
       <find>chatting_sec</find>
+      <find>\</find>
+      <find>getAppointmentDetails</find>
+      <find>$ionicLoading</find>
+      <find>big_ratings</find>
+      <find>ratings</find>
+      <find>rate</find>
+      <find>services</find>
+      <find>nameOnCard</find>
+      <find>&lt;/a&gt;</find>
+      <find>captureVideo</find>
+      <find>confirmLogout</find>
+      <find>UploadVideo</find>
+      <find>input</find>
     </findStrings>
     <replaceStrings>
       <replace>requestData</replace>
       <replace>value</replace>
+      <replace>/</replace>
+      <replace>rateObj.rating</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -191,57 +263,66 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/views/login/login.js" />
-        <option value="$PROJECT_DIR$/www/views/mechanic_profile/mech_profile_services.js" />
-        <option value="$PROJECT_DIR$/www/views/my_profile/profile_one.html" />
-        <option value="$PROJECT_DIR$/www/views/my_profile/profile.js" />
-        <option value="$PROJECT_DIR$/www/views/signup/terms_n_condition.html" />
-        <option value="$PROJECT_DIR$/www/views/home/HomeServices.js" />
-        <option value="$PROJECT_DIR$/www/views/account_detail/account_detail.js" />
-        <option value="$PROJECT_DIR$/www/js/services.js" />
-        <option value="$PROJECT_DIR$/www/views/mechanic_profile/mech_profile.js" />
-        <option value="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js" />
-        <option value="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html" />
-        <option value="$PROJECT_DIR$/www/views/history/history.html" />
-        <option value="$PROJECT_DIR$/www/service_hsitory/service_history.js" />
-        <option value="$PROJECT_DIR$/www/service_hsitory/service_history_detail.html" />
-        <option value="$PROJECT_DIR$/www/service_hsitory/service_history.html" />
-        <option value="$PROJECT_DIR$/www/views/service_hsitory/service_history.html" />
-        <option value="$PROJECT_DIR$/www/views/service_history/service_history_detail.html" />
-        <option value="$PROJECT_DIR$/www/views/notification/notification.html" />
-        <option value="$PROJECT_DIR$/www/views/help/help.html" />
-        <option value="$PROJECT_DIR$/www/views/setting/setting.html" />
         <option value="$PROJECT_DIR$/www/views/on_the_way/on_the_way_service.js" />
         <option value="$PROJECT_DIR$/www/views/service_history/service_history.js" />
         <option value="$PROJECT_DIR$/www/views/payment/edit_card.html" />
         <option value="$PROJECT_DIR$/www/views/sign_as_cleaner/work_as_cleaner.html" />
-        <option value="$PROJECT_DIR$/www/views/about/about.js" />
-        <option value="$PROJECT_DIR$/www/views/about/about.html" />
-        <option value="$PROJECT_DIR$/www/views/chat_room/chat_room.js" />
         <option value="$PROJECT_DIR$/www/views/request_detail/request_detail.js" />
         <option value="$PROJECT_DIR$/www/views/login/login.html" />
         <option value="$PROJECT_DIR$/www/views/signup/signup.js" />
         <option value="$PROJECT_DIR$/www/views/custom_dialog/request_accepted.html" />
         <option value="$PROJECT_DIR$/www/views/home/home.html" />
         <option value="$PROJECT_DIR$/www/views/request_detail/request_detail.html" />
-        <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html" />
         <option value="$PROJECT_DIR$/www/views/service_history/service_history.html" />
-        <option value="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js" />
         <option value="$PROJECT_DIR$/www/views/signup/signup.html" />
         <option value="$PROJECT_DIR$/www/views/custom_dialog/cancel_request_dialog.html" />
-        <option value="$PROJECT_DIR$/www/views/on_the_way/on_the_way.js" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/views/payment/card_payment.html" />
-        <option value="$PROJECT_DIR$/www/views/payment/add_card.html" />
-        <option value="$PROJECT_DIR$/www/views/payment/card_payment.js" />
         <option value="$PROJECT_DIR$/www/views/request_detail/request_detail_services.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/www/views/on_the_way/on_the_way.html" />
         <option value="$PROJECT_DIR$/www/views/splash/splash.js" />
-        <option value="$PROJECT_DIR$/www/views/chat_room/chat_room.html" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
-        <option value="$PROJECT_DIR$/www/views/home/home.js" />
+=======
         <option value="$PROJECT_DIR$/www/views/mechanic_profile/mech_profile.html" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        <option value="$PROJECT_DIR$/www/views/chat_room/chat_room.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/www/js/factories/popupFactory.js" />
+        <option value="$PROJECT_DIR$/www/views/custom_dialog/newRequestCtrl.js" />
+        <option value="$PROJECT_DIR$/www/js/services.js" />
+        <option value="$PROJECT_DIR$/www/views/on_the_way/on_the_way.html" />
+        <option value="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html" />
+        <option value="$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js" />
+        <option value="$PROJECT_DIR$/www/views/splash/splash.js" />
+        <option value="$PROJECT_DIR$/www/views/home/home.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/www/views/mechanic_profile/mech_profile.html" />
+=======
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html" />
+        <option value="$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js" />
+        <option value="$PROJECT_DIR$/www/views/help/content_page.html" />
+        <option value="$PROJECT_DIR$/www/views/help/help.html" />
+        <option value="$PROJECT_DIR$/www/views/help/page_two.html" />
+        <option value="$PROJECT_DIR$/www/views/help/third_page.js" />
+        <option value="$PROJECT_DIR$/www/views/help/third_page.html" />
+        <option value="$PROJECT_DIR$/www/views/help/helpController.js" />
+        <option value="$PROJECT_DIR$/www/views/setting/settingController.js" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
+        <option value="$PROJECT_DIR$/www/views/setting/setting.html" />
+        <option value="$PROJECT_DIR$/www/views/payment/add_card.html" />
+        <option value="$PROJECT_DIR$/www/views/payment/card_payment.js" />
+        <option value="$PROJECT_DIR$/www/views/about/about.js" />
+        <option value="$PROJECT_DIR$/www/views/about/about.html" />
+        <option value="$PROJECT_DIR$/www/views/my_profile/ProfileServices.js" />
+        <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/js/factories/servicesFactory.js" />
+        <option value="$PROJECT_DIR$/www/views/my_profile/profile_one.html" />
+        <option value="$PROJECT_DIR$/www/views/my_profile/profile.js" />
+        <option value="$PROJECT_DIR$/www/views/signup/image_chooser.html" />
+        <option value="$PROJECT_DIR$/www/views/custom_dialog/video_select_dialog.html" />
+        <option value="$PROJECT_DIR$/www/views/chat_room/chat_room.js" />
+        <option value="$PROJECT_DIR$/www/views/on_the_way/on_the_way.js" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
       </list>
     </option>
   </component>
@@ -256,14 +337,9 @@
     </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="width" value="798" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -280,27 +356,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CleanosaurCustomer" />
+              <option name="myItemId" value="c-p-one" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CleanosaurCustomer" />
+              <option name="myItemId" value="c-p-one" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CleanosaurCustomer" />
+              <option name="myItemId" value="c-p-one" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CleanosaurCustomer" />
+              <option name="myItemId" value="c-p-one" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -308,21 +387,177 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="signup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_profile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom_dialog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="about" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c-p-one" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="factories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chat" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="editor.config.accepted" value="true" />
+<<<<<<< HEAD
     <property name="SearchEverywhereHistoryKey" value="spla&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;mech&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/mechanic_profile/mech_profile.html&#10;home&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/home/home.js&#10;chat&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/chat_room/chat_room.html&#10;splash&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;on&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/on_the_way/on_the_way.html&#10;re&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.js&#10;CONS&#9;null&#9;null&#10;app&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/js/app.js&#10;signup&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;style&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/css/style.css&#10;his&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/service_history/service_history.html&#10;PEND&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.html&#10;ind&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/index.html&#10;pen&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.html&#10;pend&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.js&#10;requ&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;ser&#9;null&#9;null&#10;splas&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;acc&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/custom_dialog/request_accepted.html&#10;sig&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;signu&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.js&#10;login&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/login/login.html&#10;index&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/index.html&#10;sp&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;services&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/js/services.js&#10;sign&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;cha&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/chat_room/chat_room.html&#10;inde&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/index.html&#10;about&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.js&#10;a&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.html&#10;abou&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.js&#10;CONSTA&#9;null&#9;null&#10;on_th&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/on_the_way/on_the_way.html&#10;pending&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.js&#10;request_de&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;cance&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/custom_dialog/cancel_request_dialog.html&#10;hom&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/home/home.js&#10;pa&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/payment/card_payment.html&#10;CHAT&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/chat_room/chat_room.html&#10;on_t&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/on_the_way/on_the_way.html&#10;service&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/service_history/service_history.html&#10;req&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;HOME&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/home/home.js&#10;servic&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/js/services.js&#10;account&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/account_detail/account_detail.js&#10;profi&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/my_profile/profile_one.html&#10;send&#9;null&#9;null&#10;tern&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/terms_n_condition.html&#10;ter&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/termCondtionCtrl.js" />
+=======
+    <property name="SearchEverywhereHistoryKey" value="on_the&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/on_the_way/on_the_way.js&#10;on_&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/on_the_way/on_the_way.html&#10;chat&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/chat_room/chat_room.html&#10;home&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/home/home.js&#10;prof&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/my_profile/profile.js&#10;profil&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/my_profile/profile_one.html&#10;inde&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/index.html&#10;app&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/js/app.js&#10;index&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/index.html&#10;on&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/on_the_way/on_the_way.html&#10;style&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/css/style.css&#10;rate&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/rate_mechanic/rate_your_mech.js&#10;splas&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/splash/splash.js&#10;pending&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/pending_appointment/pending_appointment.html&#10;pen&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/pending_appointment/pending_appointment.js&#10;splash&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/views/splash/splash.js&#10;in&#9;FILE&#9;file:///Users/maahi/ionic/c-p-one/www/index.html&#10;mech&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/mechanic_profile/mech_profile.html&#10;re&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.js&#10;CONS&#9;null&#9;null&#10;signup&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;his&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/service_history/service_history.html&#10;PEND&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.html&#10;ind&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/index.html&#10;pend&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/pending_appointment/pending_appointment.js&#10;requ&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;ser&#9;null&#9;null&#10;acc&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/custom_dialog/request_accepted.html&#10;sig&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;signu&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.js&#10;login&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/login/login.html&#10;spla&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;sp&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/splash/splash.js&#10;services&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/js/services.js&#10;sign&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/signup/signup.html&#10;cha&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/chat_room/chat_room.html&#10;about&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.js&#10;a&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.html&#10;abou&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/about/about.js&#10;CONSTA&#9;null&#9;null&#10;on_th&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/on_the_way/on_the_way.html&#10;request_de&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;cance&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/custom_dialog/cancel_request_dialog.html&#10;hom&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/home/home.js&#10;pa&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/payment/card_payment.html&#10;CHAT&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/chat_room/chat_room.html&#10;on_t&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/on_the_way/on_the_way.html&#10;service&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/service_history/service_history.html&#10;req&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/request_detail/request_detail.html&#10;HOME&#9;FILE&#9;file://D:/Angular/CleanosaurCustomer/www/views/home/home.js" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -331,11 +566,11 @@
       <recent name="D:\Angular\CleanosaurCustomer\www\views\signup" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/www/js/factories" />
+      <recent name="$PROJECT_DIR$/www/views/custom_dialog" />
+      <recent name="$PROJECT_DIR$/www/js" />
       <recent name="D:\Angular\CleanosaurCustomer\www\js" />
       <recent name="D:\Angular\CleanosaurCustomer\www\img" />
-      <recent name="D:\Angular\CleanosaurCustomer\www\views" />
-      <recent name="D:\Angular\CleanosaurCustomer\www\views\sign_as_cleaner" />
-      <recent name="D:\Angular\CleanosaurCustomer\www\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -438,14 +673,24 @@
       <workItem from="1486452713233" duration="8816000" />
       <workItem from="1486529844918" duration="15263000" />
       <workItem from="1486637841109" duration="3227000" />
+<<<<<<< HEAD
       <workItem from="1486705802489" duration="8736000" />
       <workItem from="1486735366360" duration="464000" />
       <workItem from="1486963443682" duration="115000" />
+=======
+      <workItem from="1486705802489" duration="7761000" />
+      <workItem from="1486790212027" duration="34037000" />
+      <workItem from="1486883089172" duration="6987000" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="323023000" />
+=======
+    <option name="totallyTimeSpent" value="362493000" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,16 +702,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29340938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <frame x="0" y="0" width="798" height="800" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40411842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13835616" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -506,189 +759,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/views/signup/terms_n_condition.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/home/HomeServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/my_profile/profile_one.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/account_detail/account_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/my_profile/ProfileServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/mechanic_profile/mech_profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/history/history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/service_history/service_history_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/help/help.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/notification/notification.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/setting/setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/service_history/service_history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/img/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/sign_as_cleaner/work_as_cleaner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="173" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="173" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/about/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/about/about.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/login/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="139" column="39" lean-forward="false" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/img/map-marker.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="73" lean-forward="false" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/signup/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="231" column="60" lean-forward="true" selection-start-line="231" selection-start-column="60" selection-end-line="231" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/splash/splash.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="156" column="41" lean-forward="true" selection-start-line="156" selection-start-column="41" selection-end-line="156" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/views/request_detail/request_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -703,13 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="81" column="46" lean-forward="false" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/views/service_history/service_history.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -717,38 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way_service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/views/mechanic_profile/mech_profile_services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="9" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/request_accepted.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="67" lean-forward="false" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -766,92 +806,413 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="156" column="37" lean-forward="true" selection-start-line="156" selection-start-column="37" selection-end-line="156" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/payment/card_payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/payment/edit_card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="80" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="31" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/payment/add_card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="94" lean-forward="false" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/payment/card_payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="44" lean-forward="false" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="56" column="43" lean-forward="false" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/views/request_detail/request_detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
+        <state relative-caret-position="1050">
           <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/views/request_detail/request_detail_services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
+        <state relative-caret-position="1815">
           <caret line="121" column="31" lean-forward="false" selection-start-line="119" selection-start-column="28" selection-end-line="121" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.html">
+    <entry file="file://$PROJECT_DIR$/www/views/mechanic_profile/mech_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="390">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/request_accepted.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/factories/popupFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="48" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way_service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/newRequestCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="63" lean-forward="true" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="142" lean-forward="false" selection-start-line="20" selection-start-column="142" selection-end-line="20" selection-end-column="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/pending_appointment/pending_appointment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="164" column="21" lean-forward="true" selection-start-line="164" selection-start-column="21" selection-end-line="164" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/lib/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1475">
+          <caret line="19614" column="0" lean-forward="false" selection-start-line="19614" selection-start-column="0" selection-end-line="19614" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/splash/splash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="94" column="42" lean-forward="false" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2873">
-          <caret line="169" column="63" lean-forward="false" selection-start-line="169" selection-start-column="63" selection-end-line="169" selection-end-column="63" />
+        <state relative-caret-position="165">
+          <caret line="103" column="13" lean-forward="false" selection-start-line="103" selection-start-column="1" selection-end-line="103" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="25" column="61" lean-forward="false" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/rate_mechanic/rate_your_mech.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="301">
+          <caret line="231" column="60" lean-forward="true" selection-start-line="231" selection-start-column="60" selection-end-line="231" selection-end-column="60" />
+=======
+        <state relative-caret-position="32">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/help/help.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="59" lean-forward="false" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/help/content_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/help/third_page.js" />
+    <entry file="file://$PROJECT_DIR$/www/views/help/page_two.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/help/third_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="281" column="40" lean-forward="false" selection-start-line="281" selection-start-column="40" selection-end-line="281" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/help/helpController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3574">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/setting/settingController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/setting/setting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/payment/card_payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/payment/edit_card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/payment/add_card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="164" lean-forward="false" selection-start-line="17" selection-start-column="164" selection-end-line="17" selection-end-column="164" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/payment/card_payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="205" column="15" lean-forward="false" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
+          <folding>
+            <element signature="e#3582#3590#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/about/about.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/about/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/my_profile/ProfileServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/factories/videoFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="374">
+          <caret line="22" column="55" lean-forward="false" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+=======
+        <state relative-caret-position="330">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="527">
+          <caret line="31" column="80" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="31" selection-end-column="80" />
+=======
+        <state relative-caret-position="525">
+          <caret line="86" column="43" lean-forward="false" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+          <folding />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/video_player.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="459">
+          <caret line="27" column="94" lean-forward="false" selection-start-line="27" selection-start-column="94" selection-end-line="27" selection-end-column="94" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/factories/servicesFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="116" column="47" lean-forward="true" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
+          <folding>
+            <element signature="e#3669#4520#0" expanded="false" />
+            <element signature="e#4569#5365#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/my_profile/profile_one.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="901">
+          <caret line="56" column="43" lean-forward="false" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+=======
+        <state relative-caret-position="330">
+          <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/custom_dialog/video_select_dialog.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1190">
+          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+=======
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/views/home/home.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="306">
+          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+=======
+        <state relative-caret-position="311">
+          <caret line="82" column="24" lean-forward="false" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+          <folding>
+            <element signature="e#2621#2673#0" expanded="false" />
+            <element signature="e#3661#3931#0" expanded="false" />
+            <element signature="e#4880#5197#0" expanded="false" />
+            <element signature="e#5283#5393#0" expanded="false" />
+            <element signature="e#5547#5657#0" expanded="false" />
+            <element signature="e#7485#7555#0" expanded="false" />
+          </folding>
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/my_profile/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2057">
+          <caret line="121" column="31" lean-forward="false" selection-start-line="119" selection-start-column="28" selection-end-line="121" selection-end-column="31" />
+=======
+        <state relative-caret-position="449">
+          <caret line="369" column="9" lean-forward="false" selection-start-line="369" selection-start-column="9" selection-end-line="369" selection-end-column="9" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.html">
+=======
+    <entry file="file://$PROJECT_DIR$/www/views/signup/image_chooser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="27" column="68" lean-forward="false" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/chat_room/chat_room.js">
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="99" column="25" lean-forward="false" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2873">
+          <caret line="169" column="63" lean-forward="false" selection-start-line="169" selection-start-column="63" selection-end-line="169" selection-end-column="63" />
+=======
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/views/on_the_way/on_the_way.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1428">
           <caret line="145" column="25" lean-forward="false" selection-start-line="145" selection-start-column="25" selection-end-line="145" selection-end-column="25" />
           <folding>
@@ -869,6 +1230,11 @@
             <element signature="e#11314#11603#0" expanded="false" />
             <element signature="e#11658#11782#0" expanded="false" />
           </folding>
+=======
+        <state relative-caret-position="60">
+          <caret line="4" column="48" lean-forward="false" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+          <folding />
+>>>>>>> 89c74d128f92046989cce87d3150f334c4bb9c8b
         </state>
       </provider>
     </entry>

@@ -20,7 +20,7 @@
                     <i class="fa fa-star" aria-hidden="true"></i>
 
                 </aside>
-                <aside class="view_vdo_btn" ng-click="captureVideo()"><span> Nice to Meet You</span></aside>
+                <aside class="view_vdo_btn" ng-click="videoChooser()"><span> Nice to Meet You</span></aside>
 
                 <aside class="request_sec">
                     <ul>
@@ -84,12 +84,12 @@
                     <li class="profile_edit_dob" ng-hide="true">
                         <label> <strong>Date of Birth</strong> </label>
                         <span class="one-third">
-                                    <select ng-model="profileDetails.day">  
+                                    <select ng-model="profileDetails.day">
                                         <option ng-repeat="day in dropDownData.dates" value="{{day}}">{{day}}</option>
                                      </select>
                                 </span>
                         <span class="one-third">
-                                    <select ng-model="profileDetails.month"> 
+                                    <select ng-model="profileDetails.month">
                                     <option ng-repeat="month in dropDownData.months"
                                             value="{{month}}">{{month}}</option>
                                      </select>

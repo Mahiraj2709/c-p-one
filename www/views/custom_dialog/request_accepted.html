@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div style="text-align: center;" ng-controller="ReqAcptCtrl">
     <aside>
         <p>Your Request has been accepted by <br> <strong>{{payload.userFName}} {{payload.userLName}}</strong></p>
 
@@ -19,6 +19,10 @@
         <p ng-click="viewMechProfile()"><span> <u>View Cleanosaur’s Profile</u> </span></p>
 
     </aside>
-    <aside ng-click="launchMechOnWay()"><p><span class="btns pink_btn popup_rwr_btn">  RAWR!  </span></p></aside>
+
+    <aside class="view_vdo_btn" ng-click="videoChooser()"><span> Nice to Meet You</span></aside>
+
+
+    <aside ng-click="launchMechOnWay()"><p><span class="btns pink_btn popup_rwr_btn">  FRESH!  </span></p></aside>
 
 </div>

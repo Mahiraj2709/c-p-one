@@ -1,9 +1,9 @@
 angular.module('starter')
-    .controller('LoginCtrl', function ($scope, $rootScope, $ionicPopup, $http, $ionicLoading, $ionicPush, $timeout,
+    .controller('LoginCtrl', function ($scope, $rootScope, $ionicPopup, $http, $ionicLoading, $ionicPush, $timeout,LocationData,
                                        $cordovaGeolocation, $cordovaOauth, $ionicViewService, $location, $ionicSideMenuDelegate, CONSTANTS) {
         $ionicViewService.clearHistory();
         $ionicSideMenuDelegate.canDragContent(false);
-        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        /*var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
             .then(function (position) {
@@ -15,14 +15,14 @@ angular.module('starter')
             }, function (err) {
                 // error
             });
-        $scope.loginDetails = {
+ */       $scope.loginDetails = {
             email: '',
             password: '',
             device_type: CONSTANTS.deviceType(),
             device_token:'na',
             device_id: 'na',
-            latitude: '0.0',
-            longitude: '0.0',
+            latitude: LocationData.latitude,
+            longitude: LocationData.longitude,
             language: 'en'
         };
         //Loading in
