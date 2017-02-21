@@ -18,6 +18,9 @@ angular.module('starter')
             }
         }, 000);
 */
+        //customer - ZjIzZDY5NGMzZGYxZWM0MTE1ZTAyOGEzZDhjZjQ0YzE
+        //cleaner - N2NhMTMwYmYyZGJkZjg4NzE2NWEyMjUzMTU5NTJlZmU
+
 
         LocationAlert.isLocationEnabled(function (enabled) {
             if (enabled) {
@@ -107,15 +110,13 @@ angular.module('starter')
                   services.getChatHistory(msg.payload.response_data.chat[0].app_appointment_id,function (response) {
                     if(response.response_status == '1'){
                       ChatMessages.messages = []
-                      for(var i=0; i< response.response_data.chat.length; i++){
-                        ChatMessages.pushChat(response.response_data.chat[i])
-                      }
+                      ChatMessages.pushChatHistory(response.response_data.chat)
                     }
                     $location.url('chat_room/'+msg.payload.response_data.chat[0].app_appointment_id)
 
                   })
                 }else {
-                  ChatMessages.pushChat(response.response_data.chat[i]);
+                  ChatMessages.pushNotificationChat(msg.payload.response_data.chat[0]);
                   $location.url('chat_room/'+msg.payload.response_data.chat[0].app_appointment_id)
                 }
                 break

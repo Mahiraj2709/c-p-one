@@ -2,183 +2,200 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
-      <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js')
-            .then(() => console.log('service worker installed'))
-            .catch(err => console.log('Error', err));
-        }
-      </script>-->
+  <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/ion-place-autocomplete.css"/>
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/ion-place-autocomplete.css"/>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-      <link href="css/ionic.app.css" rel="stylesheet">
-      -->
+  <!--emoji-->
+  <link href="css/emoji.min.css" rel="stylesheet"/>
+  <script src="js/jquery-2.1.3.min.js"></script>
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic.cloud.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyA854Z_7HxtbrkSBb8MYpl9LJ6snE6eQlw&sensor=true&libraries=places"></script>
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="js/ng-cordova.min.js"></script>
-    <script src="cordova.js"></script>
-    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.js"></script>
+  <!--emoji ends here-->
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/services.js"></script>
-    <script src="lib/sha.js"></script>
-    <script src="js/ion-place-autocomplete.js"></script>
-    <script src="views/splash/splash.js"></script>
-    <script src="views/login/login.js"></script>
-    <script src="views/signup/signup.js"></script>
-    <script src="views/signup/termCondtionCtrl.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic/js/angular/angular-animate.min.js"></script>
+  <script src="lib/ionic/js/angular/angular-sanitize.min.js"></script>
+  <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"></script>
 
-    <script src="views/account_detail/account_detail.js"></script>
-    <script src="views/account_detail/accountDetailsServices.js"></script>
-    <script src="views/forgot_password/forgot_password.js"></script>
-    <script src="views/home/home.js"></script>
-    <script src="views/home/HomeServices.js"></script>
-    <script src="views/my_profile/profile.js"></script>
-    <script src="views/my_profile/ProfileServices.js"></script>
-    <script src="views/history/history.js"></script>
-    <script src="views/about/about.js"></script>
-    <!--requst Details start here-->
-    <script src="views/request_detail/request_detail.js"></script> <!--Controller-->
-    <script src="views/custom_dialog/newRequestCtrl.js"></script> <!--Controller-->
-    <script src="views/request_detail/request_detail_services.js"></script> <!--Controller-->
+  <script src="lib/ionic.cloud.min.js"></script>
+  <script
+    src="http://maps.google.com/maps/api/js?key=AIzaSyA854Z_7HxtbrkSBb8MYpl9LJ6snE6eQlw&sensor=true&libraries=places"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="js/ng-cordova.min.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/emoji.min.js"></script>
+  <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.js"></script>
 
-    <script src="views/mechanic_profile/mech_profile.js"></script> <!--Controller-->
-    <script src="views/mechanic_profile/mech_profile_services.js"></script> <!--Controller-->
-    <!--requst Details end here-->
-    <!--on the way starts here-->
-    <script src="views/on_the_way/on_the_way.js"></script>
-    <script src="views/help/helpController.js"></script>
-    <script src="views/on_the_way/on_the_way_service.js"></script>
-    <script src="views/setting/settingController.js"></script>
-    <!--on the way ends here-->
-    <!--chat room starts here-->
-    <script src="views/chat_room/chat_room.js"></script> <!--select time ctrl-->
-    <!--char room ends here-->
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="lib/sha.js"></script>
+  <script src="js/ion-place-autocomplete.js"></script>
+  <script src="views/splash/splash.js"></script>
+  <script src="views/login/login.js"></script>
+  <script src="views/signup/signup.js"></script>
+  <script src="views/signup/termCondtionCtrl.js"></script>
 
-    <script src="views/rate_mechanic/rate_your_mech.js"></script> <!--rate your mech ctrl-->
-    <script src="views/payment/card_payment.js"></script> <!--payment ctrl-->
-    <script src="views/service_history/service_history.js"></script>
+  <script src="views/account_detail/account_detail.js"></script>
+  <script src="views/account_detail/accountDetailsServices.js"></script>
+  <script src="views/forgot_password/forgot_password.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/home/HomeServices.js"></script>
+  <script src="views/my_profile/profile.js"></script>
+  <script src="views/my_profile/ProfileServices.js"></script>
+  <script src="views/history/history.js"></script>
+  <script src="views/about/about.js"></script>
+  <!--requst Details start here-->
+  <script src="views/request_detail/request_detail.js"></script> <!--Controller-->
+  <script src="views/custom_dialog/newRequestCtrl.js"></script> <!--Controller-->
+  <script src="views/request_detail/request_detail_services.js"></script> <!--Controller-->
 
-    <script src="views/pending_appointment/pending_appointment.js"></script> <!--payment ctrl-->
+  <script src="views/mechanic_profile/mech_profile.js"></script> <!--Controller-->
+  <script src="views/mechanic_profile/mech_profile_services.js"></script> <!--Controller-->
+  <!--requst Details end here-->
+  <!--on the way starts here-->
+  <script src="views/on_the_way/on_the_way.js"></script>
+  <script src="views/help/helpController.js"></script>
+  <script src="views/on_the_way/on_the_way_service.js"></script>
+  <script src="views/setting/settingController.js"></script>
+  <!--on the way ends here-->
+  <!--chat room starts here-->
+  <script src="views/chat_room/chat_room.js"></script> <!--select time ctrl-->
+  <!--char room ends here-->
 
-    <!--stripe payment lib-->
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="views/rate_mechanic/rate_your_mech.js"></script> <!--rate your mech ctrl-->
+  <script src="views/payment/card_payment.js"></script> <!--payment ctrl-->
+  <script src="views/service_history/service_history.js"></script>
+
+  <script src="views/pending_appointment/pending_appointment.js"></script> <!--payment ctrl-->
+
+  <!--stripe payment lib-->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
   <!--factories-->
   <script src="js/factories/servicesFactory.js"></script>
   <script src="js/factories/popupFactory.js"></script>
   <script src="js/factories/videoFactory.js"></script>
 
-    <!--fileter -->
-    <script src="js/commonFilter.js"></script>
+  <!--fileter -->
+  <script src="js/commonFilter.js"></script>
 </head>
 
 <body ng-app="starter">
 
 <ion-side-menus>
-    <!-- Main content -->
-    <ion-side-menu-content>
-        <ion-nav-bar class="bar-dark custom-dark" align-title="center">
-            <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i></ion-nav-back-button>
-        </ion-nav-bar>
-        <!--
-        The views will be rendered in the <ion-nav-view> directive below
-        Templates are in the /templates folder (but you could also
-        have templates inline in this html file if you'd like).
-      -->
-        <ion-nav-view></ion-nav-view>
-    </ion-side-menu-content>
+  <!-- Main content -->
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark custom-dark" align-title="center">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i></ion-nav-back-button>
+    </ion-nav-bar>
+    <!--
+    The views will be rendered in the <ion-nav-view> directive below
+    Templates are in the /templates folder (but you could also
+    have templates inline in this html file if you'd like).
+  -->
+    <ion-nav-view></ion-nav-view>
+  </ion-side-menu-content>
 
-    <!-- Left Side Menu -->
-    <ion-side-menu side="left">
-        <nav class="left-nav-main">
-            <section class="figure-container">
-                <figure class="profile-pic"><img ng-src="{{profile_pic}}" alt="" width="50" height="65"></figure>
-                <aside class="ratings">
-                    <span> <i class="fa fa-star" aria-hidden="true"></i> </span>
-                    <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                    <span> <i class="fa fa-star" aria-hidden="true"></i></span>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
+  <!-- Left Side Menu -->
+  <ion-side-menu side="left">
+    <nav class="left-nav-main">
+      <section class="figure-container">
+        <figure class="profile-pic"><img ng-src="{{profile_pic}}" alt="" width="50" height="65"></figure>
+        <aside class="ratings">
+          <span> <i class="fa fa-star" aria-hidden="true"></i> </span>
+          <span><i class="fa fa-star" aria-hidden="true"></i></span>
+          <span> <i class="fa fa-star" aria-hidden="true"></i></span>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
 
-                </aside>
-                <figcaption class="user-detail"> {{userDetail.first_name}} {{userDetail.last_name}}</figcaption>
-            </section>
+        </aside>
+        <figcaption class="user-detail"> {{userDetail.first_name}} {{userDetail.last_name}}</figcaption>
+      </section>
 
-            <section class="nav-menu">
-                <ul>
-                    <li>
-                        <a ui-sref='home' ng-click="closeSideMenu()">
-                            <img src="img/home_side_icon.png" width="32" height="37" alt=""> <span> Request </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref='profile_one' ui-sref-opts="{cache: false,reload:true}" ng-click="closeSideMenu()">
-                            <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> Profile </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="payment" ng-click="closeSideMenu()"> <img src="img/left-nav-payment.png" width="32" height="28" alt=""> <span> Payment </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="history" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>
-                        <!--$location.url('mech_profile/'+$scope.payload.cleaner_id);-->
-                        <!--<a ui-sref="on_the_way({ cleaner_id: '311'})" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>-->
-                        </a>
-                    </li>
+      <section class="nav-menu">
+        <ul>
+          <li>
+            <a ui-sref='home' ng-click="closeSideMenu()">
+              <img src="img/home_side_icon.png" width="32" height="37" alt=""> <span> Request </span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref='profile_one' ui-sref-opts="{cache: false,reload:true}" ng-click="closeSideMenu()">
+              <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> Profile </span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="payment" ng-click="closeSideMenu()"> <img src="img/left-nav-payment.png" width="32" height="28"
+                                                                  alt=""> <span> Payment </span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="history" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28"
+                                                                  alt=""> <span> History </span>
+              <!--$location.url('mech_profile/'+$scope.payload.cleaner_id);-->
+              <!--<a ui-sref="on_the_way({ cleaner_id: '311'})" ng-click="closeSideMenu()"> <img src="img/left-nav-history.png" width="32" height="28" alt=""> <span> History </span>-->
+            </a>
+          </li>
 
-                    <li>
-                        <a ui-sref="pending_appointment" ng-click="closeSideMenu()">
-                            <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> My Booking </span>
-                        </a>
-                    </li>
+          <li>
+            <a ui-sref="pending_appointment" ng-click="closeSideMenu()">
+              <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> My Booking </span>
+            </a>
+          </li>
 
-                    <li>
-                        <a ui-sref="notification" ng-click="closeSideMenu()"> <img src="img/left-nav-notification.png" width="32" height="32" alt="">
-                            <span> Notification </span> </a>
-                    </li>
-                    <li>
-                        <a ui-sref="help" ng-click="closeSideMenu()"> <img src="img/left-nav-help.png" width="32" height="32" alt=""> <span> Help </span> </a>
-                    </li>
-                    <li>
-                        <a ui-sref="work_as_cleaner" ng-click="closeSideMenu()"> <img src="img/left-nav-customer.png" width="32" height="32" alt="">
-                            <span> Become A Cleaner </span> </a>
-                    </li>
-                    <li>
-                        <a ui-sref="setting" ng-click="closeSideMenu()"> <img src="img/left-nav-settings.png" width="32" height="32"
-                                                           alt=""> <span> Settings </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="about" ng-click="closeSideMenu()"> <img src="img/left-nav-profile.png" width="32"
-                                                                            height="37" alt=""> <span> About </span>
-                        </a>
-                    </li>
-                    <li ng-click="confirmLogout()">
-                        <a> <img src="img/left-nav-logout.png" width="32" height="23" alt=""> <span> Logout </span> </a>
-                    </li>
-                </ul>
-            </section>
-        </nav>
-    </ion-side-menu>
+          <li>
+            <a ui-sref="notification" ng-click="closeSideMenu()"> <img src="img/left-nav-notification.png" width="32"
+                                                                       height="32" alt="">
+              <span> Notification </span> </a>
+          </li>
+          <li>
+            <a ui-sref="help" ng-click="closeSideMenu()"> <img src="img/left-nav-help.png" width="32" height="32"
+                                                               alt=""> <span> Help </span> </a>
+          </li>
+          <li>
+            <a ui-sref="work_as_cleaner" ng-click="closeSideMenu()"> <img src="img/left-nav-customer.png" width="32"
+                                                                          height="32" alt="">
+              <span> Become A Cleaner </span> </a>
+          </li>
+          <li>
+            <a ui-sref="setting" ng-click="closeSideMenu()"> <img src="img/left-nav-settings.png" width="32" height="32"
+                                                                  alt=""> <span> Settings </span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="about" ng-click="closeSideMenu()"> <img src="img/left-nav-profile.png" width="32"
+                                                                height="37" alt=""> <span> About </span>
+            </a>
+          </li>
+          <li ng-click="confirmLogout()">
+            <a> <img src="img/left-nav-logout.png" width="32" height="23" alt=""> <span> Logout </span> </a>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </ion-side-menu>
 </ion-side-menus>
 </body>
 </html>

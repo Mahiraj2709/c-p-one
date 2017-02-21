@@ -24,3 +24,19 @@ angular.module('starter')
             }
         }
     })
+    .filter('cleanStyle', function () {
+        // Create the return function
+        // set the required parameter name to **number**
+        return function (cleanStyle) {
+            switch (cleanStyle) {
+                case '1':
+                    return 'Standard Clean'
+                    break;
+                case '2':
+                    return 'Deep Clean'
+                    break;
+                default:
+                    return 'NA'
+            }
+        }
+    });

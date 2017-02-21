@@ -1,6 +1,6 @@
 <ion-view title="Chatting" hide-back-button="true">
     <ion-nav-buttons side="primary">
-        <button class="button button-icon ion-android-call" ng-click="logout()"></button>
+        <button class="button button-icon ion-android-call" ng-click="callNumber()"></button>
     </ion-nav-buttons>
     <ion-content>
         <ion-content class="content-stable"
@@ -8,13 +8,13 @@
                      on-swipe-right="hideTime = true">
 
             <section class="chatting_sec">
-                <aside ng-class="{right_comment: message.userId == myId}" ng-repeat="message in messages">
+                <aside ng-class="{right_comment: message.userType == '1'}" ng-repeat="message in messages">
                     <div class="chat_txt_sec">
 
                         <div class="chat_img_sec" ng-class="{'slide-right': hideTime, '': !hideTime}">
-                            <img src="img/smith.jpg" ng-src="{{message.customer_profile_pic}}" alt="" width="120" height="140">
+                            <img src="img/smith.jpg" ng-src="{{message.profile_pic}}" alt="" width="120" height="140">
                         </div>
-                        <p><span> {{message.f_name}} {{message.l_name}} </span> {{ message.text }} </p>
+                        <p><span> {{message.fname}} {{message.lname}} </span> {{ message.text}} </p>
 
 
                         <!--<div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>-->
@@ -26,6 +26,15 @@
         </ion-content>
 
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+
+          <div emoji-form emoji-message="emojiMessage">
+            <textarea id="messageInput" ng-model="emojiMessage.messagetext"></textarea>
+
+            <button id="emojibtn">
+              <i class="icon icon-emoji"></i>
+            </button>
+          </div>
+          <!--
             <aside class="chat_footer">
             <div class="footer_txt_sec">
                 <div class="footer_txt_sec">
@@ -37,7 +46,7 @@
                     <div class="fifteen send" ng-click="sendMessage()"><img src="img/send.png" width="22" height="19" alt=""></div>
                 </div>
             </div>
-            </aside>
+            </aside>-->
         </ion-footer-bar>
     </ion-content>
 </ion-view>
