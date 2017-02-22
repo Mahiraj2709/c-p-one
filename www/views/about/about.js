@@ -41,6 +41,6 @@ angular.module('starter')
         cordova.InAppBrowser.open('https://www.instagram.com/cleanosaur/?hl=en', '_blank', 'location=yes');
       }
       $scope.visitOurWebsite = function () {
-        cordova.InAppBrowser.open('cleanosuarapp.onsisdev.info', '_blank', 'location=yes');
+        cordova.InAppBrowser.open('http://www.cleanosaur.com/', '_blank', 'location=yes');
       }
     })

@@ -31,17 +31,14 @@ angular.module('services', [])
             });
             return dfd.promise;
         };
-
-        this.getAddress = function (latLng,callback) {
+        this.getAddress = function (latLng, callback) {
             var geocoder = new google.maps.Geocoder;
-
-            geocoder.geocode({'location': latLng}, function(results, status) {
+            geocoder.geocode({'location': latLng}, function (results, status) {
                 if (status === 'OK') {
                     if (results[1]) {
                         //return the first result to the callback
                         callback(results[0]);
                     } else {
-
                     }
                 } else {
                 }
@@ -143,16 +140,16 @@ angular.module('services', [])
                         callback(enabled);
                         if (!enabled) {
                             // An alert dialog
-                                var alertPopup = $ionicPopup.alert({
-                                    title: '<b>Location Services</b> </br> Settings must be changed',
-                                    template: 'Location Services must be enabled for Cleanosaur to function.'
-                                });
-                                alertPopup.then(function (res) {
-                                    if (window.cordova) {
-                                        cordova.plugins.diagnostic.switchToLocationSettings();
-                                    }
-                                });
-                        }else {
+                            var alertPopup = $ionicPopup.alert({
+                                title: '<b>Location Services</b> </br> Settings must be changed',
+                                template: 'Location Services must be enabled for Cleanosaur to function.'
+                            });
+                            alertPopup.then(function (res) {
+                                if (window.cordova) {
+                                    cordova.plugins.diagnostic.switchToLocationSettings();
+                                }
+                            });
+                        } else {
                         }
                     }, function (error) {
                     });
@@ -160,28 +157,26 @@ angular.module('services', [])
             })
         };
     })
-    .factory('AppointmentData',function () {
+    .factory('AppointmentData', function () {
         var appointment = {
-          viewTitle:'Cleanosaur on the way',
-          app_appointment_id:undefined,
-          appointment:undefined
+            viewTitle: 'Cleanosaur on the way',
+            app_appointment_id: undefined,
+            appointment: undefined,
+            profile_video: undefined
         };
-
         return appointment;
     })
-    .factory('LocationData',function () {
+    .factory('LocationData', function () {
         var Location = {
-            longitude:undefined,
-            latitude:undefined
+            longitude: undefined,
+            latitude: undefined
         };
-
         return Location;
     })
-    .factory('ReqeustAcceptedFactory',function () {
-    var payload = {
-        payload:undefined,
-        cleaner_profile_pic : undefined
-    };
-
-    return payload;
-});
+    .factory('ReqeustAcceptedFactory', function () {
+        var payload = {
+            payload: undefined,
+            cleaner_profile_pic: undefined
+        };
+        return payload;
+    });

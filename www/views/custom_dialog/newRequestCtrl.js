@@ -9,11 +9,12 @@ angular.module('starter')
         $scope.openVideoPlayer = function () {
             //video player modal
 
-            if(AppointmentData.profile_video == undefined || AppointmentData.profile_video) {
+            if(AppointmentData.profile_video == undefined) {
                 popups.showAlert('Cleanosaur has not uploaded any video!')
                 return
             }
-            $ionicModal.fromTemplateUrl('views/dialog/video_player.html', {
+
+            $ionicModal.fromTemplateUrl('views/custom_dialog/video_player.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function (modal) {

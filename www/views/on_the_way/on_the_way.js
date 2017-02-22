@@ -2,15 +2,13 @@
  * Created by admin on 1/20/2017.
  */
 angular.module('starter')
-    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData, AppointmentData,services,
-                                          OnWayService, $ionicPopup, $location, $rootScope, popups, $ionicHistory, $interval) {
-
+    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData, AppointmentData, services,
+                                          OnWayService, $ionicPopup, $location, $rootScope, popups, $ionicHistory, $interval,ChatMessages) {
             var markerA = new google.maps.MarkerImage('img/mapcar-icon.png',
                 new google.maps.Size(40, 40));
             var markerB = new google.maps.MarkerImage('img/map-marker.png',
                 new google.maps.Size(40, 40));
-
-        console.log('on the way' + $stateParams.appointment_id)
+            console.log('on the way' + $stateParams.appointment_id)
             $scope.cancelRequestData = {
                 app_appointment_id: $stateParams.appointment_id,
                 cancel_status: undefined,
@@ -26,7 +24,13 @@ angular.module('starter')
                 });
             };
             $scope.openChat = function () {
-                $location.url('chat_room/' + $stateParams.appointment_id);
+                ChatMessages.messages = []
+                services.getChatHistory($stateParams.appointment_id, function (response) {
+                    if (response.response_status == '1') {
+                        ChatMessages.pushChatHistory(response.response_data.chat)
+                    }
+                    $location.url('chat_room/' + $stateParams.appointment_id)
+                })
             }
             AppointmentService.getAppointmentDetails($stateParams.appointment_id, function (appointmentData) {
                 $scope.profileImage = CONSTANTS.MECH_PROFILE_IMAGE_URL + appointmentData.cleaner_pic;
@@ -37,6 +41,15 @@ angular.module('starter')
                 //make appointment data availabe to the on the way screen
                 //AppointmentData.appointment = customerData;*/
                 onChangeHandler();
+                OnWayService.getDistanceMatrix(new google.maps.LatLng(LocationData.latitude, LocationData.longitude),
+                    new google.maps.LatLng($scope.cleanerData.customer_latitude, $scope.cleanerData.customer_longitude),
+                    function (response) {
+                        if (response != undefined) {
+                            //distansc is
+                            $scope.distance = response.rows[0].elements[0].distance.value;
+                            $scope.duration = response.rows[0].elements[0].duration.value;
+                        }
+                    })
             });
             //show map
             var mapOptions = {
@@ -46,7 +59,6 @@ angular.module('starter')
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             $scope.on_way_map = new google.maps.Map(document.getElementById("on_way_map"), mapOptions);
-
             var pinA = new google.maps.Marker({
                 //position: _route.start_location,
                 map: $scope.on_way_map,
@@ -57,7 +69,6 @@ angular.module('starter')
                 map: $scope.on_way_map,
                 icon: markerB
             });
-
             //draw path on the map
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -77,7 +88,7 @@ angular.module('starter')
             var markerB = new google.maps.MarkerImage('img/map-marker.png',
                 new google.maps.Size(40, 40));
 
-            function calculateAndDisplayRoute(directionsService, directionsDisplay,LatLng) {
+            function calculateAndDisplayRoute(directionsService, directionsDisplay, LatLng) {
                 directionsService.route({
                     origin: new google.maps.LatLng(LatLng.myLatitude, LatLng.myLongitude),
                     destination: new google.maps.LatLng($scope.cleanerData.customer_latitude, $scope.cleanerData.customer_longitude),
@@ -121,7 +132,7 @@ angular.module('starter')
                 if ($scope.cancelRequestData.cancel_status == undefined) {
                     $scope.showAlert('Please choose reason!')
                     return
-                } else if (String($scope.cancelRequestData.cancel_status) == '6' && ($scope.cancelRequestData.explain_reason == undefined || $scope.cancelRequestData.explain_reason == '')) {
+                } else if (($scope.cancelRequestData.explain_reason == undefined || $scope.cancelRequestData.explain_reason == '')) {
                     $scope.showAlert('Please explain reason!')
                     return
                 } else {
@@ -136,8 +147,6 @@ angular.module('starter')
                     })
                 }
             }
-
-
             var Timer = null;
             //Timer start function.
             function StartTimer() {
@@ -145,38 +154,40 @@ angular.module('starter')
                 Timer = $interval(function () {
                     //Display the current time.
                     services.getCleanerLocation({
-                        app_appointment_id:$stateParams.appointment_id,
-                        status:'5'
-                    },function (response) {
-
-                        if(response.response_status == '1') {
+                        app_appointment_id: $stateParams.appointment_id,
+                        status: '5'
+                    }, function (response) {
+                        if (response.response_status == '1') {
                             calculateAndDisplayRoute(directionsService, directionsDisplay, {
                                 myLatitude: response.response_data.appointment.cleaner_latitude,
                                 myLongitude: response.response_data.appointment.cleaner_latitude
                             });
-
                         }
                     })
                 }, 5 * 60 * 1000);
             };
-
             //Timer stop function.
             function StopTimer() {
                 //Cancel the Timer.
-               if(Timer != undefined){
+                if (Timer != undefined) {
                     $interval.cancel(Timer);
                 }
             };
-
-            $scope.$on("$ionicView.beforeLeave", function(event, data){
+            $scope.$on("$ionicView.beforeLeave", function (event, data) {
                 console.log("leavidcdng view")
                 StopTimer();
-
             });
-
             StartTimer();
-
-    }
+            $scope.showAppointment = function () {
+                $scope.appoimentPopup = $ionicPopup.show({
+                    templateUrl: 'views/custom_dialog/appointment_popup.html',
+                    scope: $scope,
+                });
+            }
+            $scope.hideAppointmentPopup = function () {
+                $scope.appoimentPopup.close()
+            }
+        }
     ).service('OnWayService', function ($ionicLoading, $http, CONSTANTS) {
     this.cancelRequest = function (cancelData, callback) {
         console.log(JSON.stringify(cancelData))
@@ -213,6 +224,25 @@ angular.module('starter')
             })
             .error(function (err) {
                 $ionicLoading.hide();
+            });
+    }
+    this.getDistanceMatrix = function (origin, destination, callback) {
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+            {
+                origins: [origin],
+                destinations: [destination],
+                travelMode: 'DRIVING',
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status !== 'OK') {
+                    alert('Error was: ' + status);
+                } else {
+                    //console.log(response.rows)
+                    callback(response)
+                }
             });
     }
 })

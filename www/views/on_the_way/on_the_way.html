@@ -8,14 +8,13 @@
     <ion-content ng-controller="OnTheWayCtrl">
         <div class="on_way">
             <!--<img src="img/cleansour_on_the_way_map.jpg"  alt="">-->
-            <div id="on_way_map" data-tap-disabled="true" style="height:60vh"></div>
+            <div id="on_way_map" data-tap-disabled="true" style="height:52vh"></div>
 
             <aside class="on_way_add_sec">
-                <p> <span class="btns gray_btn popup_rwr_btn"> {{requestId}} </span> </p>
-                <div class="map_sec_field" ng-hide="true">
-                    <input placeholder="75 Bennett, NY" required="required" type="text">
+                <div class="map_sec_field">
+                    <input placeholder="Address" disabled required="required" type="text" ng-model="cleanerData.customer_address">
                     <img src="img/address.png" alt="" class="left-txt-icons">
-                    <img src="img/map-point-con.png" alt="" class="right-txt-icons">
+                    <img ng-hide="true" src="img/map-point-con.png" alt="" class="right-txt-icons">
                 </div>
 
             </aside>
@@ -28,16 +27,25 @@
 
             </aside>
             <aside class="ratings">
-                <span> <i class="fa fa-star" aria-hidden="true"></i> </span>
-                <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                <span> <i class="fa fa-star" aria-hidden="true"></i></span>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
+                 <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
+                 <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
 
             </aside>
+            <div class="full">
+                <div class="miles">  <span class="btns gray_btn"> {{distance | miles}} </span>  </div>
+                <div class="milesid" ng-click="showAppointment()">
+                    <p style="text-align: center"> <span class="btns gray_btn ">{{requestId}} </span> </p>
+                </div>
+                <div class="miles_right"> <span class="btns gray_btn width-98"> {{duration | timeFilter}} </span> </div>
+
+            </div>
+
             <aside class="btn_set"> <div class="half" ng-click="CallNumber()"> <span class="btns bdr_btn"> <i class="fa fa-phone" aria-hidden="true"></i>  Call </span> </div>
                 <div class="half fr" ui-sref="chat_room" ng-click="openChat()"> <span class="btns bdr_btn">  <i class="fa fa-commenting-o" aria-hidden="true"></i>  Chat </span> </div>  </aside>
-            <div class="full" ng-click="showCancelRequestPopup()" ng-hide="mechOnWayViewTitle == 'Cleanosaur has arrived'"> <span class="btns pink_btn"> Cancel Request </span> </div>
+            <div class="full" ng-click="showCancelRequestPopup()"> <span class="btns pink_btn"> Cancel Request </span> </div>
         </div>
     </ion-content>
 </ion-view>

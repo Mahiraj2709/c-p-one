@@ -123,6 +123,7 @@ input[type="text"],input[type="number"],input[type="password"],input[type="tel"]
 .profile_about{width:100%; float:left; border-bottom:1px solid #d8d8d8; border-top:1px solid #d8d8d8; text-align:left; }
 .photos_sec{width:100%; float:left;}
 .message_popup{ max-width:100%; margin:auto; position:absolute; top:0; right:0; bottom:0; left:0; background:#fff; height:200px;border-radius:4px 4px 0 0;}
+.appointment_popup{ max-width:100%; margin:auto; position:absolute; top:0; right:0; bottom:0; left:0; background:#fff; height:394px;border-radius:4px 4px 0 0;}
 .message_popup_head{ background:#ff2f92; height:45px; color:#fff; text-align:center; position:relative;border-radius:4px 4px 0 0; line-height:45px; font-size:18px; }
 .message_popup_head .cross_popup {color: #fff; font-size: 26px; position: absolute; right: 8px; top: 2px; cursor:pointer;}
 .message_pop_btn_set{ margin:25px auto; width:80%;}
@@ -254,6 +255,7 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .expi span strong {background: #e45858 none repeat scroll 0 0; border-radius: 50%; color: #fff; cursor: pointer; float: right; font-size: 11px; font-weight: 300; height: 22px; margin: 0 0 0 3px; text-align: center; width: 22px;}
 .big_ratings{ margin:10px 0 0 0; font-size: 25px;}
 .rating_line_sec {border-bottom: 1px solid #d8d8d8; border-top: 1px solid #d8d8d8; float: left;  width: 100%; margin:15px 0; padding:10px 0; }
+.rating_line_third {border-bottom: 1px solid #d8d8d8; float: left;  width: 100%; margin:15px 0; }
 .review_textarea{ height:initial;}
 .notifi-main {border-bottom: 1px solid #c8c8c8; display: table; margin:12px 0 0 0; padding-bottom:8px;}
 .notifi-main:nth-last-child(1){ border:0 none;}
@@ -385,3 +387,21 @@ input[type="date"]::-webkit-inner-spin-button {
     right: 0;
     top: 0;
 }
+
+.miles{ width:30%; float:left; margin-right:2%;}
+.milesid{ width: 36%; float:left;}
+.miles_right{ width: 30%; float: right;}
+.date-placeholder{opacity: 0.6;}
+.date_li{ position: relative;}
+.date_li .date-placeholder {
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    color: #2f2605;
+    font-weight: bold;
+    font-family: arial;
+    opacity: 0.3;
+}
+.map_field_sec{ width: 100%; float: left; height: 150px;}
+.map_field_sec #googlMap{float: left; height: 150px; width:100%;}
+aside.his-req-add { border-bottom: 1px solid #ccc; width: 100%;}

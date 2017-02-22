@@ -9,6 +9,7 @@ angular.module('starter')
             console.log('Token saved:', t.token);
         });
         /*$timeout(function () {
+
          var loggedIn = localStorage.getItem('login');
          if (!loggedIn) {
          $location.url('/login');
@@ -16,7 +17,11 @@ angular.module('starter')
          $location.url('/home');
          }
          }, 000);
+
+
          */
+        //customer - ZjIzZDY5NGMzZGYxZWM0MTE1ZTAyOGEzZDhjZjQ0YzE
+        //cleaner - N2NhMTMwYmYyZGJkZjg4NzE2NWEyMjUzMTU5NTJlZmU
         LocationAlert.isLocationEnabled(function (enabled) {
             if (enabled) {
                 getLocation()
@@ -58,65 +63,59 @@ angular.module('starter')
         }
 
         $rootScope.$on('cloud:push:notification', function (event, data) {
-            var msg = data.message;
-            //$scope.showAlert(msg.title + ': ' + msg.text);
-            console.log(msg);
-            // When button is clicked, the popup will be shown...
-            if (msg.payload != undefined) {
-                var action = msg.payload.action
-                if (action != undefined) {
-                    switch (action) {
-                        case 1:
-                            //requst send by custoemr
-                            AppointmentData.app_appointment_id = msg.payload.app_appointment_id
-                            AppointmentData.profile_video = msg.payload.profile_video
-                            $rootScope.payload = msg.payload;
-                            $rootScope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
-                            //popups.requestAcceptedPopup($scope)
-                            $rootScope.requestAcceptedPopup = $ionicPopup.show({
+                var msg = data.message;
+                //$scope.showAlert(msg.title + ': ' + msg.text);
+                console.log(msg);
+                // When button is clicked, the popup will be shown...
+                if (msg.payload != undefined) {
+                    var action = msg.payload.action
+                    if (action != undefined) {
+                        switch (action) {
+                            case 1:
+                                //requst send by custoemr
+                                AppointmentData.app_appointment_id = msg.payload.app_appointment_id
+                                AppointmentData.profile_video = msg.payload.profile_video
+                                $rootScope.payload = msg.payload;
+                                $rootScope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
+                                //popups.requestAcceptedPopup($scope)
+                                $rootScope.requestAcceptedPopup = $ionicPopup.show({
                                     templateUrl: 'views/custom_dialog/request_accepted.html',
-                                scope: $rootScope,
-                            });
-                            break
-                        case 4:
-                            //cleaner has arrived
-                            popups.showAlert(msg.payload.message)
-                            if ($ionicHistory.currentView().stateName != 'on_the_way') {
-                                $location.url('on_the_way/' + msg.payload.app_appointment_id);
-                            }
-                            $rootScope.mechOnWayViewTitle = 'Cleanosaur has arrived'
-                            break
-                        case 5:
-                            //cleaner has completed his task
-                            popups.showAlert(msg.payload.message)
-                            $rootScope.reqeustCompetePayload = msg.payload;
-                            $location.url('rate_mech/' + msg.payload.app_appointment_id);
-                            break
-                        case 13:
-                            //chat message
-                            console.log($ionicHistory.currentView())
-                            if ($ionicHistory.currentView().stateName != 'chat_room') {
-                                //load all messages from the service
-                                services.getChatHistory(msg.payload.response_data.chat[0].app_appointment_id, function (response) {
-
-                                    console.log(JSON.stringify(msg))
-                                    console.log(JSON.stringify(response))
-
-                                    if (response.response_status == '1') {
-                                        ChatMessages.messages = []
-                                        for (var i = 0; i < response.response_data.chat.length; i++) {
-                                            ChatMessages.pushChat(response.response_data.chat[i])
+                                    scope: $rootScope,
+                                });
+                                break
+                            case 4:
+                                //cleaner has arrived
+                                popups.showAlert(msg.payload.message)
+                                if ($ionicHistory.currentView().stateName != 'on_the_way') {
+                                    $location.url('on_the_way/' + msg.payload.app_appointment_id);
+                                }
+                                $rootScope.mechOnWayViewTitle = 'Cleanosaur has arrived'
+                                break
+                            case 5:
+                                //cleaner has completed his task
+                                popups.showAlert(msg.payload.message)
+                                $rootScope.reqeustCompetePayload = msg.payload;
+                                $location.url('rate_mech/' + msg.payload.app_appointment_id);
+                                break
+                            case 13:
+                                //chat message
+                                console.log($ionicHistory.currentView())
+                                ChatMessages.messages = []
+                                if ($ionicHistory.currentView().stateName != 'chat_room') {
+                                    //load all messages from the service
+                                    services.getChatHistory(msg.payload.response_data.chat[0].app_appointment_id, function (response) {
+                                        if (response.response_status == '1') {
+                                            ChatMessages.pushChatHistory(response.response_data.chat)
                                         }
-                                    }
-                                    $location.url('chat_room/' + msg.payload.response_data.chat[0].app_appointment_id)
-                                })
-                            } else {
-                                ChatMessages.pushChat(msg.payload);
-                                //$location.url('chat_room/' + msg.payload.response_data.chat[0].app_appointment_id)
-                            }
-                            break
+                                        $location.url('chat_room/' + msg.payload.response_data.chat[0].app_appointment_id)
+                                    })
+                                } else {
+                                    ChatMessages.pushNotificationChat(msg.payload.response_data.chat[0]);
+                                    //$location.url('chat_room/' + msg.payload.response_data.chat[0].app_appointment_id)
+                                }
+                        }
                     }
                 }
             }
-        });
+        );
     });

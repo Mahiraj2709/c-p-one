@@ -1,4 +1,8 @@
 <ion-view title="Rate Your Mechanic">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
     <ion-content ng-controller="RateMechCtrl">
         <section class="bg-main">
             <div class="main">
@@ -13,8 +17,8 @@
                     <i ng-click="setRating(4)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=4}" aria-hidden="true"></i>
                     <i ng-click="setRating(5)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=5}" aria-hidden="true"></i>
                 </aside>
-              <aside class="on_way_add_sec">
-                <p> <span class="btns gray_btn popup_rwr_btn"> {{reqeustCompeteData.app_appointment_id}} </span> </p>
+              <aside class=".rating_line_third">
+                <p> <span class="btns gray_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
               </aside>
                 <aside class="rating_line_sec">
                     <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span></p>
