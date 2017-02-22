@@ -26,7 +26,7 @@ $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicVie
             //load the modal again we come from customer profile view
             if ($ionicHistory.viewHistory().forwardView.stateName == 'mech_profile') {
                 //show the modal agian
-                $rootScope.requestAcceptedPopup.show();
+
             }
         });
         $scope.user = {

@@ -20,7 +20,7 @@
                     </ul>
                 </aside>
 
-                <aside class="view_vdo_btn"> <span> Nice to meet you </span>  </aside>
+                <aside class="view_vdo_btn" ng-click="openVideoPlayer()"> <span> Nice to meet you </span>  </aside>
                 <aside class="profile_about">
                     <h3>About Him</h3>
                     <p>{{mechData.about_your_description}}</p>
@@ -47,7 +47,7 @@
                         <li ng-hide="true"> <strong> Average Clean Time - </strong>  1:35 Hrs  </li>
                     </ul>
                 </aside>
-                <aside class="btn_set"> <div class="full"> <span class="btns pink_btn">  RAWR!  </span> </div> </aside>
+                <aside class="btn_set" ng-click="launchMechOnWay()"> <div class="full"> <span class="btns pink_btn">  RAWR!  </span> </div> </aside>
             </div>
         </section>
 

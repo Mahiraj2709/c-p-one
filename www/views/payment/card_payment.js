@@ -2,7 +2,7 @@
  * Created by admin on 1/31/2017.
  */
 angular.module('starter')
-    .controller('PaymentCtrl', function ($scope, $ionicLoading, PaymentService, services,popups) {
+    .controller('PaymentCtrl', function ($scope, $ionicLoading, PaymentService, services,popups,CardData,$location) {
 
         services.customercards(function (respons) {
             if(respons.response_status == '1') {
@@ -109,7 +109,11 @@ angular.module('starter')
         $scope.getCardType = function (cardNumber) {
             console.log(PaymentService.GetCardType(cardNumber))
         }
-        $scope.editCard = function () {
+
+        $scope.editCard = function (card) {
+            CardData.card = card;
+
+            $location.url('/edit_card')
         }
         $scope.addCard = function () {
             generateToken();
@@ -117,6 +121,51 @@ angular.module('starter')
     })
     .controller('AddCardCtrl',function ($scope, $ionicLoading, PaymentService, services,popups) {
         
+    })
+    .controller('EditCardCtrl',function ($scope,CardData,services,PaymentService,$ionicViewService) {
+        $scope.card = CardData.card;
+
+        console.log(CardData.card)
+
+        $scope.cardDetail = {
+            nameOnCard: undefined,
+            cardNumber: undefined,
+            cvc: undefined,
+            exp_month: CardData.card.exp_month+'',
+            exp_year: CardData.card.exp_year+'',
+            card_id:CardData.card.id
+        }
+
+        $scope.dropDownData = {
+            dates: ["Day", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+            months: ["MM", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+            years: ["YYYY"],
+            info: "Date of birth is required"
+        };
+        var date = new Date();
+        for (var i = date.getYear(); i <= date.getYear() + 100; i++) {
+            $scope.dropDownData.years.push(1900 + i);
+        }
+
+        $scope.editCard = function () {
+            if (!PaymentService.validateCardDetails($scope.cardDetail)) return
+            services.editcarddetails($scope.cardDetail,function (response) {
+                if(response.response_status == '1') {
+                    $ionicViewService.getBackView().go();
+                }
+                popups.showAlert(response.response_msg)
+            })
+        }
+        $scope.removeCard = function () {
+//            if (!PaymentService.validateCardDetails($scope.cardDetail)) return
+            services.removecard($scope.cardDetail.card_id,function (response) {
+                if(response.response_status == '1') {
+                    $ionicViewService.getBackView().go();
+                }
+                popups.showAlert(response.response_msg)
+
+            })
+        }
     })
     .service('PaymentService', function ($ionicPopup) {
         // An alert dialog
@@ -231,4 +280,9 @@ angular.module('starter')
          : (/^6011|65|64[4-9]|622(1(2[6-9]|[3-9]\d)|[2-8]\d{2}|9([01]\d|2[0-5]))/.test(value)) ? 'discover'
          : undefined
          ctrl.$setValidity('invalid',!!scope.ccinfo.type)*/
+    })
+    .factory('CardData',function () {
+        return {
+            card : undefined
+        }
     });

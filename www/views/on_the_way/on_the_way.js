@@ -2,18 +2,22 @@
  * Created by admin on 1/20/2017.
  */
 angular.module('starter')
-    .controller('OnTheWayCtrl', function ($scope,AppointmentService, $stateParams, CONSTANTS, LocationData,AppointmentData,
-                                          OnWayService, $ionicPopup, $location,$rootScope,popups,$ionicHistory) {
+    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData, AppointmentData,services,
+                                          OnWayService, $ionicPopup, $location, $rootScope, popups, $ionicHistory, $interval) {
 
-            console.log('on the way' + $stateParams.appointment_id)
+            var markerA = new google.maps.MarkerImage('img/mapcar-icon.png',
+                new google.maps.Size(40, 40));
+            var markerB = new google.maps.MarkerImage('img/map-marker.png',
+                new google.maps.Size(40, 40));
+
+        console.log('on the way' + $stateParams.appointment_id)
             $scope.cancelRequestData = {
                 app_appointment_id: $stateParams.appointment_id,
                 cancel_status: undefined,
                 request_date: undefined,
                 explain_reason: undefined,
-                checkValue:undefined
+                checkValue: undefined
             }
-
             // An alert dialog
             $scope.showAlert = function (message) {
                 var alertPopup = $ionicPopup.alert({
@@ -25,7 +29,7 @@ angular.module('starter')
                 $location.url('chat_room/' + $stateParams.appointment_id);
             }
             AppointmentService.getAppointmentDetails($stateParams.appointment_id, function (appointmentData) {
-                $scope.profileImage = CONSTANTS.MECH_PROFILE_IMAGE_URL + appointmentData.cleaner_pic    ;
+                $scope.profileImage = CONSTANTS.MECH_PROFILE_IMAGE_URL + appointmentData.cleaner_pic;
                 $scope.cleanerData = appointmentData;
                 cleaner_id = appointmentData.cleaner_id;
                 $scope.requestId = "REQUEST ID-" + appointmentData.app_appointment_id;
@@ -42,6 +46,18 @@ angular.module('starter')
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             $scope.on_way_map = new google.maps.Map(document.getElementById("on_way_map"), mapOptions);
+
+            var pinA = new google.maps.Marker({
+                //position: _route.start_location,
+                map: $scope.on_way_map,
+                icon: markerA
+            });
+            var pinB = new google.maps.Marker({
+                //position: _route.end_location,
+                map: $scope.on_way_map,
+                icon: markerB
+            });
+
             //draw path on the map
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -49,7 +65,10 @@ angular.module('starter')
             });
             directionsDisplay.setMap($scope.on_way_map);
             var onChangeHandler = function () {
-                calculateAndDisplayRoute(directionsService, directionsDisplay);
+                calculateAndDisplayRoute(directionsService, directionsDisplay, {
+                    myLatitude: LocationData.latitude,
+                    myLongitude: LocationData.longitude
+                });
             };
             /*document.getElementById('start').addEventListener('change', onChangeHandler);
              document.getElementById('end').addEventListener('change', onChangeHandler);*/
@@ -58,27 +77,20 @@ angular.module('starter')
             var markerB = new google.maps.MarkerImage('img/map-marker.png',
                 new google.maps.Size(40, 40));
 
-            function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            function calculateAndDisplayRoute(directionsService, directionsDisplay,LatLng) {
                 directionsService.route({
-                    origin: new google.maps.LatLng(LocationData.latitude, LocationData.longitude),
+                    origin: new google.maps.LatLng(LatLng.myLatitude, LatLng.myLongitude),
                     destination: new google.maps.LatLng($scope.cleanerData.customer_latitude, $scope.cleanerData.customer_longitude),
                     travelMode: 'DRIVING'
                 }, function (response, status) {
                     if (status === 'OK') {
                         directionsDisplay.setDirections(response);
                         var _route = response.routes[0].legs[0];
-                        pinA = new google.maps.Marker({
-                            position: _route.start_location,
-                            map: $scope.on_way_map,
-                            icon: markerA
-                        });
-                        pinB = new google.maps.Marker({
-                            position: _route.end_location,
-                            map: $scope.on_way_map,
-                            icon: markerB
-                        });
+                        pinA.setPosition(_route.start_location)
+                        //markers[0].icon = markerA
+                        pinB.setPosition(_route.end_location)
                     } else {
-                        window.alert('Directions request failed due to ' + status);
+                        //window.alert('Directions request failed due to ' + status);
                     }
                 });
             }
@@ -109,23 +121,62 @@ angular.module('starter')
                 if ($scope.cancelRequestData.cancel_status == undefined) {
                     $scope.showAlert('Please choose reason!')
                     return
-                } else if ($scope.cancelRequestData.explain_reason == undefined || $scope.cancelRequestData.explain_reason == '') {
+                } else if (String($scope.cancelRequestData.cancel_status) == '6' && ($scope.cancelRequestData.explain_reason == undefined || $scope.cancelRequestData.explain_reason == '')) {
                     $scope.showAlert('Please explain reason!')
                     return
                 } else {
                     OnWayService.cancelRequest($scope.cancelRequestData, function (response) {
                         $scope.myPopup.close();
                         $scope.showAlert(response.response_msg)
-                        if(response.response_status == '1') {
-
-                            $ionicHistory.clearCache().then(function(){
+                        if (response.response_status == '1') {
+                            $ionicHistory.clearCache().then(function () {
                                 $location.url('/home');
                             });
                         }
                     })
                 }
             }
-        }
+
+
+            var Timer = null;
+            //Timer start function.
+            function StartTimer() {
+                //Initialize the Timer to run every 1000 milliseconds i.e. one second.
+                Timer = $interval(function () {
+                    //Display the current time.
+                    services.getCleanerLocation({
+                        app_appointment_id:$stateParams.appointment_id,
+                        status:'5'
+                    },function (response) {
+
+                        if(response.response_status == '1') {
+                            calculateAndDisplayRoute(directionsService, directionsDisplay, {
+                                myLatitude: response.response_data.appointment.cleaner_latitude,
+                                myLongitude: response.response_data.appointment.cleaner_latitude
+                            });
+
+                        }
+                    })
+                }, 5 * 60 * 1000);
+            };
+
+            //Timer stop function.
+            function StopTimer() {
+                //Cancel the Timer.
+               if(Timer != undefined){
+                    $interval.cancel(Timer);
+                }
+            };
+
+            $scope.$on("$ionicView.beforeLeave", function(event, data){
+                console.log("leavidcdng view")
+                StopTimer();
+
+            });
+
+            StartTimer();
+
+    }
     ).service('OnWayService', function ($ionicLoading, $http, CONSTANTS) {
     this.cancelRequest = function (cancelData, callback) {
         console.log(JSON.stringify(cancelData))

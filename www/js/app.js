@@ -215,7 +215,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
             .state('edit_card', {
                 url: '/edit_card',
                 templateUrl: 'views/payment/edit_card.html',
-                controller: 'PaymentCtrl'
+                controller: 'EditCardCtrl'
             })
             //add new card
             .state('add_card', {

@@ -128,6 +128,7 @@ input[type="text"],input[type="number"],input[type="password"],input[type="tel"]
 .message_pop_btn_set{ margin:25px auto; width:80%;}
 .popup_btns_sec{ margin:12px 0;}
 .popup_btns_sec .btns{ border-radius:4px;}
+.hgt_large{ height: 230px;}
 .left-nav-main {background: #000 none repeat scroll 0 0; height: 100%; left: 0; overflow: auto; position: absolute; top: 0; width: 272px; z-index: 999; color:#fff; }
 .left-nav-main .figure-container {background: #262626 none repeat scroll 0 0; min-height: 164px; padding: 30px 0; width: 100%; }
 .left-nav-main .profile-pic {background: #fff none repeat scroll 0 0; border-radius: 50%; height: 58px; margin: 0 auto 7px; width: 58px; }
@@ -367,3 +368,20 @@ input[type="date"]::-webkit-inner-spin-button {
     display: none;
 }
 
+.centerme {
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+}
+
+.fullscreen-player {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+}

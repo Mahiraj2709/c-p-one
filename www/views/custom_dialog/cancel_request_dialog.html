@@ -9,7 +9,7 @@
                 <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="4"> Customer Requests to cancel. </li>
                 <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="5"> Changed Mind. </li>
                 <li> <input type="radio" name="can_req_opt" ng-model="cancelRequestData.cancel_status" ng-value="6"> Other Reason. </li>
-                <li><textarea rows="3" placeholder="Explain Reason" ng-model="cancelRequestData.explain_reason"></textarea></li>
+                <li><textarea rows="3" placeholder="Explain Reason" ng-model="cancelRequestData.explain_reason" ng-hide="cancelRequestData.cancel_status != 6"></textarea></li>
             </ul>
         </form>
     </div>

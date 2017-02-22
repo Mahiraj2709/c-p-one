@@ -2,11 +2,17 @@
  * Created by maahi on 11/02/17.
  */
 angular.module('starter')
-    .controller('ReqAcptCtrl', function ($scope, CONSTANTS, $location, $ionicModal, $sce, $ionicPopup, ReqeustAcceptedFactory, $rootScope) {
+    .controller('ReqAcptCtrl', function ($scope, CONSTANTS, $location, $ionicModal, $sce, popups,$ionicPopup,AppointmentData,
+                                         ReqeustAcceptedFactory, $rootScope) {
         $scope.requestAccepted = true;
-        //video player modal
-        $scope.videoLink = $sce.trustAsResourceUrl('http://airshareapp.onsisdev.info/public/media/video/1484900352.mp4');
+        $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
         $scope.openVideoPlayer = function () {
+            //video player modal
+
+            if(AppointmentData.profile_video == undefined || AppointmentData.profile_video) {
+                popups.showAlert('Cleanosaur has not uploaded any video!')
+                return
+            }
             $ionicModal.fromTemplateUrl('views/dialog/video_player.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
@@ -16,7 +22,8 @@ angular.module('starter')
             });
         };
         $scope.closeVideoPlayer = function () {
-            $scope.modal.hide();
+
+            $scope.modal.remove();
         }
         $scope.viewMechProfile = function () {
             console.log('sjdfl')

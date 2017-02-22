@@ -51,7 +51,12 @@ angular.module('starter')
 //                    showAlert(er
                 });
         }
+        function validAppointmentDate(date) {
+            var currentDate = new Date();
+            var appointmentDate = new Date(date);
 
+            return appointmentDate >= currentDate
+        }
         this.sendRequest = function (requestData) {
 
             console.log(requestData);
@@ -66,7 +71,10 @@ angular.module('starter')
             } */
             else if (!requestData.appointment_time) {
                 showAlert("Please select time!");
-            }else if (!requestData.confirm_price) {
+            }else if(!validAppointmentDate(requestData.appointment_date)){
+                showAlert("Appointment date can't be past date!");
+            }
+            else if (!requestData.confirm_price) {
                 showAlert("Please enter price!");
             }else if (isNaN(requestData.confirm_price)) {
                 showAlert("Please enter valid price!");

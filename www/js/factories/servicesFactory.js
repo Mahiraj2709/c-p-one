@@ -249,6 +249,104 @@ angular.module('starter')
                     $ionicLoading.hide()
                 });
         }
+        function editcarddetails(cardDetail,responseCallback) {
+            $ionicLoading.show({
+                template: 'Updating card...'
+            });
+            var formdata = new FormData();
+            formdata.append('device_type', CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append('language', "en");
+            formdata.append('exp_year', cardDetail.exp_year);
+            formdata.append('exp_month', cardDetail.exp_month);
+            formdata.append('card_id', cardDetail.card_id);
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'editcarddetails',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (res) {
+                    console.log(res)
+                    $ionicLoading.hide()
+                    responseCallback(res)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide()
+                });
+        }
+        function removecard(cardId,responseCallback) {
+            $ionicLoading.show({
+                template: 'Removing card...'
+            });
+            var formdata = new FormData();
+            formdata.append('device_type', CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append('language', "en");
+            formdata.append('stripe_card_id', cardId);
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'removecard',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (res) {
+                    console.log(res)
+                    $ionicLoading.hide()
+                    responseCallback(res)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide()
+                });
+        }
+
+
+        function getCleanerLocation(appointmentDetail,responseCallback) {
+
+            var formdata = new FormData();
+            formdata.append('device_type', CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append('language', "en");
+            formdata.append('app_appointment_id', appointmentDetail.app_appointment_id);
+            formdata.append('status', appointmentDetail.status);
+
+
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'getcleanerontheway',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+
+            // SEND THE FILES.
+            $http(request)
+                .success(function (res) {
+                    console.log(res)
+                    responseCallback(res)
+                })
+                .error(function (err) {
+                });
+        }
+
 
         return {
             logout: logout,
@@ -258,6 +356,9 @@ angular.module('starter')
             staticContent: staticContent,
             getProfileVideo: getProfileVideo,
             addcardToStripe:addcardToStripe,
-            customercards: customercards
+            customercards: customercards,
+            editcarddetails:editcarddetails,
+            removecard:removecard,
+            getCleanerLocation:getCleanerLocation
         }
     });

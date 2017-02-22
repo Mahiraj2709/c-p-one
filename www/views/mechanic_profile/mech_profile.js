@@ -3,7 +3,7 @@
  */
 
 angular.module('starter')
-    .controller('MechProfileCtrl', function ($scope, $stateParams, MechanicData,CONSTANTS) {
+    .controller('MechProfileCtrl', function ($scope, $rootScope, $ionicPopup, $location, $ionicHistory, $stateParams, MechanicData, CONSTANTS, $ionicModal, popups, AppointmentData, $sce) {
         console.log($stateParams.cleaner_id);
         $scope.getCustomerData = function () {
             MechanicData.getMechanicProfile($stateParams.cleaner_id, function (mechData) {
@@ -15,5 +15,33 @@ angular.module('starter')
                     $scope.profileImages.push(CONSTANTS.MECH_PROFILE_IMAGE_URL + mechData.cleaner_album_profile_pic[i].profile_pic);
                 }
             });
+        }
+        $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
+        $scope.openVideoPlayer = function () {
+            //video player modal
+            if (AppointmentData.profile_video == undefined || AppointmentData.profile_video) {
+                popups.showAlert('Cleanosaur has not uploaded any video!')
+                return
+            }
+            $ionicModal.fromTemplateUrl('views/dialog/video_player.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function (modal) {
+                $scope.modal = modal;
+                $scope.modal.show();
+            });
+        };
+        $scope.closeVideoPlayer = function () {
+            $scope.modal.hide();
+        }
+        $scope.launchMechOnWay = function () {
+
+            $rootScope.mechOnWayViewTitle = 'Cleanosaur on the way'
+            $ionicHistory.clearCache().then(function () {
+                $location.url('on_the_way/' + $rootScope.payload.app_appointment_id);
+                $rootScope.payload = undefined;
+                $rootScope.cleaner_profile_pic = undefined;
+            })
+
         }
     });

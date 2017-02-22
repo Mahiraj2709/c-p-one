@@ -1,10 +1,9 @@
 <ion-view title="Rate Your Mechanic">
     <ion-content ng-controller="RateMechCtrl">
-      n
         <section class="bg-main">
             <div class="main">
                 <aside class="figure-container">
-                    <figure class="profile-pic"> <img alt="" src="img/user-photo.png" ng-src="{{profileImage}}" width="50" height="50"> </figure>
+                    <figure class="profile-pic"> <img alt="" src="img/user-photo.png" ng-src="{{rate_mechProfile}}" width="50" height="50"> </figure>
                     <figcaption class="user-detail">  How was your service ? </figcaption>
                 </aside>
                 <aside class="ratings_mech big_ratings">
@@ -15,10 +14,10 @@
                     <i ng-click="setRating(5)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=5}" aria-hidden="true"></i>
                 </aside>
               <aside class="on_way_add_sec">
-                <p> <span class="btns gray_btn popup_rwr_btn"> {{requestId}} </span> </p>
+                <p> <span class="btns gray_btn popup_rwr_btn"> {{reqeustCompeteData.app_appointment_id}} </span> </p>
               </aside>
                 <aside class="rating_line_sec">
-                    <p><strong>Clean front home</strong> - <span>{{23 | currency}}</span></p>
+                    <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span></p>
                     <p><strong>Clean Time</strong> - <span>1:21 Hrs</span></p>
                 </aside>
                 <p> <strong>Write Review</strong> </p>

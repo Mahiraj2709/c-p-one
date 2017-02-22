@@ -2,7 +2,7 @@
  * Created by admin on 1/4/2017.
  */
 angular.module('starter')
-    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup,$stateParams,
+    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams,
                                      GooglePlacesService, SendRequest, $cordovaGeolocation) {
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
@@ -56,18 +56,28 @@ angular.module('starter')
             $scope.clean_style = responseData.clean_style;
         }
 
-      /*  $scope.reloadData = function (property_id) {
-            console.log(property_id)
-            //reload data
-            SendRequest.getPropertyType(property_id, getDataCallback);
-        }*/
+        /*  $scope.reloadData = function (property_id) {
+         console.log(property_id)
+         //reload data
+         SendRequest.getPropertyType(property_id, getDataCallback);
+         }*/
+
+        $scope.currentTime = new Date().toString('yyyy-MM-dd');
+
         $scope.sendRequest = function () {
             if ($scope.date != undefined) {
-                $scope.requestDetail.appointment_date = $scope.date.toISOString().slice(0, 19).replace('T', ' ').split(' ')[0];
-                $scope.requestDetail.appointment_timezone = "Asia/Calcutta";
+                $scope.requestDetail.appointment_date = $scope.date.toString('yyyy-MM-dd');
+                $scope.requestDetail.appointment_timezone = "UTC";
             }
-            if ($scope.time != undefined)
+            if ($scope.time != undefined) {
                 $scope.requestDetail.appointment_time = $scope.time.toISOString().slice(0, 19).replace('T', ' ').split(' ')[1];
+                $scope.requestDetail.appointment_date = $scope.requestDetail.appointment_date + " "+String($scope.time).split(' ')[4]
+            }
+//            console.log($scope.requestDetail.appointment_date)
+//            console.log($scope.requestDetail.appointment_time)
+            //console.log($scope.date)
+//            console.log($scope.time)
+
             SendRequest.sendRequest($scope.requestDetail);
         }
         $scope.getPlacePredictions = function (query) {
