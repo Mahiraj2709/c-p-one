@@ -145,6 +145,13 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 templateUrl: 'views/forgot_password/forgot_password.html',
                 controller: 'ForgotPasswordCtrl'
             })
+
+            .state('reset_password', {
+                url: '/reset_password',
+                templateUrl: 'views/reset_password/reset_password.html',
+                controller:'ResetPasswordCtrl'
+            })
+
             //home router
             .state('home', {
                 url: '/home',
@@ -239,9 +246,9 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
 
             //service history details
             .state('history_detail', {
-                url: '/history_detail',
+                url: '/history_detail/:app_appointment_id',
                 templateUrl: 'views/service_history/service_history_detail.html',
-                //controller: 'HistoryCtrl'
+                controller: 'HistoryDetailCtrl'
             })
 
             //service history details

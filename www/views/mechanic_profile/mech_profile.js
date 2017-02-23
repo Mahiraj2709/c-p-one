@@ -3,8 +3,15 @@
  */
 
 angular.module('starter')
-    .controller('MechProfileCtrl', function ($scope, $rootScope, $ionicPopup, $location, $ionicHistory, $stateParams, MechanicData, CONSTANTS, $ionicModal, popups, AppointmentData, $sce) {
+    .controller('MechProfileCtrl', function ($scope, $rootScope, $ionicPopup, $location, $ionicHistory, $stateParams, MechanicData, CONSTANTS, $ionicModal, popups, AppointmentData, $sce,services) {
         console.log($stateParams.cleaner_id);
+
+        services.getCleanerFeedback($stateParams.cleaner_id,function (response) {
+            if(response.response_status == '1') {
+                $scope.cleanerFeedback = response.response_data.rating;
+            }
+        })
+
         $scope.getCustomerData = function () {
             MechanicData.getMechanicProfile($stateParams.cleaner_id, function (mechData) {
                 $scope.mechData = mechData;

@@ -64,6 +64,7 @@
   <script src="views/home/home.js"></script>
   <script src="views/home/HomeServices.js"></script>
   <script src="views/my_profile/profile.js"></script>
+  <script src="views/reset_password/reset_password.js"></script>
   <script src="views/my_profile/ProfileServices.js"></script>
   <script src="views/history/history.js"></script>
   <script src="views/about/about.js"></script>
@@ -88,6 +89,7 @@
   <script src="views/rate_mechanic/rate_your_mech.js"></script> <!--rate your mech ctrl-->
   <script src="views/payment/card_payment.js"></script> <!--payment ctrl-->
   <script src="views/service_history/service_history.js"></script>
+  <script src="views/service_history/hsitoryDetailCtrl.js"></script>
 
   <script src="views/pending_appointment/pending_appointment.js"></script> <!--payment ctrl-->
 
@@ -125,12 +127,11 @@
       <section class="figure-container">
         <figure class="profile-pic"><img ng-src="{{profile_pic}}" alt="" width="50" height="65"></figure>
         <aside class="ratings">
-          <span> <i class="fa fa-star" aria-hidden="true"></i> </span>
-          <span><i class="fa fa-star" aria-hidden="true"></i></span>
-          <span> <i class="fa fa-star" aria-hidden="true"></i></span>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-
+          <i class="fa fa-star" ng-class="{'ratingYellow':feedback.avg_rating >=1}" aria-hidden="true"></i>
+          <i class="fa fa-star" ng-class="{'ratingYellow':feedback.avg_rating >=2}" aria-hidden="true"></i>
+          <i class="fa fa-star" ng-class="{'ratingYellow':feedback.avg_rating >=3}" aria-hidden="true"></i>
+          <i class="fa fa-star" ng-class="{'ratingYellow':feedback.avg_rating >=4}" aria-hidden="true"></i>
+          <i class="fa fa-star" ng-class="{'ratingYellow':feedback.avg_rating >=5}" aria-hidden="true"></i>
         </aside>
         <figcaption class="user-detail"> {{userDetail.first_name}} {{userDetail.last_name}}</figcaption>
       </section>
@@ -147,6 +148,13 @@
               <img src="img/left-nav-profile.png" width="32" height="37" alt=""> <span> Profile </span>
             </a>
           </li>
+
+          <li menu-close>
+            <a ui-sref="reset_password">
+              <img src="img/password.png" width="32" height="37" alt=""> <span> Reset Password </span>
+            </a>
+          </li>
+
           <li>
             <a ui-sref="payment" ng-click="closeSideMenu()"> <img src="img/left-nav-payment.png" width="32" height="28"
                                                                   alt=""> <span> Payment </span>

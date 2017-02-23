@@ -32,6 +32,7 @@ angular.module('starter')
                 popups.showAlert('Please review your mechanic!')
                 return
             } else {
+                console.log($scope.rateObj)
                 services.rateMechanic($scope.rateObj, function (response) {
                     popups.showAlert(response.response_msg)
                     if (response.response_status == "1") {

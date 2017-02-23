@@ -4,7 +4,16 @@
 angular.module('starter')
     .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData, AppointmentData, services,
                                           OnWayService, $ionicPopup, $location, $rootScope, popups, $ionicHistory, $interval,ChatMessages) {
-            var markerA = new google.maps.MarkerImage('img/mapcar-icon.png',
+
+        function getCleanerRating(cleanerId) {
+            services.getCleanerFeedback($stateParams.cleaner_id,function (response) {
+                if(response.response_status == '1') {
+                    $scope.cleanerFeedback = response.response_data.rating;
+                }
+            })
+        }
+
+        var markerA = new google.maps.MarkerImage('img/mapcar-icon.png',
                 new google.maps.Size(40, 40));
             var markerB = new google.maps.MarkerImage('img/map-marker.png',
                 new google.maps.Size(40, 40));
@@ -35,7 +44,7 @@ angular.module('starter')
             AppointmentService.getAppointmentDetails($stateParams.appointment_id, function (appointmentData) {
                 $scope.profileImage = CONSTANTS.MECH_PROFILE_IMAGE_URL + appointmentData.cleaner_pic;
                 $scope.cleanerData = appointmentData;
-                cleaner_id = appointmentData.cleaner_id;
+                cleaner_id = appointmentData.cleaner_id; getCleanerRating(cleaner_id)
                 $scope.requestId = "REQUEST ID-" + appointmentData.app_appointment_id;
                 $scope.cancelRequestData.request_date = appointmentData.appointment_date
                 //make appointment data availabe to the on the way screen
@@ -147,11 +156,11 @@ angular.module('starter')
                     })
                 }
             }
-            var Timer = null;
+
             //Timer start function.
             function StartTimer() {
                 //Initialize the Timer to run every 1000 milliseconds i.e. one second.
-                Timer = $interval(function () {
+                $scope.Timer = $interval(function () {
                     //Display the current time.
                     services.getCleanerLocation({
                         app_appointment_id: $stateParams.appointment_id,
@@ -166,17 +175,14 @@ angular.module('starter')
                     })
                 }, 5 * 60 * 1000);
             };
-            //Timer stop function.
-            function StopTimer() {
-                //Cancel the Timer.
-                if (Timer != undefined) {
-                    $interval.cancel(Timer);
-                }
-            };
+
             $scope.$on("$ionicView.beforeLeave", function (event, data) {
                 console.log("leavidcdng view")
-                StopTimer();
+                if ($scope.Timer != undefined) {
+                    $interval.cancel($scope.Timer);
+                }
             });
+
             StartTimer();
             $scope.showAppointment = function () {
                 $scope.appoimentPopup = $ionicPopup.show({

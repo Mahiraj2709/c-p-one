@@ -4,6 +4,13 @@ angular.module('starter')
                                          $location, $timeout, $cordovaCamera, $cordovaGeolocation,
                                          CONSTANTS, UploadImageService, LoadImagesService,
                                          videoFactory, services, $sce, $ionicModal) {
+
+        services.getRating(function (response) {
+            if(response.response_status == '1') {
+                $rootScope.feedback = response.response_data.rating;
+            }
+        })
+
         var imgPosition = -1;
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation

@@ -5,7 +5,7 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
     </ion-nav-buttons>
-    <ion-content ng-controller="OnTheWayCtrl">
+    <ion-content>
         <div class="on_way">
             <!--<img src="img/cleansour_on_the_way_map.jpg"  alt="">-->
             <div id="on_way_map" data-tap-disabled="true" style="height:52vh"></div>
@@ -27,11 +27,11 @@
 
             </aside>
             <aside class="ratings">
-                 <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
-                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
-                 <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
-                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
-                <i class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=1}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=2}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=3}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=4}" aria-hidden="true"></i>
+                <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=5}" aria-hidden="true"></i>
 
             </aside>
             <div class="full">

@@ -103,7 +103,6 @@ input[type="text"],input[type="number"],input[type="password"],input[type="tel"]
 .ratings{width:100%; float:left; text-align:center; line-height:15px;}
 .ratings_mech{width:100%; float:left; text-align:center; line-height:15px;}
 .ratings span i{ color:#fabb0c;}
-.ratings i{ color:#ebebeb;}
 .ratingYellow {color:#fabb0c}
 .ratingBrown {color:#ebebeb}
 .view_profile{width:100%; float:left; text-align:center; margin:6px 0;}
@@ -228,7 +227,7 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .history_left{ float:left; width:70%; text-align:left; font-size:14px;}
 .history_left span{ color:#ababab; font-size:12px; margin-right:8px;}
 .history_right{ float:right; width:28%; text-align:right;}
-.history_right span.price{color:#ff2f92; font-size:16px;}
+.history_right span.price{color:#ff2f92; font-size:16px;display: block;width: 100%;float:left;}
 .date_time label{ text-align: left;    width: 100%;  display: block;    font-weight: 600; margin: 8px 0;}
 .date_time li{ margin-bottom: 15px;}
 .his-request{ margin:20px 0 0 0;}
@@ -402,6 +401,9 @@ input[type="date"]::-webkit-inner-spin-button {
     font-family: arial;
     opacity: 0.3;
 }
+.map_field_sec{ width: 100%; float: left; height: 150px;}
+.map_field_sec #googlMap{float: left; height: 150px; width:100%;}
+aside.his-req-add { border-bottom: 1px solid #ccc; width: 100%;}
 .map_field_sec{ width: 100%; float: left; height: 150px;}
 .map_field_sec #googlMap{float: left; height: 150px; width:100%;}
 aside.his-req-add { border-bottom: 1px solid #ccc; width: 100%;}

@@ -27,7 +27,41 @@ angular.module('starter')
                     //$scope.showAlert(err);
                 });
         }
-
+        function resetPassword(passwdObj, responseCallback) {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            var formdata = new FormData()
+            formdata.append("device_type", CONSTANTS.deviceType());
+            formdata.append("session_token", window.localStorage.getItem("sess_tok"))
+            formdata.append("language", "en")
+            formdata.append("newpassword", passwdObj.newpassword)
+            formdata.append("oldpassword", passwdObj.oldpassword)
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'changepassword',
+                data: formdata,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (res) {
+                    $ionicLoading.hide()
+                    console.log(res);
+                    responseCallback(res)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide()
+                    console.log(err);
+                    //$scope.showAlert(err);
+                });
+        }
         function sendMessage(message, appointment_id) {
             var formdata = new FormData();
             formdata.append('device_type', CONSTANTS.deviceType());
@@ -249,6 +283,39 @@ angular.module('starter')
                     $ionicLoading.hide()
                 });
         }
+
+        function getHistoryDetail(appointment_id,responseCallback) {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            var formdata = new FormData();
+            formdata.append('device_type', CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append('appointment_id',appointment_id );
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'getappointmentdetail',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (res) {
+                    console.log(res)
+                    $ionicLoading.hide()
+                    responseCallback(res)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide()
+                });
+        }
+
+
         function editcarddetails(cardDetail,responseCallback) {
             $ionicLoading.show({
                 template: 'Updating card...'
@@ -347,9 +414,73 @@ angular.module('starter')
                 });
         }
 
+        function getRating(callback) {
+            /*$ionicLoading.show({
+             template: 'Loading...'
+             });*/
+            var formdata = new FormData();
+            formdata.append("device_type", CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append("language", "en");
+
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'feedbackappointment',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (d) {
+                    //$ionicLoading.hide();
+                    console.log(d)
+                    callback(d)
+                })
+                .error(function (err) {
+                    //$ionicLoading.hide();
+                });
+        }
+        function getCleanerFeedback(cleanerId,callback) {
+            /*$ionicLoading.show({
+             template: 'Loading...'
+             });*/
+            var formdata = new FormData();
+            formdata.append("device_type", CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append("language", "en");
+            formdata.append("view_cleaner_id", cleanerId);
+
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'feedbackappointmentcleaner',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (d) {
+                    //$ionicLoading.hide();
+                    console.log(d)
+                    callback(d)
+                })
+                .error(function (err) {
+                    //$ionicLoading.hide();
+                });
+        }
 
         return {
             logout: logout,
+            resetPassword:resetPassword,
             sendMessage: sendMessage,
             getChatHistory: getChatHistory,
             rateMechanic: rateMechanic,
@@ -359,6 +490,9 @@ angular.module('starter')
             customercards: customercards,
             editcarddetails:editcarddetails,
             removecard:removecard,
-            getCleanerLocation:getCleanerLocation
+            getHistoryDetail:getHistoryDetail,
+            getCleanerLocation:getCleanerLocation,
+            getRating:getRating,
+            getCleanerFeedback:getCleanerFeedback
         }
     });
