@@ -78,6 +78,8 @@ angular.module('starter')
                 showAlert("Please enter price!");
             }else if (isNaN(requestData.confirm_price)) {
                 showAlert("Please enter valid price!");
+            }else if (requestData.confirm_price <= 0) {
+                showAlert("Price can't be zero!");
             }else {
                 //call signup api
                 for (var key in requestData) {

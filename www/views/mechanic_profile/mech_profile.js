@@ -45,12 +45,27 @@ angular.module('starter')
         }
         $scope.launchMechOnWay = function () {
 
-            $rootScope.mechOnWayViewTitle = 'Cleanosaur on the way'
+            $ionicHistory.clearCache().then(function () {
+                $location.url('/home');
+            })
+            /*$rootScope.mechOnWayViewTitle = 'Cleanosaur on the way'
             $ionicHistory.clearCache().then(function () {
                 $location.url('on_the_way/' + $rootScope.payload.app_appointment_id);
                 $rootScope.payload = undefined;
                 $rootScope.cleaner_profile_pic = undefined;
-            })
-
+            })*/
         }
+
+        $scope.$on('$ionicView.enter',function (event,data) {
+            //hide the new request popup
+            $rootScope.requestAcceptedPopup.close()
+        })
+
+        $scope.$on('$ionicView.leave',function (event,data) {
+            //show the new reqeust popup
+            $rootScope.requestAcceptedPopup = $ionicPopup.show({
+                templateUrl: 'views/custom_dialog/request_accepted.html',
+                scope: $rootScope,
+            });
+        })
     });

@@ -8,7 +8,7 @@ angular.module('starter')
         $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
         $scope.openVideoPlayer = function () {
             //video player modal
-
+            $rootScope.requestAcceptedPopup.close()
             if(AppointmentData.profile_video == undefined) {
                 popups.showAlert('Cleanosaur has not uploaded any video!')
                 return
@@ -32,7 +32,7 @@ angular.module('starter')
             //close popup
             //$scope.closePopUp();
             //clear all the data associated this profile
-            $rootScope.requestAcceptedPopup.close();
+            //$rootScope.requestAcceptedPopup.close();
         }
         $scope.launchMechOnWay = function () {
             console.log('sjdfl')
