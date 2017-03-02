@@ -1,6 +1,6 @@
 angular.module('starter')
-    .controller('SignupCtrl', function ($scope, $rootScope, $ionicModal, $ionicPopup, GooglePlacesService, $cordovaCamera,$cordovaGeolocation,
-                                        $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicPush,
+    .controller('SignupCtrl', function ($scope, $rootScope, $ionicModal, $ionicPopup, GooglePlacesService, $cordovaCamera,$cordovaGeolocation,ImageFactory,
+$cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicPush,LocationData,services,$timeout,
                                         $ionicSideMenuDelegate, $location, CONSTANTS) {
 
         var posOptions = { timeout: 10000, enableHighAccuracy: false };
@@ -44,6 +44,24 @@ angular.module('starter')
             profile_pic: '',
             login_type: "0"
         };
+
+        $scope.socialLogin = {
+            email:undefined,
+            device_id:$ionicPush._token.id,
+            device_token:$ionicPush._token.token,
+            device_type:CONSTANTS.deviceType(),
+            first_name:undefined,
+            last_name:undefined,
+            login_type:undefined,
+            latitude:LocationData.latitude,
+            longitude:LocationData.longitude,
+            language:'en',
+            address:'no address',
+            quick_blox_id:'34',
+            reference_mode:undefined
+        }
+
+
         //Loading in 
         $scope.showLoading = function () {
             $ionicLoading.show({
@@ -141,13 +159,30 @@ angular.module('starter')
                         format: "json"
                     }
                 }).then(function (result) {
-                    $scope.showAlert(JSON.stringify(result.data));
-                    $scope.signupDetails.login_type = "1";
-                    var name = String(result.data.name).split(" ");
-                    $scope.signupDetails.first_name = name[0];
-                    $scope.signupDetails.last_name = name[1];
-                    $scope.imgURI = result.data.picture.data.url;
+                    //$scope.showAlert(JSON.stringify(result.data));
+
+                    ImageFactory.getBase64FromImageUrl(result.data.picture.data.url).then(function (imageData) {
+                        $timeout(function () {
+                            $scope.imgURI = imageData;
+                        },0)
+                        //console.log($scope.imgURI)
+                        //console.log(imageData)
+                    });
+
+                    $scope.signupDetails.login_type = '1';
+
                     $scope.signupDetails.email = result.data.email;
+
+                    var name = result.data.name.split(' ');
+                    $scope.signupDetails.first_name = name[0];
+                    if(name[1] != undefined) {
+                        $scope.signupDetails.last_name = name[1];
+                    }else {
+                        //$scope.signupDetails.last_name = 'na';
+                    }
+                    //$scope.signupDetails.reference_mode = 'na';
+
+
                     //$scope.profileData = ;
                 }, function (error) {
                     //alert("There was a problem getting your profile.  Check the logs for details.");

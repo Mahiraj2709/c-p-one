@@ -22,6 +22,8 @@ angular.module('starter')
                 created_dt: '',
                 time: d
             });
+            //$scope.$apply();
+            console.log($scope.messages)
             delete $scope.data.message;
             $ionicScrollDelegate.scrollBottom(true);
         };
@@ -41,6 +43,17 @@ angular.module('starter')
         $scope.data = {};
         $scope.myId = '12345';
         $scope.messages = ChatMessages.messages;
+        /*$scope.$on('cloud:push:notification', function (event, data) {
+            var msg = data.message;
+            if (msg.payload != undefined) {
+                var action = msg.payload.action
+                if (action != undefined) {
+                        if(action == 13) {
+                            $scope.$apply();
+                        }
+                }
+            }
+        })*/
     })
     .directive('input', function ($timeout) {
         return {
@@ -79,8 +92,7 @@ angular.module('starter')
             }
         }
     })
-    .factory('ChatMessages', function ($http, CONSTANTS) {
-
+    .factory('ChatMessages', function ($http, CONSTANTS, $rootScope) {
         var messages = [];
 
         function pushMyChat(chat) {
@@ -103,7 +115,7 @@ angular.module('starter')
         function pushChatHistory(chatArray) {
             for (var i = 0; i < chatArray.length; i++) {
                 var userType = '1'
-                var profileImage = CONSTANTS.PROFILE_IMAGE_URL + chatArray[i].cleaner_profile_pic
+                var profileImage = $rootScope.profile_pic
                 var fName = chatArray[i].cleaner_fname;
                 var lName = chatArray[i].cleaner_lname;
                 if (chatArray[i].sender_user_type == '1') {

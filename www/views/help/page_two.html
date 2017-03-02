@@ -1,14 +1,12 @@
 <ion-view>
-  <ion-nav-title></ion-nav-title>
+  <ion-nav-title>{{pageTitle}}</ion-nav-title>
   <ion-content>
     <section class="bg-main">
       <div class="main">
 
         <ul class="list_section">
-          <li ng-repeat="title in pageTwo" ng-click="thirdPage(title.child)"> {{title.title}}</li>
+          <li ng-repeat="help in helps" ng-click="nextPage(help)"> {{help.name}}</li>
         </ul>
-
-
       </div>
     </section>
   </ion-content>

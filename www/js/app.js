@@ -2,8 +2,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','ionic.cloud','ngSanitize',
-  'emojiApp'])
+angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', 'ionic.cloud', 'ngSanitize',
+    'emojiApp'])
     .run(function ($ionicPlatform, $location, $ionicPopup, $ionicHistory) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -14,8 +14,6 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 // from snapping when text inputs are focused. Ionic handles this internally for
                 // a much nicer keyboard experience.
                 cordova.plugins.Keyboard.disableScroll(true);
-
-
             }
             if (window.StatusBar) {
                 StatusBar.styleDefault();
@@ -84,8 +82,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
             }
         },
     })
-    .config(function ($stateProvider, $urlRouterProvider ,$ionicCloudProvider) {
-
+    .config(function ($stateProvider, $urlRouterProvider, $ionicCloudProvider) {
         $ionicCloudProvider.init({
             "core": {
                 "app_id": "b6050cd1"
@@ -103,10 +100,8 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 }
             }
         });
-
         //stripe payment
         window.Stripe.setPublishableKey('pk_test_th4VoSs8VNZLY3WiIrblBoUG');
-
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
         // Set up the various states which the app can be in.
@@ -145,11 +140,10 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 templateUrl: 'views/forgot_password/forgot_password.html',
                 controller: 'ForgotPasswordCtrl'
             })
-
             .state('reset_password', {
                 url: '/reset_password',
                 templateUrl: 'views/reset_password/reset_password.html',
-                controller:'ResetPasswordCtrl'
+                controller: 'ResetPasswordCtrl'
             })
 
             //home router
@@ -265,31 +259,36 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth','i
                 controller: 'HelpCtrl'
             })
             //work as cleaner
-          .state('page_two', {
-            url: '/page_two',
-            templateUrl: 'views/help/page_two.html',
-            controller: 'HelpCtrl'
-          })
+            .state('page_two', {
+                url: '/page_two',
+                templateUrl: 'views/help/page_two.html',
+                controller: 'PageTwoCtrl'
+            })
+
+            .state('help_content', {
+                url: '/help_content/:content',
+                templateUrl: 'views/help/content_page.html',
+                controller: 'ContentCtrl'
+            })
+
             //work as cleaner
             .state('work_as_cleaner', {
                 url: '/work_as_cleaner',
                 templateUrl: 'views/sign_as_cleaner/work_as_cleaner.html',
-                //controller: 'HistoryCtrl'
+                controller: 'cleanosaurCtrl'
             })
 
-
             .state('chat_room', {
-            url: '/chat_room/:appointment_id',
-            templateUrl: 'views/chat_room/chat_room.html',
-            controller: 'ChatCtrl'
-        })
+                url: '/chat_room/:appointment_id',
+                templateUrl: 'views/chat_room/chat_room.html',
+                controller: 'ChatCtrl'
+            })
             //settings
             .state('setting', {
                 url: '/setting',
                 templateUrl: 'views/setting/setting.html',
                 controller: 'SettingCtrl'
             })
-
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/splash');
     });

@@ -3,7 +3,7 @@
  */
 angular.module('starter')
     .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams,
-                                     GooglePlacesService, SendRequest, $cordovaGeolocation) {
+                                     GooglePlacesService, SendRequest, $cordovaGeolocation,services,popups) {
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
@@ -45,7 +45,7 @@ angular.module('starter')
             confirm_price: undefined,
             language: 'en',
             appointment_time: undefined,
-            coupon_code: undefined,
+            coupon_code: '',
         };
         //
         function getDataCallback(responseData) {
@@ -101,4 +101,17 @@ angular.module('starter')
         }
         $scope.clearIcon = false;
         $scope.showCurrentIcon = true;
+        
+        $scope.checkPromoCode = function(promoCode) {
+            if($scope.requestDetail.coupon_code == '') {
+                popups.showAlert('Please enter promo code!'); return;
+            }
+            services.checkpromocode(promoCode,function (response) {
+                popups.showAlert(response.response_msg)
+
+                if(response.response_status == '0') {
+                    $scope.requestDetail.coupon_code = '';
+                }
+            })
+        };
     });

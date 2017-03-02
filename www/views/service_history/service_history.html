@@ -8,18 +8,29 @@
             <div class="main">
                 <form method="" action="" name="">
                     <aside class="history_top">
-                        <span class="half date_li" ><span ng-hide="startDate != undefined" class="date-placeholder">From</span><input placeholder="From" required="required" type="date"  ng-model="startDate" ng-change="getHistory(startDate,endDate)"><img
+                        <span class="half date_li"><span ng-hide="startDate != undefined"
+                                                         class="date-placeholder">From</span><input placeholder="From"
+                                                                                                    required="required"
+                                                                                                    type="date"
+                                                                                                    ng-model="startDate"
+                                                                                                    ng-change="getHistory(startDate,endDate)"><img
                                 src="img/calender.png" alt="" class="edit-icon"></span>
-                        <span class="half fr date_li"><span ng-hide="endDate != undefined" class="date-placeholder">To</span><input placeholder="To" required="required" type="date"  ng-model="endDate" ng-change="getHistory(startDate,endDate)"><img
+                        <span class="half fr date_li"><span ng-hide="endDate != undefined"
+                                                            class="date-placeholder">To</span><input placeholder="To"
+                                                                                                     required="required"
+                                                                                                     type="date"
+                                                                                                     ng-model="endDate"
+                                                                                                     ng-change="getHistory(startDate,endDate)"><img
                                 src="img/calender.png" alt="" class="edit-icon"></span>
                     </aside>
-
-                    <aside class="history_section" ng-repeat="appointment in appointmentArray" ng-click="showHistoryDetail(appointment.app_appointment_id)">
+                    <aside class="history_section" ng-repeat="appointment in appointmentArray"
+                           ng-click="showHistoryDetail(appointment.app_appointment_id)">
                         <div class="history_left">
                             <ul>
                                 <li> Request ID - {{appointment.app_appointment_id}}</li>
                                 <li> {{appointment.property_type_id | property}}</li>
-                                <li><span> {{appointment.appointment_date}} </span> <span> <!--Clean Time - 1:30 Hr--> </span></li>
+                                <li><span> {{appointment.appointment_date}} </span>
+                                    <span> <!--Clean Time - 1:30 Hr--> </span></li>
                             </ul>
                         </div>
                         <div class="history_right">
@@ -29,12 +40,10 @@
                                 <span> <i class="fa fa-star" aria-hidden="true"></i></span>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
-
                             </aside>
                             <span class="price">${{appointment.confirm_price}}</span>
                         </div>
                     </aside>
-
                 </form>
             </div>
         </section>

@@ -105,6 +105,7 @@ angular.module('starter')
                                     //load all messages from the service
                                     services.getChatHistory(msg.payload.response_data.chat[0].app_appointment_id, function (response) {
                                         if (response.response_status == '1') {
+                                            console.log(JSON.stringify(response.response_data.chat))
                                             ChatMessages.pushChatHistory(response.response_data.chat)
                                         }
                                         $location.url('chat_room/' + msg.payload.response_data.chat[0].app_appointment_id)

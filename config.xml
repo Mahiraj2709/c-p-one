@@ -86,4 +86,5 @@
         <variable name="SENDER_ID" value="541166918614" />
     </plugin>
     <plugin name="cordova.plugins.diagnostic" spec="~3.3.2" />
+    <access launch-external="yes" origin="tel:*" />
 </widget>
