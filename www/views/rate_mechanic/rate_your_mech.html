@@ -1,4 +1,4 @@
-<ion-view title="Rate Your Mechanic" cache-view="false">
+<ion-view title="Review Your Cleanosaur Request" cache-view="false">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -18,7 +18,7 @@
                     <i ng-click="setRating(5)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=5}" aria-hidden="true"></i>
                 </aside>
               <aside class=".rating_line_third">
-                <p> <span class="btns gray_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
+                <p> <span class="btns black_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
               </aside>
                 <aside class="rating_line_sec">
                     <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span></p>

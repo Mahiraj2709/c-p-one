@@ -1,5 +1,5 @@
 angular.module('starter')
-    .controller('LoginCtrl', function ($scope, $rootScope, $ionicPopup, $http, $ionicLoading, $ionicPush, $timeout,LocationData,
+    .controller('LoginCtrl', function ($scope, $rootScope, $ionicPopup, $http, $ionicLoading, $ionicPush, $timeout,LocationData,services,$ionicHistory,
                                        $cordovaGeolocation, $cordovaOauth, $ionicViewService, $location, $ionicSideMenuDelegate, CONSTANTS) {
         $ionicViewService.clearHistory();
         $ionicSideMenuDelegate.canDragContent(false);
@@ -44,10 +44,7 @@ angular.module('starter')
         // facebook(string clientId, array appScope);
         //facebook login
         $scope.fbLogin = function () {
-            if (1 == 1) {
-                $scope.showAlert("Comming soon!");
-                return;
-            }
+
             $cordovaOauth.facebook(CONSTANTS.fbAppId, ["email", "public_profile"]).then(function (result) {
                 $http.get("https://graph.facebook.com/v2.2/me", {
                     params: {
@@ -57,8 +54,17 @@ angular.module('starter')
                     }
                 }).then(function (result) {
                     //$scope.showAlert(JSON.stringify(result.data));
-                    $scope.signupDetails.name = result.data.name;
-                    $scope.imgURI = result.data.picture.data.url;
+                    services.socialLogin({
+                        device_token:$ionicPush._token.token,
+                        device_id:$ionicPush._token.id,
+                        email:result.data.email,
+                        latitude:LocationData.latitude,
+                        longitude:LocationData.longitude,
+                    },function (response) {
+                        $ionicHistory.clearCache().then(function () {
+                            $location.path('home')
+                        })
+                    })
                     //$scope.profileData = ;
                 }, function (error) {
                     //alert("There was a problem getting your profile.  Check the logs for details.");

@@ -26,10 +26,10 @@ angular.module('starter')
         }
         $scope.rateYourMechanic = function () {
             if ($scope.rateObj.rating < 1) {
-                popups.showAlert('Please rate your mechanic!')
+                popups.showAlert('Please review your Cleanosaur!')
                 return
             } else if ($scope.rateObj.review == undefined || $scope.rateObj.review == '') {
-                popups.showAlert('Please review your mechanic!')
+                popups.showAlert('Please review your Cleanosaur request!')
                 return
             } else {
                 console.log($scope.rateObj)
