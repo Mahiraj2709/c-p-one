@@ -21,7 +21,9 @@
     "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
-    "cordova-plugin-splashscreen"
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-contacts",
+    "cordova-plugin-facebook4"
   ],
   "cordovaPlatforms": []
 }

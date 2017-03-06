@@ -59,7 +59,7 @@ angular.module('starter')
             if(duration == undefined) {
                 return 'na'
             }else{
-                return duration + ' Mins'
+                return (duration/60).toFixed(1) + ' Mins'
             }
 
         }

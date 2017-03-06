@@ -264,7 +264,6 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
                 templateUrl: 'views/help/page_two.html',
                 controller: 'PageTwoCtrl'
             })
-
             .state('help_content', {
                 url: '/help_content/:content',
                 templateUrl: 'views/help/content_page.html',
@@ -277,16 +276,35 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
                 templateUrl: 'views/sign_as_cleaner/work_as_cleaner.html',
                 controller: 'cleanosaurCtrl'
             })
-
             .state('chat_room', {
                 url: '/chat_room/:appointment_id',
                 templateUrl: 'views/chat_room/chat_room.html',
                 controller: 'ChatCtrl'
             })
+
             //settings
             .state('setting', {
                 url: '/setting',
                 templateUrl: 'views/setting/setting.html',
+                controller: 'SettingCtrl'
+            })
+
+            //work as cleaner
+            .state('suggest_invite', {
+                url: '/suggest_invite',
+                templateUrl: 'views/setting/suggest_invite.html',
+                controller: 'SuggestInvite'
+            })
+
+            .state('contact_list', {
+                url: '/contact_list',
+                templateUrl: 'views/setting/contact_list.html',
+                controller: 'ContactCtrl'
+            })
+
+            .state('edit_notification', {
+                url: '/edit_notification',
+                templateUrl: 'views/setting/edit_notification.html',
                 controller: 'SettingCtrl'
             })
         // if none of the above states are matched, use this as the fallback

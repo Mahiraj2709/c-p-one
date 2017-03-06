@@ -1,0 +1,22 @@
+<ion-view title="Suggest Invites">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <section class="bg-main">
+            <div class="main">
+                <aside class="sugg_invi_top">
+                    <p><strong>Invites From Phone Contacts</strong>
+                        Invite your friends and relative to download cleanosaur app</p>
+                </aside>
+
+                <aside class="sugg_cont_list" ng-repeat="contact in contacts">
+                    <img src="img/user-photo.png" ng-src="{{contact.photos[0].value}}" width="120" height="140" alt="">
+                    {{contact.phoneNumbers[0].value}}
+                    <span class="pink_btn" ng-click="invite(contact.phoneNumbers[0].value)"> Invite </span>
+                </aside>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

@@ -87,4 +87,8 @@
     </plugin>
     <plugin name="cordova.plugins.diagnostic" spec="~3.3.2" />
     <access launch-external="yes" origin="tel:*" />
+    <plugin name="cordova-plugin-facebook4" spec="~1.7.4">
+        <variable name="APP_ID" value="1287344741322935" />
+        <variable name="APP_NAME" value="Cleanosaur" />
+    </plugin>
 </widget>

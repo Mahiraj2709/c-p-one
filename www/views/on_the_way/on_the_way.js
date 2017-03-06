@@ -33,7 +33,7 @@ angular.module('starter')
                 });
             };
             $scope.openChat = function () {
-                ChatMessages.messages = []
+                ChatMessages.mobileNumber = $scope.cleanerData.mobile
                 services.getChatHistory($stateParams.appointment_id, function (response) {
                     if (response.response_status == '1') {
                         ChatMessages.pushChatHistory(response.response_data.chat)

@@ -23,7 +23,7 @@ angular.module('starter')
                 time: d
             });
             //$scope.$apply();
-            console.log($scope.messages)
+
             delete $scope.data.message;
             $ionicScrollDelegate.scrollBottom(true);
         };
@@ -42,18 +42,23 @@ angular.module('starter')
         };
         $scope.data = {};
         $scope.myId = '12345';
-        $scope.messages = ChatMessages.messages;
-        /*$scope.$on('cloud:push:notification', function (event, data) {
-            var msg = data.message;
-            if (msg.payload != undefined) {
-                var action = msg.payload.action
-                if (action != undefined) {
-                        if(action == 13) {
-                            $scope.$apply();
-                        }
+        $scope.messages = $rootScope.messages;
+
+        $scope.CallCustomer = function () {
+            var number = ChatMessages.mobileNumber;
+            if (number == undefined) {
+                for(var i=0; i< $rootScope.messages.length;i++) {
+                    if($rootScope.messages[i].userType == 2) {
+                        number = $rootScope.messages[i].mobile; break;
+                    }
                 }
             }
-        })*/
+            window.plugins.CallNumber.callNumber(function () {
+                //success logic goes here
+            }, function () {
+                //error logic goes here
+            }, number)
+        };
     })
     .directive('input', function ($timeout) {
         return {
@@ -93,43 +98,48 @@ angular.module('starter')
         }
     })
     .factory('ChatMessages', function ($http, CONSTANTS, $rootScope) {
-        var messages = [];
 
         function pushMyChat(chat) {
-            this.messages.push(chat)
+            $rootScope.messages.push(chat)
         }
 
         function pushNotificationChat(chat) {
             console.log(chat)
-            this.messages.push({
+            $rootScope.messages.push({
                 userType: '2',
                 text: chat.message,
                 profile_pic: CONSTANTS.MECH_PROFILE_IMAGE_URL + chat.customer_profile_pic,
                 fname: chat.customer_fname,
                 lname: chat.customer_lname,
                 created_dt: chat.created_dt,
+                mobile: chat.customer_mobile,
                 time: '323'
             })
+            $rootScope.$apply()
         }
 
         function pushChatHistory(chatArray) {
+            chatArray.reverse()
             for (var i = 0; i < chatArray.length; i++) {
                 var userType = '1'
                 var profileImage = $rootScope.profile_pic
                 var fName = chatArray[i].cleaner_fname;
                 var lName = chatArray[i].cleaner_lname;
+                var mobile = undefined
                 if (chatArray[i].sender_user_type == '1') {
                     userType = '2'
                     profileImage = CONSTANTS.MECH_PROFILE_IMAGE_URL + chatArray[i].cleaner_profile_pic
                     fName = chatArray[i].cleaner_fname;
                     lName = chatArray[i].cleaner_lname;
+                    mobile = chatArray[i].cleaner_mobile
                 }
-                this.messages.push({
+                $rootScope.messages.push({
                     userType: userType,
                     text: chatArray[i].chat_message,
                     profile_pic: profileImage,
                     fname: fName,
                     lname: lName,
+                    mobile:mobile,
                     created_dt: chatArray[i].created_dt,
                     time: '323'
                 })
@@ -137,7 +147,7 @@ angular.module('starter')
         }
 
         return {
-            messages: messages,
+            mobileNumber: undefined,
             pushChat: pushMyChat,
             pushNotificationChat: pushNotificationChat,
             pushChatHistory: pushChatHistory

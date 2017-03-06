@@ -100,9 +100,11 @@ angular.module('starter')
                             case 13:
                                 //chat message
                                 console.log($ionicHistory.currentView())
-                                ChatMessages.messages = []
+
                                 if ($ionicHistory.currentView().stateName != 'chat_room') {
-                                    //load all messages from the service
+                                    $rootScope.messages = []
+                                    ChatMessages.mobileNumber = undefined    //load all messages from the service
+
                                     services.getChatHistory(msg.payload.response_data.chat[0].app_appointment_id, function (response) {
                                         if (response.response_status == '1') {
                                             console.log(JSON.stringify(response.response_data.chat))
