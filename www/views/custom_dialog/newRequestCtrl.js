@@ -6,9 +6,10 @@ angular.module('starter')
                                          ReqeustAcceptedFactory, $rootScope) {
         $scope.requestAccepted = true;
         $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
+
         $scope.openVideoPlayer = function () {
             //video player modal
-            $rootScope.requestAcceptedPopup.close()
+            //$rootScope.requestAcceptedPopup.close()
             if(AppointmentData.profile_video == undefined) {
                 popups.showAlert('Cleanosaur has not uploaded any video!')
                 return
@@ -23,7 +24,7 @@ angular.module('starter')
             });
         };
         $scope.closeVideoPlayer = function () {
-
+            console.log('plese remove view from new request!')
             $scope.modal.remove();
         }
         $scope.viewMechProfile = function () {

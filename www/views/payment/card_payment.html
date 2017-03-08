@@ -1,30 +1,33 @@
 <ion-view title="Edit Card" cache-view="false">
-    <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-    </ion-nav-buttons>
-    <ion-content ng-controller="PaymentCtrl">
-        <section class="bg-main">
-            <div class="main">
-                <form>
-                    <aside class="cards_view">
-                        <h2> {{allCards.length === 0 ? 'NO ': '' }}ADDED CARD </h2>
-                        <ul>
-                            <li ng-repeat="card in allCards">
-                                <input name="can_req_opt" type="radio"> ************{{card.last4}} <span> <img
-                                    src="img/edit-icon.png" alt="" ng-click="editCard(card)"></span></li>
-                        </ul>
-                    </aside>
+    <ion-nav-bar class="bar-dark custom-dark" align-title="center">
+        <ion-nav-buttons side="right">
+            <button class="button" ui-sref="home" ng-hide="hideSkip" ng-click="skipCard()">
+                Skip
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+        <ion-content>
+            <section class="bg-main">
+                <div class="main">
+                    <form>
+                        <aside class="cards_view">
+                            <h2> {{allCards.length === 0 ? 'NO ': '' }}ADDED CARD </h2>
+                            <ul>
+                                <li ng-repeat="card in allCards">
+                                    <input name="can_req_opt" ng-model='card.def' ng-change="makeDefault(card.def,card.id)" type="radio"> ************{{card.last4}} <span> <img
+                                        src="img/edit-icon.png" alt="" ng-click="editCard(card)"></span></li>
+                            </ul>
+                        </aside>
 
-                    <!--
-                                        <div class="full" ng-click="PayNow()"> <span class="btns pink_btn">  Pay Now  </span> </div>
-                                        <aside class="line-sec gray-line"> <span> </span> <span> OR</span> <span> </span> </aside>
-                    -->
-                    <div class="full" ui-sref="add_card"><span class="btns pink_btn">  Add New Card  </span></div>
+                        <!--
+                                            <div class="full" ng-click="PayNow()"> <span class="btns pink_btn">  Pay Now  </span> </div>
+                                            <aside class="line-sec gray-line"> <span> </span> <span> OR</span> <span> </span> </aside>
+                        -->
+                        <div class="full" ui-sref="add_card"><span class="btns pink_btn">  Add New Card  </span></div>
 
-                </form>
-            </div>
-        </section>
+                    </form>
+                </div>
+            </section>
 
-    </ion-content>
+        </ion-content>
 </ion-view>

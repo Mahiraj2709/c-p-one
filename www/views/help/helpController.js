@@ -27,6 +27,7 @@ angular.module('starter')
                 $scope.helps = response.response_data.staticcontent;
             }
         })
+
         $scope.nextPage = function (help) {
             HelpFactory.pageTitle = help.name
             if (help.content == undefined || help.content == '') {

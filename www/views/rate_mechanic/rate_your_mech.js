@@ -4,8 +4,6 @@
 angular.module('starter')
     .controller('RateMechCtrl', function ($scope, $rootScope, AppointmentService, services, $stateParams, CONSTANTS, popups,
                                           $location, LocationData, $ionicHistory, AppointmentData) {
-
-
         $scope.reqeustCompeteData = $rootScope.reqeustCompetePayload;
         $scope.rate_mechProfile = CONSTANTS.MECH_PROFILE_IMAGE_URL + $rootScope.reqeustCompetePayload.profile_pic;
         AppointmentService.getAppointmentDetails($stateParams.appointment_id, function (appointmentData) {
@@ -36,7 +34,6 @@ angular.module('starter')
                 services.rateMechanic($scope.rateObj, function (response) {
                     popups.showAlert(response.response_msg)
                     if (response.response_status == "1") {
-
                         $rootScope.reqeustCompeteData = undefined;
                         $ionicHistory.clearCache().then(function () {
                             $location.url('/home');
@@ -44,5 +41,18 @@ angular.module('starter')
                     }
                 })
             }
+        }
+    })
+    .controller('MakePayment', function ($scope, services,AppointmentService) {
+
+        $scope.paymentObj = {
+            app_appointment_id:'',
+            confirm_price:'',
+            tip:''
+        }
+        $scope.makePayment = function () {
+            services.makePayment($scope.paymentObj,function (response) {
+
+            });
         }
     })

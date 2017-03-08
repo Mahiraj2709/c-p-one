@@ -1,0 +1,34 @@
+<ion-view title="Make Payment" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <section class="bg-main">
+            <div class="main">
+                <aside class="figure-container">
+                    <figure class="profile-pic"><img alt="" src="img/user-photo.png" ng-src="{{rate_mechProfile}}"
+                                                     width="50" height="50"></figure>
+                </aside>
+
+                <aside class=".rating_line_third">
+                    <p><span
+                            class="btns black_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span>
+                    </p>
+                </aside>
+
+                <aside class="rating_line_sec">
+                    <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span>
+                    </p>
+                    <p><strong>Clean Time</strong> - <span>{{reqeustCompeteData.duration}} Mins</span></p>
+                </aside>
+
+                <aside class="tip_sec"> <span> <strong>Tip </strong> </span> <span> <input ng-model="paymentObj.tip" type="text" placeholder="$10"> </span>    <span>  $10 </span> </aside>
+
+                <aside class="btn_set" ng-click="makePayment()">
+                    <div class="full"><span class="btns pink_btn">  RAWRR!  </span></div>
+                </aside>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

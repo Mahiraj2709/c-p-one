@@ -3,13 +3,14 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
     </ion-nav-buttons>
-    <ion-content ng-controller="RateMechCtrl">
+    <ion-content>
         <section class="bg-main">
             <div class="main">
                 <aside class="figure-container">
                     <figure class="profile-pic"> <img alt="" src="img/user-photo.png" ng-src="{{rate_mechProfile}}" width="50" height="50"> </figure>
                     <figcaption class="user-detail">  How was your service ? </figcaption>
                 </aside>
+
                 <aside class="ratings_mech big_ratings">
                     <i ng-click="setRating(1)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=1}" aria-hidden="true"></i>
                     <i ng-click="setRating(2)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=2}" aria-hidden="true"></i>
@@ -17,6 +18,7 @@
                     <i ng-click="setRating(4)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=4}" aria-hidden="true"></i>
                     <i ng-click="setRating(5)" class="fa fa-star" ng-class="{'ratingYellow':rateObj.rating >=5}" aria-hidden="true"></i>
                 </aside>
+
               <aside class=".rating_line_third">
                 <p> <span class="btns black_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
               </aside>
@@ -27,9 +29,7 @@
                 <p> <strong>Write Review</strong> </p>
                 <textarea rows="3" class="review_textarea" ng-model="rateObj.review" placeholder="Please share your experience with us, it willl help us provide you better service."></textarea>
                 <aside class="btn_set" ng-click="rateYourMechanic()"> <div class="full"> <span class="btns pink_btn">  RAWRR!  </span> </div> </aside>
-
             </div>
         </section>
-
     </ion-content>
 </ion-view>

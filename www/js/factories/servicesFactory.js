@@ -575,6 +575,75 @@ angular.module('starter')
                 });
         }
 
+        function makeCardDefault(cardId,callback) {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+            var formdata = new FormData();
+            formdata.append("device_type", CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append("language", "en");
+            formdata.append("card_id", cardId);
+
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'makecarddefault',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (d) {
+                    $ionicLoading.hide();
+                    console.log(d)
+                    callback(d)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide();
+                });
+        }
+
+        function makePayment(payment,callback) {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+
+            var formdata = new FormData();
+            formdata.append("device_type", CONSTANTS.deviceType());
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
+            formdata.append("language", "en");
+            formdata.append("app_appointment_id", payment.app_appointment_id);
+            formdata.append("confirm_price", payment.confirm_price);
+            formdata.append("tip", payment.tip);
+
+            var request = {
+                method: 'POST',
+                url: CONSTANTS.BASE_URL + 'paybill',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: formdata,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (d) {
+                    $ionicLoading.hide();
+                    console.log(d)
+                    callback(d)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide();
+                });
+        }
+
         return {
             logout: logout,
             socialLogin:socialLogin,
@@ -592,6 +661,8 @@ angular.module('starter')
             getCleanerLocation:getCleanerLocation,
             getRating:getRating,
             getCleanerFeedback:getCleanerFeedback,
-            checkpromocode:checkpromocode
+            checkpromocode:checkpromocode,
+            makeCardDefault:makeCardDefault,
+            makePayment:makePayment
         }
     });

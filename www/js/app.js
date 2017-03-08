@@ -208,7 +208,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
 
             //payment screens
             .state('payment', {
-                url: '/payment',
+                url: '/payment/:show_skip',
                 templateUrl: 'views/payment/card_payment.html',
                 controller: 'PaymentCtrl'
             })
@@ -258,16 +258,27 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
                 templateUrl: 'views/help/help.html',
                 controller: 'HelpCtrl'
             })
-            //work as cleaner
-            .state('page_two', {
-                url: '/page_two',
+
+            .state('help_page_two', {
+                url: '/help_page_two/:parent_id',
                 templateUrl: 'views/help/page_two.html',
                 controller: 'PageTwoCtrl'
-            })
+            })//work as cleaner
             .state('help_content', {
                 url: '/help_content/:content',
                 templateUrl: 'views/help/content_page.html',
                 controller: 'ContentCtrl'
+            })
+            .state('clean_cost_review', {
+                url: '/clean_cost_review',
+                templateUrl: 'views/help/clean_cost_review.html',
+                controller: 'CleanReviewCtrl'
+            })
+
+            .state('clean_cost_review_detail', {
+                url: '/clean_cost_review_detail',
+                templateUrl: 'views/help/clean_cost_detail.html',
+                controller: 'CleanReviewDetailCtrl'
             })
 
             //work as cleaner
@@ -276,6 +287,7 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
                 templateUrl: 'views/sign_as_cleaner/work_as_cleaner.html',
                 controller: 'cleanosaurCtrl'
             })
+
             .state('chat_room', {
                 url: '/chat_room/:appointment_id',
                 templateUrl: 'views/chat_room/chat_room.html',
@@ -301,7 +313,6 @@ angular.module('starter', ['ionic', 'services', 'ngCordova', 'ngCordovaOauth', '
                 templateUrl: 'views/setting/contact_list.html',
                 controller: 'ContactCtrl'
             })
-
             .state('edit_notification', {
                 url: '/edit_notification',
                 templateUrl: 'views/setting/edit_notification.html',

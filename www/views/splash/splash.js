@@ -20,7 +20,7 @@ angular.module('starter')
 
 
          */
-        //customer - ZjIzZDY5NGMzZGYxZWM0MTE1ZTAyOGEzZDhjZjQ0YzE
+        //customer - NmFhZWU1MTg1YTIwMmQwOGQ2ZmY3NzEzYWVmNDVmZTk
         //cleaner - N2NhMTMwYmYyZGJkZjg4NzE2NWEyMjUzMTU5NTJlZmU
         LocationAlert.isLocationEnabled(function (enabled) {
             if (enabled) {

@@ -354,7 +354,8 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                         window.localStorage.setItem("login", true);
                         $rootScope.userDetail = JSON.parse(window.localStorage.getItem("profile"));
                         $rootScope.profile_pic = CONSTANTS.PROFILE_IMAGE_URL + $rootScope.userDetail.profile_pic;
-                        $location.url("/account_details");
+                        //if 1 show skip else not
+                        $location.url("payment/"+0);
                     } else {
                         $scope.showAlert(d.response_msg);
                     }
@@ -391,6 +392,4 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
 
             });
         };
-
-
     });

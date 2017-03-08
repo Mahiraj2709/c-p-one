@@ -23,6 +23,7 @@ angular.module('starter')
                 }
             });
         }
+
         $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
         $scope.openVideoPlayer = function () {
             //video player modal
@@ -41,7 +42,7 @@ angular.module('starter')
         };
 
         $scope.closeVideoPlayer = function () {
-            $scope.modal.hide();
+            $scope.modal.remove();
         }
         $scope.launchMechOnWay = function () {
 

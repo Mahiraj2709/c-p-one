@@ -340,7 +340,7 @@ angular.module('starter')
                         return
                     }
                     $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.PROFILE_IMAGE_URL + resposne.response_data.profile[0].profile_video)
-                    $ionicModal.fromTemplateUrl('views/custom_dialog/video_player.html', {
+                    $ionicModal.fromTemplateUrl('views/custom_dialog/my_video_player.html', {
                         scope: $scope,
                         animation: 'slide-in-up'
                     }).then(function (modal) {

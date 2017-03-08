@@ -1,13 +1,11 @@
 angular.module('starter')
-    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner, LocationData,$ionicHistory ,
-$ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService,services, CONSTANTS) {
-
+    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner, LocationData, $ionicHistory,
+                                      $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService, services, CONSTANTS) {
         services.getRating(function (response) {
-            if(response.response_status == '1') {
+            if (response.response_status == '1') {
                 $rootScope.feedback = response.response_data.rating;
             }
         })
-
         var formdata = new FormData();
         var cleanerIds = '';
         $ionicViewService.clearHistory();
@@ -33,7 +31,6 @@ $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicVie
             //load the modal again we come from customer profile view
             if ($ionicHistory.viewHistory().forwardView.stateName == 'mech_profile') {
                 //show the modal agian
-
             }
         });
         $scope.user = {

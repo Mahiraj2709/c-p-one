@@ -2,11 +2,11 @@
  * Created by admin on 1/20/2017.
  */
 angular.module('starter')
-    .controller('OnTheWayCtrl', function ($scope, AppointmentService, $stateParams, CONSTANTS, LocationData, AppointmentData, services,
+    .controller('OnTheWayCtrl', function ($scope, AppointmentService,$rootScope, $stateParams, CONSTANTS, LocationData, AppointmentData, services,
                                           OnWayService, $ionicPopup, $location, $rootScope, popups, $ionicHistory, $interval,ChatMessages) {
 
         function getCleanerRating(cleanerId) {
-            services.getCleanerFeedback($stateParams.cleaner_id,function (response) {
+            services.getCleanerFeedback(cleanerId,function (response) {
                 if(response.response_status == '1') {
                     $scope.cleanerFeedback = response.response_data.rating;
                 }
@@ -34,6 +34,7 @@ angular.module('starter')
             };
             $scope.openChat = function () {
                 ChatMessages.mobileNumber = $scope.cleanerData.mobile
+                $rootScope.messages = []
                 services.getChatHistory($stateParams.appointment_id, function (response) {
                     if (response.response_status == '1') {
                         ChatMessages.pushChatHistory(response.response_data.chat)

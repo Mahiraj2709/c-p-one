@@ -14,7 +14,7 @@
 
                 <section class="card_details">
                     <ul>
-                        <li> <input placeholder="Card No" class="txt" type="text" ng-model="cardDetail.cardNumber">  </li>
+                        <li> <input placeholder="Card No" class="txt" type="number" ng-model="cardDetail.cardNumber">  </li>
                         <li> <input placeholder="Name On Card" class="txt" type="text" ng-model="cardDetail.nameOnCard" ng-change="getCardType(cardDetail.nameOnCard)">  </li>
                         <li class="expi"> Expiry Date  <span>  CVV No. <strong>?</strong> </span></li>
                         <li class="card_cvv">
@@ -27,7 +27,6 @@
                                     value="{{year}}">{{year}}</option> </select></span>
                             <span class="one-third">  <input placeholder="CVV No" type="number" ng-model="cardDetail.cvc"> </span>
                         </li>
-
 
                     </ul>
                 </section>

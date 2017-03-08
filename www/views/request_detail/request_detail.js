@@ -2,7 +2,7 @@
  * Created by admin on 1/4/2017.
  */
 angular.module('starter')
-    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams,
+    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams,popups,
                                      GooglePlacesService, SendRequest, $cordovaGeolocation,services,popups) {
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
@@ -65,6 +65,15 @@ angular.module('starter')
         $scope.currentTime = new Date().toString('yyyy-MM-dd');
 
         $scope.sendRequest = function () {
+            //check if stripe cards are added
+
+            if($rootScope.userDetail.stripe_id == undefined ||  $rootScope.userDetail.stripe_id == '') {
+                $scope.showAlert('You have not added any card. Please add credit card!');
+
+                $location.url('payment/'+'1')
+            }
+
+
             if ($scope.date != undefined) {
                 $scope.requestDetail.appointment_date = $scope.date.toString('yyyy-MM-dd');
                 $scope.requestDetail.appointment_timezone = "UTC";
