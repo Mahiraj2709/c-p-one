@@ -643,6 +643,29 @@ angular.module('starter')
                     $ionicLoading.hide();
                 });
         }
+        function getInstagramData(accessToken,callback) {
+            $ionicLoading.show({
+                template: 'Loading...'
+            });
+
+            var request = {
+                method: 'GET',
+                url: 'https://api.instagram.com/v1/users/self/?access_token='+accessToken,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+            // SEND THE FILES.
+            $http(request)
+                .success(function (d) {
+                    $ionicLoading.hide();
+                    console.log(d)
+                    callback(d)
+                })
+                .error(function (err) {
+                    $ionicLoading.hide();
+                });
+        }
 
         return {
             logout: logout,
@@ -663,6 +686,7 @@ angular.module('starter')
             getCleanerFeedback:getCleanerFeedback,
             checkpromocode:checkpromocode,
             makeCardDefault:makeCardDefault,
-            makePayment:makePayment
+            makePayment:makePayment,
+            getInstagramData:getInstagramData
         }
     });

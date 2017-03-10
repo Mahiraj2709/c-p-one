@@ -1,9 +1,8 @@
 angular.module('starter')
-    .controller('SignupCtrl', function ($scope, $rootScope, $ionicModal, $ionicPopup, GooglePlacesService, $cordovaCamera,$cordovaGeolocation,ImageFactory,
-$cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicPush,LocationData,services,$timeout,
+    .controller('SignupCtrl', function ($scope, $rootScope, $ionicModal, $ionicPopup, GooglePlacesService, $cordovaCamera, $cordovaGeolocation, ImageFactory,$twitterApi,
+                                        $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition, $ionicPush, LocationData, services, $timeout,
                                         $ionicSideMenuDelegate, $location, CONSTANTS) {
-
-        var posOptions = { timeout: 10000, enableHighAccuracy: false };
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
             .then(function (position) {
@@ -11,12 +10,10 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                 var long = position.coords.longitude
                 $scope.signupDetails.latitude = lat
                 $scope.signupDetails.longitude = long
-
                 //$scope.showAlert(lat + "  " + long);
             }, function (err) {
                 // error
             });
-
         $ionicSideMenuDelegate.canDragContent(false);
         var userImage;
         //1 for user and 2 for car image default is 0
@@ -24,8 +21,8 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
             first_name: '',
             last_name: '',
             /*day: 'Day',
-            month: 'Month',
-            year: 'Year',*/
+             month: 'Month',
+             year: 'Year',*/
             day: '01',
             month: '01',
             year: '1970',
@@ -44,25 +41,22 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
             profile_pic: '',
             login_type: "0"
         };
-
         $scope.socialLogin = {
-            email:undefined,
-            device_id:$ionicPush._token.id,
-            device_token:$ionicPush._token.token,
-            device_type:CONSTANTS.deviceType(),
-            first_name:undefined,
-            last_name:undefined,
-            login_type:undefined,
-            latitude:LocationData.latitude,
-            longitude:LocationData.longitude,
-            language:'en',
-            address:'no address',
-            quick_blox_id:'34',
-            reference_mode:undefined
+            email: undefined,
+            device_id: $ionicPush._token.id,
+            device_token: $ionicPush._token.token,
+            device_type: CONSTANTS.deviceType(),
+            first_name: undefined,
+            last_name: undefined,
+            login_type: undefined,
+            latitude: LocationData.latitude,
+            longitude: LocationData.longitude,
+            language: 'en',
+            address: 'no address',
+            quick_blox_id: '34',
+            reference_mode: undefined
         }
-
-
-        //Loading in 
+        //Loading in
         $scope.showLoading = function () {
             $ionicLoading.show({
                 template: 'Loading...'
@@ -152,6 +146,7 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
             //     return;
             // }
             $cordovaOauth.facebook(CONSTANTS.fbAppId, ["email", "public_profile"]).then(function (result) {
+                var userId = result.data.id
                 $http.get("https://graph.facebook.com/v2.2/me", {
                     params: {
                         access_token: result.access_token,
@@ -160,29 +155,23 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                     }
                 }).then(function (result) {
                     //$scope.showAlert(JSON.stringify(result.data));
-
                     ImageFactory.getBase64FromImageUrl(result.data.picture.data.url).then(function (imageData) {
                         $timeout(function () {
                             $scope.imgURI = imageData;
-                        },0)
+                        }, 0)
                         //console.log($scope.imgURI)
                         //console.log(imageData)
                     });
-
                     $scope.signupDetails.login_type = '1';
-
                     $scope.signupDetails.email = result.data.email;
-
                     var name = result.data.name.split(' ');
                     $scope.signupDetails.first_name = name[0];
-                    if(name[1] != undefined) {
+                    if (name[1] != undefined) {
                         $scope.signupDetails.last_name = name[1];
-                    }else {
+                    } else {
                         //$scope.signupDetails.last_name = 'na';
                     }
                     //$scope.signupDetails.reference_mode = 'na';
-
-
                     //$scope.profileData = ;
                 }, function (error) {
                     //alert("There was a problem getting your profile.  Check the logs for details.");
@@ -195,35 +184,69 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
         //twitter login 
         //twitter(string consumerKey, string consumerSecretKey, object options);
         $scope.twitterLogin = function () {
-            if (1 == 1) {
-                $scope.showAlert("Comming soon!");
-                return;
-            }
             $cordovaOauth.twitter("F10TwLSYjuahegNC3T10FB75N", "paCiWQE8TXO9n1gq3jLFIgAmyJP1fj1BtaQsdCuAaAJpyVaZnY").then(function (result) {
-                $scope.showAlert(JSON.stringify(result));
-                $http.get("https://api.twitter.com/1.1/users/show.json?screen_name=" + result.screen_name).then(function (result) {
-                    //$scope.showAlert(JSON.stringify(result));
-                    $scope.signupDetails.login_type = "2";
-                    $scope.signupDetails.name = result.data.name;
-                    $scope.imgURI = result.data.picture.data.url;
-                    //$scope.profileData = ;
-                }, function (error) {
-                    //alert("There was a problem getting your profile.  Check the logs for details.");
-                    $scope.showAlert(error);
+                $twitterApi.configure('F10TwLSYjuahegNC3T10FB75N', 'paCiWQE8TXO9n1gq3jLFIgAmyJP1fj1BtaQsdCuAaAJpyVaZnY', result);
+                $twitterApi.getUserDetails(result.user_id).then(function(result) {
+                    //console.log(result)
+                    var user_id = result.id
+
+                    ImageFactory.getBase64FromImageUrl(result.profile_image_url).then(function (imageData) {
+                        $timeout(function () {
+                            $scope.imgURI = imageData;
+                        }, 0)
+                        //console.log($scope.imgURI)
+                        //console.log(imageData)
+                    });
+                    $scope.signupDetails.login_type = '2';
+                    $scope.signupDetails.email = result.email;
+                    var name = result.name.split(' ');
+                    $scope.signupDetails.first_name = name[0];
+                    if (name[1] != undefined) {
+                        $scope.signupDetails.last_name = name[1];
+                    } else {
+                        //$scope.signupDetails.last_name = 'na';
+                    }
+                    $scope.signupDetails.address = result.location
                 });
             }, function (error) {
+                //alert("There was a problem getting your profile.  Check the logs for details.");
                 $scope.showAlert(error);
-            });
+            })
+                , function (error) {
+                $scope.showAlert(error);
+            }
         };
         //instagram login
         $scope.instaLogin = function () {
-            if (1 == 1) {
-                $scope.showAlert("Comming soon!");
-                return;
-            }
             $cordovaOauth.instagram("06aa6a6fa2a1492d90cec199676c5420", ["basic", "comments", "relationships"]).then(function (result) {
-                $scope.showAlert(JSON.stringify(result));
-                $scope.signupDetails.login_type = "3";
+                console.log(result)
+                services.getInstagramData(result.access_token,function (response) {
+                //
+                console.log(response)
+
+                var user_id = result.data.id
+
+                ImageFactory.getBase64FromImageUrl(result.data.profile_picture).then(function (imageData) {
+                    $timeout(function () {
+                        $scope.imgURI = imageData;
+                    }, 0)
+                    //console.log($scope.imgURI)
+                    //console.log(imageData)
+                });
+                $scope.signupDetails.login_type = '3';
+
+                var name = result.data.full_name.split(' ');
+
+                $scope.signupDetails.first_name = name[0];
+
+                if (name[1] != undefined) {
+                    $scope.signupDetails.last_name = name[1];
+                } else {
+                    //$scope.signupDetails.last_name = 'na';
+                }
+                //$scope.signupDetails.address = result.location
+
+            })
             }, function (error) {
                 $scope.showAlert(error);
             });
@@ -265,7 +288,7 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                 $scope.showAlert("Last is required");
             } else if ($scope.signupDetails.last_name.length > 20) {
                 $scope.showAlert("Last Name is not valid!");
-            }else if ($scope.signupDetails.day == "Day") {
+            } else if ($scope.signupDetails.day == "Day") {
                 $scope.showAlert("Date is required");
             } else if ($scope.signupDetails.month == "Month") {
                 $scope.showAlert("Month is required");
@@ -299,7 +322,7 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                 for (var key in $scope.signupDetails) {
                     if (key == "profile_pic") {
                         //userImage = getBase64Image(document.getElementById("profile_pic"));
-                        if(userImage != undefined) {
+                        if (userImage != undefined) {
                             formdata.append(key, dataURItoBlob(userImage), 'sdfsdf' + '.jpeg');
                         }
                         if (!String(userImage)) {
@@ -355,7 +378,7 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
                         $rootScope.userDetail = JSON.parse(window.localStorage.getItem("profile"));
                         $rootScope.profile_pic = CONSTANTS.PROFILE_IMAGE_URL + $rootScope.userDetail.profile_pic;
                         //if 1 show skip else not
-                        $location.url("payment/"+0);
+                        $location.url("payment/" + 0);
                     } else {
                         $scope.showAlert(d.response_msg);
                     }
@@ -389,7 +412,6 @@ $cordovaOauth, $http, $ionicLoading, $cordovaFileTransfer, TermCondition,$ionicP
         $scope.showCurrentIcon = true;
         $scope.loadTermCondition = function () {
             TermCondition.getTermCondition(function (data) {
-
             });
         };
     });

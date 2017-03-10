@@ -24,10 +24,15 @@
               </aside>
                 <aside class="rating_line_sec">
                     <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span></p>
-                    <p><strong>Clean Time</strong> - <span>1:21 Hrs</span></p>
+                    <p><strong>Clean Time</strong> - <span>{{reqeustCompeteData.duration}} Mins</span></p>
                 </aside>
                 <p> <strong>Write Review</strong> </p>
                 <textarea rows="3" class="review_textarea" ng-model="rateObj.review" placeholder="Please share your experience with us, it willl help us provide you better service."></textarea>
+
+                <aside>
+                    <label> Tip $</label>
+                    <input placeholder="0" required="required" type="number" ng-model="rateObj.tip">
+                </aside>
                 <aside class="btn_set" ng-click="rateYourMechanic()"> <div class="full"> <span class="btns pink_btn">  RAWRR!  </span> </div> </aside>
             </div>
         </section>

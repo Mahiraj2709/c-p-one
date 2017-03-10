@@ -29,6 +29,9 @@ angular.module('starter')
             } else if ($scope.rateObj.review == undefined || $scope.rateObj.review == '') {
                 popups.showAlert('Please review your Cleanosaur request!')
                 return
+            } else if ($scope.rateObj.tip != undefined || $scope.rateObj.tip != '' || $scope.rateObj.tip.isNaN() || $scope.rateObj.tip <= 0) {
+                popups.showAlert('Please enter correct price!')
+                return
             } else {
                 console.log($scope.rateObj)
                 services.rateMechanic($scope.rateObj, function (response) {
