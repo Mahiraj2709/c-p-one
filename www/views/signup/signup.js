@@ -39,23 +39,10 @@ angular.module('starter')
             reference_mode: '',
             quick_blox_id: '233',
             profile_pic: '',
-            login_type: "0"
+            login_type: "0",
+            social_user_id: undefined
         };
-        $scope.socialLogin = {
-            email: undefined,
-            device_id: $ionicPush._token.id,
-            device_token: $ionicPush._token.token,
-            device_type: CONSTANTS.deviceType(),
-            first_name: undefined,
-            last_name: undefined,
-            login_type: undefined,
-            latitude: LocationData.latitude,
-            longitude: LocationData.longitude,
-            language: 'en',
-            address: 'no address',
-            quick_blox_id: '34',
-            reference_mode: undefined
-        }
+
         //Loading in
         $scope.showLoading = function () {
             $ionicLoading.show({
@@ -141,12 +128,8 @@ angular.module('starter')
         // facebook(string clientId, array appScope);
         //facebook login
         $scope.fbLogin = function () {
-            // if (1 == 1) {
-            //     $scope.showAlert("Comming soon!");
-            //     return;
-            // }
+
             $cordovaOauth.facebook(CONSTANTS.fbAppId, ["email", "public_profile"]).then(function (result) {
-                var userId = result.data.id
                 $http.get("https://graph.facebook.com/v2.2/me", {
                     params: {
                         access_token: result.access_token,
@@ -154,16 +137,16 @@ angular.module('starter')
                         format: "json"
                     }
                 }).then(function (result) {
+                    console.log(result)
+                    $scope.signupDetails.login_type = "1";
                     //$scope.showAlert(JSON.stringify(result.data));
+                    $scope.signupDetails.name = result.data.name;
                     ImageFactory.getBase64FromImageUrl(result.data.picture.data.url).then(function (imageData) {
                         $timeout(function () {
                             $scope.imgURI = imageData;
-                        }, 0)
-                        //console.log($scope.imgURI)
-                        //console.log(imageData)
+                        }, 0);
                     });
                     $scope.signupDetails.login_type = '1';
-                    $scope.signupDetails.email = result.data.email;
                     var name = result.data.name.split(' ');
                     $scope.signupDetails.first_name = name[0];
                     if (name[1] != undefined) {
@@ -171,23 +154,27 @@ angular.module('starter')
                     } else {
                         //$scope.signupDetails.last_name = 'na';
                     }
-                    //$scope.signupDetails.reference_mode = 'na';
+                    $scope.signupDetails.reference_mode = 'na';
+                    $scope.signupDetails.email = result.data.email;
+                    $scope.signupDetails.social_user_id = result.data.id
+//                    console.log($scope.imgURI)
                     //$scope.profileData = ;
                 }, function (error) {
                     //alert("There was a problem getting your profile.  Check the logs for details.");
-                    $scope.showAlert(error);
+                    console.log(error);
                 });
             }, function (error) {
-                $scope.showAlert(error);
+//                $scope.showAlert(error);
+                console.log(error)
             });
         };
-        //twitter login 
+        //twitter login
         //twitter(string consumerKey, string consumerSecretKey, object options);
         $scope.twitterLogin = function () {
             $cordovaOauth.twitter("F10TwLSYjuahegNC3T10FB75N", "paCiWQE8TXO9n1gq3jLFIgAmyJP1fj1BtaQsdCuAaAJpyVaZnY").then(function (result) {
                 $twitterApi.configure('F10TwLSYjuahegNC3T10FB75N', 'paCiWQE8TXO9n1gq3jLFIgAmyJP1fj1BtaQsdCuAaAJpyVaZnY', result);
                 $twitterApi.getUserDetails(result.user_id).then(function(result) {
-                    //console.log(result)
+                    console.log(result)
                     var user_id = result.id
 
                     ImageFactory.getBase64FromImageUrl(result.profile_image_url).then(function (imageData) {
@@ -207,6 +194,7 @@ angular.module('starter')
                         //$scope.signupDetails.last_name = 'na';
                     }
                     $scope.signupDetails.address = result.location
+                    $scope.signupDetails.social_user_id = result.id
                 });
             }, function (error) {
                 //alert("There was a problem getting your profile.  Check the logs for details.");
@@ -218,39 +206,35 @@ angular.module('starter')
         };
         //instagram login
         $scope.instaLogin = function () {
+
             $cordovaOauth.instagram("06aa6a6fa2a1492d90cec199676c5420", ["basic", "comments", "relationships"]).then(function (result) {
                 console.log(result)
                 services.getInstagramData(result.access_token,function (response) {
-                //
-                console.log(response)
-
-                var user_id = result.data.id
-
-                ImageFactory.getBase64FromImageUrl(result.data.profile_picture).then(function (imageData) {
-                    $timeout(function () {
-                        $scope.imgURI = imageData;
-                    }, 0)
-                    //console.log($scope.imgURI)
-                    //console.log(imageData)
-                });
-                $scope.signupDetails.login_type = '3';
-
-                var name = result.data.full_name.split(' ');
-
-                $scope.signupDetails.first_name = name[0];
-
-                if (name[1] != undefined) {
-                    $scope.signupDetails.last_name = name[1];
-                } else {
-                    //$scope.signupDetails.last_name = 'na';
-                }
-                //$scope.signupDetails.address = result.location
-
-            })
+                    //
+                    console.log(response)
+                    var user_id = result.data.id
+                    ImageFactory.getBase64FromImageUrl(result.data.profile_picture).then(function (imageData) {
+                        $timeout(function () {
+                            $scope.imgURI = imageData;
+                        }, 0)
+                        //console.log($scope.imgURI)
+                        //console.log(imageData)
+                    });
+                    $scope.signupDetails.login_type = '3';
+                    var name = result.data.full_name.split(' ');
+                    $scope.signupDetails.first_name = name[0];
+                    if (name[1] != undefined) {
+                        $scope.signupDetails.last_name = name[1];
+                    } else {
+                        //$scope.signupDetails.last_name = 'na';
+                    }
+                    $scope.signupDetails.social_user_id = result.data.id
+                })
             }, function (error) {
                 $scope.showAlert(error);
             });
         };
+
         $scope.getPlacePredictions = function (query) {
             console.log(query)
             if (query !== "") {
@@ -314,7 +298,7 @@ angular.module('starter')
             } else if (!$scope.signupDetails.reference_mode) {
                 $scope.showAlert("Please select your behaviour");
             } else if (!$scope.termAndCondition) {
-                $scope.showAlert("Please accept terms and condtions");
+                $scope.showAlert("Please accept terms and conditions");
             } else {
                 //call signup api
                 $scope.signupDetails.device_token = $ionicPush._token.token;

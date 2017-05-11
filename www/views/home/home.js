@@ -1,9 +1,26 @@
 angular.module('starter')
-    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner, LocationData, $ionicHistory,
+    .controller('HomeCtrl', function ($scope, $rootScope, $ionicPopup, $http, GooglePlacesService, $timeout, SearchCleaner, LocationData, $ionicHistory,AppointmentData,
                                       $ionicLoading, $cordovaGeolocation, $location, $ionicSideMenuDelegate, $ionicViewService, services, CONSTANTS) {
-        services.getRating(function (response) {
+
+      //ionic.Platform.fullscreen();
+      services.getRating(function (response) {
             if (response.response_status == '1') {
                 $rootScope.feedback = response.response_data.rating;
+            }else {
+                if(response.response_key == KEY_SESSION_OUT) {
+                    //session does not exit now move to the login screen
+                    clearAllUserData();
+                    $ionicHistory.clearCache().then(function () {
+                        for (var prop in $rootScope) {
+                            if (prop.substring(0,1) !== '$') {
+                                delete $rootScope[prop];
+                            }
+                        }
+                        $location.path('login');
+                    })
+                }else {
+                    $scope.showAlert(d.response_msg);
+                }
             }
         })
         var formdata = new FormData();
@@ -103,7 +120,20 @@ angular.module('starter')
                         window.localStorage.removeItem("sess_tok");
                         $location.path('login');
                     } else {
-                        $scope.showAlert(d.response_msg);
+                        if(d.response_key == KEY_SESSION_OUT) {
+                            //session does not exit now move to the login screen
+                            clearAllUserData();
+                            $ionicHistory.clearCache().then(function () {
+                                for (var prop in $rootScope) {
+                                    if (prop.substring(0,1) !== '$') {
+                                        delete $rootScope[prop];
+                                    }
+                                }
+                                $location.path('login');
+                            })
+                        }else {
+                            $scope.showAlert(d.response_msg);
+                        }
                     }
                 })
                 .error(function (err) {
@@ -259,4 +289,37 @@ angular.module('starter')
         $scope.closePopUp = function () {
             $scope.myPopup.close();
         }
+
+
+    //dummy to test cancel button not working i.e. request accepted popup
+      testReqAccept()
+      function testReqAccept(){
+        var msg = {}
+          msg.payload = {
+        userLName:"Gupta",
+          user_type:"2",
+          cleaner_id:"236",
+          profile_video:"e6d83006b779949ffbb843a6b12138dd.MOV",
+          action:1,
+          cleaner_avg_rating:3,
+          profileImage:"67efdb74b6a60587613eabe451f73045.jpeg",
+          customer_id:"107",
+          message:"Ankit Gupta Cleaner Accept Request send by you to clean Home",
+          userFName:"Ankit",
+          app_appointment_id:"1176",
+          deviceToken:"c1WuOygm58o:APA91bFMqJTui3eoTkB640ziuGzjKI99iP7r1B8aqzDQm5FJzaX2S4UgG38spjgPdLBd8y-WJ12Jc1lMKn8WtRjn47fT47Vhn-V2FTOgIuROvq5g5PcCKy6PrVTcg3NlKzMjU0UoL7cC"
+      }
+        //requst send by custoemr
+        AppointmentData.app_appointment_id = msg.payload.app_appointment_id
+        AppointmentData.profile_video = msg.payload.profile_video
+        AppointmentData.cleaner_avg_rating = msg.payload.cleaner_avg_rating
+        $rootScope.payload = msg.payload;
+        $rootScope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
+        //popups.requestAcceptedPopup($scope)
+        $rootScope.requestAcceptedPopup = $ionicPopup.show({
+          templateUrl: 'views/custom_dialog/request_accepted.html',
+          scope: $scope,
+        });
+      }
+
     });

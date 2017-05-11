@@ -1,0 +1,30 @@
+<ion-view title="Select Issue">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <section class="bg-main">
+            <div class="main">
+                <div class="clean_cost_reivew">
+                    <aside class="sugg_cont_list help">
+                        <label class="last_clean"><strong>Last Clean</strong></label>
+                        <img src="img/user-photo.png" ng-src="{{getProfileImage(appointment.cleaner_pic)}}" alt=""
+                             width="120" height="140">
+                        {{appointment.appointment_date}}
+                        <span> {{appointment.total_amount | currency}} </span>
+                    </aside>
+                    <div class="map_field_sec">
+                        <img ng-src="{{mapImg}}" class="help_map" data-tap-disabled="true"></img>
+                    </div>
+                    <p class="reort_issue"> <strong> Report an Issue with this clean section</strong> </p>
+
+                    <ul class="list_section">
+                        <!--<li ng-repeat="title in titles"> Cleans and Cost Review </li>-->
+                        <li ng-repeat="help in helps" ng-click = "nextPage(help)"> {{help.name}} </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

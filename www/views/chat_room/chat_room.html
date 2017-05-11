@@ -1,5 +1,9 @@
 <ion-view title="Chatting" hide-back-button="true">
-    <ion-nav-buttons side="primary">
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-chevron-left" ng-click="myGoBack()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
         <button class="button button-icon ion-android-call" ng-click="CallCustomer()"></button>
     </ion-nav-buttons>
     <ion-content>
@@ -14,7 +18,7 @@
                         <div class="chat_img_sec" ng-class="{'slide-right': hideTime, '': !hideTime}">
                             <img src="img/smith.jpg" ng-src="{{message.profile_pic}}" alt="" width="120" height="140">
                         </div>
-                        <p><span> {{message.fname}} {{message.lname}} </span> {{ message.text}} </p>
+                        <p><span> {{message.fname}} {{message.lname }} </span> {{ message.text}} </p>
 
 
                         <!--<div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>-->
@@ -25,6 +29,7 @@
             </section>
         </ion-content>
 
+        <!--<ion-footer-bar keyboard-attach class="bar-stable item-input-inset">-->
         <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
 
           <!--<div emoji-form emoji-message="emojiMessage">

@@ -7,33 +7,34 @@
 
         <section class="bg-main">
             <div class="main">
-                <p class="his-request"><span class="btns black_btn popup_rwr_btn"> Request ID - {{historyDetail.app_appointment_id}} </span></p>
-                <span> <small> {{historyDetail.appointment_date | date}} </small> </span>
+                <p class="his-request" ng-click="showAppointment()"><span class="btns black_btn popup_rwr_btn"> Request ID - {{cleanerData.app_appointment_id}} </span></p>
+                <span> <small> {{cleanerData.appointment_date | date}} </small> </span>
 
                 <aside class="his-req-price">
-                    <strong>{{historyDetail.confirm_price | currency}}</strong>
-                    <span>Clean Time - {{historyDetail.duration}} Mins </span>
+                    <strong>{{totalPrice | currency}}</strong>
+                  <span ng-hide="cleanerData.promocode_value == null">Promo Code Value - {{cleanerData.promocode_value | currency}} </span>  </br>
+                    <span>Clean Time - {{cleanerData.duration}} Mins </span>
                 </aside>
                 <div class="map_field_sec">
-                    <div id="googlMap" data-tap-disabled="true"></div>
+                    <div class="map_field_sec" id="googlMap" data-tap-disabled="true"></div>
                 </div>
 
                 <aside class="his-req-add">
-                    <div class="half"><p><strong> Location </strong>{{historyDetail.customer_address}} </p> </div>
-                    <div class="half"><p style="text-align: right"><strong> Your Need </strong> {{historyDetail.property_type_id | property}} </p> </div>
+                    <div class="half"><p><strong> Location </strong>{{cleanerData.customer_address}} </p> </div>
+                    <div class="half"><p style="text-align: right"><strong> Your Need </strong> {{cleanerData.property_type_id | property}} </p> </div>
 
 
                 </aside>
 
                 <aside class="ratings" style="padding-top: 10px">
-                    <i class="fa fa-star" ng-class="{'ratingYellow':historyDetail.rating >=1}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':historyDetail.rating >=2}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':historyDetail.rating >=3}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':historyDetail.rating >=4}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':historyDetail.rating >=5}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerData.rating >=1}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerData.rating >=2}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerData.rating >=3}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerData.rating >=4}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerData.rating >=5}" aria-hidden="true"></i>
                 </aside>
                 <aside class="his-req-add">
-                    <p style="text-align: center; padding-bottom: 12px">{{historyDetail.review}}</p>
+                    <p style="text-align: center; padding-bottom: 12px">{{cleanerData.review}}</p>
                 </aside>
 
                 <div class="full" ng-click="generateBill()" ng-hide="true"><span class="btns pink_btn"> Add Review </span></div>

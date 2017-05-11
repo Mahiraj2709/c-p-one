@@ -4,51 +4,66 @@
         </button>
     </ion-nav-buttons>
     <ion-content>
-        <aside class="setting_sec_figure_container">
-            <figure class="setting_pic"><img alt="" ng-src="{{profile_pic}}" src="img/mark.jpg" height="70" width="70"></figure>
-        </aside>
 
-        <div class="layout_sec">
+        <section class="bg-main">
+            <div class="main">
 
-            <aside class="setting_sec">
-                <div class="half"><span class="full"> <strong>First Name </strong> </span> <span> {{userDetail.first_name}} </span></div>
-                <div class="half"><span class="full"> <strong>Last Name</strong> </span> <span>        {{userDetail.last_name}}
+                <aside class="setting_sec_figure_container" ng-hide="true">
+                    <figure class="setting_pic"><img alt="" ng-src="{{profile_pic}}" src="img/mark.jpg" height="70"
+                                                     width="70"></figure>
+                </aside>
+
+                <div class="layout_sec">
+
+                    <aside class="setting_sec" ng-hide="true">
+                        <div class="half"><span class="full"> <strong>First Name </strong> </span> <span> {{userDetail.first_name}} </span>
+                        </div>
+                        <div class="half"><span class="full"> <strong>Last Name</strong> </span> <span>        {{userDetail.last_name}}
  </span></div>
-            </aside>
-            <aside class="setting_sec">
-                <ul class="setting_list">
-                    <li><span>Email</span> {{userDetail.email}}</li>
-                    <li><span>Mobile</span> {{userDetail.mobile}}</li>
-                </ul>
-            </aside>
+                    </aside>
+                    <aside class="setting_sec" ng-hide="true">
+                        <ul class="setting_list">
+                            <li><span>Email</span> {{userDetail.email}}</li>
+                            <li><span>Mobile</span> {{userDetail.mobile}}</li>
+                        </ul>
+                    </aside>
 
-            <aside class="setting_sec">
-                <ul class="setting_list">
-                    <li><span>Place</span></li>
-                    <li><span class="half edit_seting">Home Address</span> <span class="half edit_seting"><input
-                            placeholder="75 Bennett, NY" required="required" type="text">  <img src="img/edit-icon.png"
-                                                                                                alt=""
-                                                                                                class="edit-icon"></span>
-                    </li>
-                    <li><span class="half edit_seting"> Office Address </span> <span class="half edit_seting"><input
-                            placeholder="2491 Victory Blvd, NY" required="required" type="text"> <img
-                            src="img/edit-icon.png" alt="" class="edit-icon"></span></li>
+                    <aside class="setting_sec" ng-hide="true">
+                        <ul class="setting_list">
+                            <li><span>Place</span></li>
+                            <li><span class="half edit_seting">Home Address</span> <span class="half edit_seting"><input
+                                    placeholder="Enter address" required="required" type="text"
+                                    ng-model="settingProfile.office_addrs">  <img src="img/edit-icon.png"
+                                                                                  alt=""
+                                                                                  class="edit-icon"></span>
+                            </li>
+                            <li><span class="half edit_seting"> Office Address </span> <span
+                                    class="half edit_seting"><input
+                                    placeholder="Enter address" required="required" type="text"
+                                    ng-model="settingProfile.home_addrs"> <img
+                                    src="img/edit-icon.png" alt="" class="edit-icon"></span></li>
 
-                </ul>
-            </aside>
-
-
-            <aside class="setting_sec">
-                <ul class="setting_list">
-                    <li><span> Emergency Contact</span> 65421565487</li>
-                </ul>
-            </aside>
+                        </ul>
+                    </aside>
 
 
-            <ul class="list_section">
-                <li ui-sref="suggest_invite"> Suggest Invites</li>
-                <li ui-sref="edit_notification">Edit Notifications</li>
-            </ul>
-        </div>
+                    <aside class="setting_sec" ng-hide="true">
+                        <ul class="setting_list">
+                            <li><span> Emergency Contact</span> <input
+                                    placeholder="enter number" required="required" type="tel"
+                                    ng-model="settingProfile.emergency_contact"></li>
+                        </ul>
+                    </aside>
+
+                    <div class="full" ng-click="saveSettings()" ng-hide="true"><span class="btns pink_btn"> SAVE </span>
+                    </div>
+
+                    <ul class="list_section">
+                        <li ui-sref="suggest_invite"> Suggest Invites</li>
+                        <li ui-sref="edit_notification">Edit Notifications</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </ion-content>
 </ion-view>

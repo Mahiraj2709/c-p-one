@@ -220,6 +220,7 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .list_section{ width:100%; float:left; text-align:left;}
 .list_section li{ padding:12px 20px 12px 12px; width:100%; display:block; margin:5px 0; font-size:13px; color:#000; background:#efefef url(../img/right-arrow.png) no-repeat center right 10px;    box-shadow: 0 5px 0 #fff;transition: all .1s linear;  -webkit-box-shadow: 0 5px 0 #fff;-webkit-transition: all .1s linear; }
 .list_section li:active { box-shadow: 0 2px 0 #fff;transform: translateY(3px); -webkit-box-shadow: 0 2px 0 #fff;-webkit-transform: translateY(3px);}
+.history_top{ margin-top:15px;}
 .history_top span{ position:relative;}
 .history_top span img.edit-icon { height: auto;right: 7px;position: absolute;top: 12px; width: 16px;}
 .history_top input[type="text"] { padding: 0 30px 0 10px; border-color:#898989;}
@@ -251,7 +252,7 @@ input.footer_input:-moz-placeholder { font-size: 16px; color:#a9a9a9;}
 .card_cvv span.one-third:nth-child(2){ margin:0 1%; width: 32% !important;}
 .expi{ text-align:left;}
 .expi span {  display: inline-block;  float: right;   text-align: right;}
-.expi span strong {background: #e45858 none repeat scroll 0 0; border-radius: 50%; color: #fff; cursor: pointer; float: right; font-size: 11px; font-weight: 300; height: 22px; margin: 0 0 0 3px; text-align: center; width: 22px;}
+.expi span strong p{background: #e45858 none repeat scroll 0 0; border-radius: 50%; color: #fff; cursor: pointer; float: right; font-size: 11px; font-weight: 300; height: 22px; margin: 0 0 0 3px; text-align: center; width: 22px;}
 .big_ratings{ margin:10px 0 0 0; font-size: 25px;}
 .rating_line_sec {border-bottom: 1px solid #d8d8d8; border-top: 1px solid #d8d8d8; float: left;  width: 100%; margin:15px 0; padding:10px 0; }
 .rating_line_third {border-bottom: 1px solid #d8d8d8; float: left;  width: 100%; margin:15px 0; }
@@ -404,6 +405,10 @@ input[type="date"]::-webkit-inner-spin-button {
 .map_field_sec{ width: 100%; float: left; height: 150px;}
 .map_field_sec #googlMap{float: left; height: 150px; width:100%;}
 aside.his-req-add { border-bottom: 1px solid #ccc; width: 100%;}
-.map_field_sec{ width: 100%; float: left; height: 150px;}
-.map_field_sec #googlMap{float: left; height: 150px; width:100%;}
-aside.his-req-add { border-bottom: 1px solid #ccc; width: 100%;}
+.download_clener{margin: 10px 0 0 0; color:white}
+input[type="date"],input[type="time"],select {-webkit-appearance: none;}
+
+
+
+
+

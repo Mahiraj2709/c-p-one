@@ -7,7 +7,7 @@
         <section class="bg-main">
             <div class="main">
 
-                <aside class="my_booking_sec" ng-repeat="appointment in appointmentArray">
+                <aside class="my_booking_sec" ng-repeat="appointment in appointmentArray" ng-hide="hideExpired(appointment.appointment_date)">
                     <div class="history_left">
                         <ul>
                             <li> Request ID - {{appointment.app_appointment_id}} </li>

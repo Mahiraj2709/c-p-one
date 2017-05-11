@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "484800480607",
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "1287344741322935",
+            "APP_NAME": "Cleanosaur",
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.cleanosuar.customer"
+        }
+    }
+}

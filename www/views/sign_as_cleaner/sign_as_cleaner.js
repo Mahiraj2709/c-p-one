@@ -4,6 +4,11 @@
 angular.module('starter')
     .controller('cleanosaurCtrl',function ($scope) {
         $scope.downloadCleaner = function () {
-            cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.app.cleanosaur', '_blank', 'location=yes');
+          if(ionic.Platform.isIOS()){
+            cordova.InAppBrowser.open(CLEANER_ITUNES_LINK, '_system', 'location=yes');
+          }
+          else {
+            cordova.InAppBrowser.open(CLEANER_PLAY_STORE_LINK, '_system', 'location=yes');
+          }
         }
     })

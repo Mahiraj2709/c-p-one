@@ -1,4 +1,4 @@
-<ion-view title="Add new Card">
+<ion-view title="Edit Card">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -14,14 +14,14 @@
                     <input name="payment" type="radio"> <img src="img/master-card.jpg" alt="" width="48" height="26">
                     <input name="payment" type="radio"> <img src="img/american-exp-card.jpg" alt="" width="50"
                                                              height="28">
-                    <input name="payment" type="radio"> <img src="img/club-card.jpg" alt="" width="48" height="26">
+                    <input name="payment" type="radio"> <img src="img/discover_card.jpg" alt="" width="48" height="26">
                 </aside>
 
                 <section class="card_details">
                     <ul>
                         <li><input ng-model="cardDetail.cardNumber" placeholder="Card No" class="txt" type="number"></li>
                         <li><input ng-model="cardDetail.nameOnCard" placeholder="Name On Card" class="txt" type="text"></li>
-                        <li class="expi"> Expiry Date <span>  CVV No. <strong>?</strong> </span></li>
+                        <li class="expi"> Expiry Date <span>  CVV No. <strong><p ng-click="showCvvMessage()">?</p></strong> </span></li>
                         <li class="card_cvv">
                             <span class="one-third"> <select ng-model="cardDetail.exp_month">
                                     <option ng-repeat="month in dropDownData.months"

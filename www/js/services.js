@@ -100,9 +100,9 @@ angular.module('services', [])
                 template: 'Loading Terms and Conditions...'
             });
             var formdata = new FormData;
-            formdata.append('session_token', window.localStorage.getItem('session_tok'));
+            formdata.append('session_token', window.localStorage.getItem("sess_tok"));
             formdata.append('language', 'en');
-            formdata.append('identifier', 'terms-condition-customer');
+            formdata.append('identifier', 'termsandcondition');
             var request = {
                 method: 'POST',
                 url: CONSTANTS.BASE_URL + 'pages',
@@ -122,6 +122,20 @@ angular.module('services', [])
                     if (d.response_status == "1") {
                         return callback(d.response_data.page.pages_desc);
                     } else {
+                        if(d.response_key == KEY_SESSION_OUT) {
+                            //session does not exit now move to the login screen
+                            clearAllUserData();
+                            $ionicHistory.clearCache().then(function () {
+                                for (var prop in $rootScope) {
+                                    if (prop.substring(0,1) !== '$') {
+                                        delete $rootScope[prop];
+                                    }
+                                }
+                                $location.path('login');
+                            })
+                        }else {
+                           // popups.showAlert(d.response_msg);
+                        }
                     }
                 })
                 .error(function (err) {
@@ -162,7 +176,8 @@ angular.module('services', [])
             viewTitle: 'Cleanosaur on the way',
             app_appointment_id: undefined,
             appointment: undefined,
-            profile_video: undefined
+            profile_video: undefined,
+            cleaner_avg_rating:undefined
         };
         return appointment;
     })

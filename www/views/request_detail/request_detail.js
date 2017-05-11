@@ -2,8 +2,8 @@
  * Created by admin on 1/4/2017.
  */
 angular.module('starter')
-    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams,popups,
-                                     GooglePlacesService, SendRequest, $cordovaGeolocation,services,popups) {
+    .controller('ReqCtrl', function ($scope, $rootScope, CONSTANTS, $ionicLoading, $ionicPopup, $stateParams, popups,
+                                     GooglePlacesService, SendRequest, $cordovaGeolocation, services, $location, $ionicModal) {
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
@@ -61,33 +61,26 @@ angular.module('starter')
          //reload data
          SendRequest.getPropertyType(property_id, getDataCallback);
          }*/
-
         $scope.currentTime = new Date().toString('yyyy-MM-dd');
-
         $scope.sendRequest = function () {
-            //check if stripe cards are added
-
-            if($rootScope.userDetail.stripe_id == undefined ||  $rootScope.userDetail.stripe_id == '') {
-                $scope.showAlert('You have not added any card. Please add credit card!');
-
-                $location.url('payment/'+'1')
-            }
-
-
+            //send to add card and if default card is added then allow send request
             if ($scope.date != undefined) {
                 $scope.requestDetail.appointment_date = $scope.date.toString('yyyy-MM-dd');
                 $scope.requestDetail.appointment_timezone = "UTC";
             }
             if ($scope.time != undefined) {
                 $scope.requestDetail.appointment_time = $scope.time.toISOString().slice(0, 19).replace('T', ' ').split(' ')[1];
-                $scope.requestDetail.appointment_date = $scope.requestDetail.appointment_date + " "+String($scope.time).split(' ')[4]
+                $scope.requestDetail.appointment_date = $scope.requestDetail.appointment_date + " " + String($scope.time).split(' ')[4]
             }
 //            console.log($scope.requestDetail.appointment_date)
 //            console.log($scope.requestDetail.appointment_time)
             //console.log($scope.date)
 //            console.log($scope.time)
-
-            SendRequest.sendRequest($scope.requestDetail);
+            SendRequest.sendRequest($scope.requestDetail, $scope.defaultCard, function () {
+                //this call back function set the purpose of choosing the default card if not selected
+                console.log('open modal now')
+                $scope.openChooseCardModal()
+            });
         }
         $scope.getPlacePredictions = function (query) {
             console.log(query)
@@ -110,17 +103,60 @@ angular.module('starter')
         }
         $scope.clearIcon = false;
         $scope.showCurrentIcon = true;
-        
-        $scope.checkPromoCode = function(promoCode) {
-            if($scope.requestDetail.coupon_code == '') {
-                popups.showAlert('Please enter promo code!'); return;
+        $scope.checkPromoCode = function (promoCode) {
+            if ($scope.requestDetail.coupon_code == '') {
+                popups.showAlert('Please enter promo code!');
+                return;
             }
-            services.checkpromocode(promoCode,function (response) {
+            services.checkpromocode(promoCode, function (response) {
                 popups.showAlert(response.response_msg)
-
-                if(response.response_status == '0') {
+                if (response.response_status == '0') {
                     $scope.requestDetail.coupon_code = '';
                 }
             })
         };
+        function createChooseCardModal() {
+            $ionicModal.fromTemplateUrl('views/custom_dialog/choose_card_modal.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function (modal) {
+                $scope.chooseCardModal = modal;
+                $scope.chooseCardModal.show()
+                getAllCards();
+            });
+        }
+
+        $scope.openChooseCardModal = function () {
+            createChooseCardModal()
+        };
+        $scope.closeChooseCardModal = function () {
+            $scope.chooseCardModal.remove();
+        };
+        $scope.defaultCard = undefined
+        $scope.makeDefault = function (isDef, cardId) {
+            console.log(cardId)
+            if (isDef) return
+            services.makeCardDefault(cardId, function (response) {
+                $scope.defaultCard = cardId;
+            })
+        }
+        $scope.addNewCard = function () {
+            $scope.closeChooseCardModal()
+            $location.url('add_card')
+        }
+        function getAllCards() {
+            services.customercards(function (respons) {
+                if (respons.response_status == '1') {
+                    $scope.defaultCard = respons.response_data.customer_cards.def
+                    $scope.allCards = respons.response_data.customer_cards.cards;
+                    for (var i = 0; i < $scope.allCards.length; i++) {
+                        $scope.allCards[i].def = false;
+                        if ($scope.allCards[i].id == $scope.defaultCard) {
+                            $scope.allCards[i].def = true;
+                        }
+                    }
+                    console.log($scope.allCards)
+                }
+            })
+        }
     });

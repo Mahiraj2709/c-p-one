@@ -2,34 +2,67 @@
  * Created by admin on 1/31/2017.
  */
 angular.module('starter')
-    .controller('PaymentCtrl', function ($scope, $ionicLoading, PaymentService, services,popups,CardData,$location,$stateParams) {
-        $scope.hideSkip = false;
+    .controller('AddedCardCtrl',function ($scope, $ionicLoading, PaymentService, services,popups,CardData,$location,$stateParams) {
 
+//        console.log($stateParams.show_skip)
+        $scope.hideSkip = true;
         if($stateParams.show_skip == '0') {
-            $scope.hideSkip = true;
+            $scope.hideSkip = false;
         }
-
         $scope.skipCard = function () {
 
         }
+      getAllCards();
+
+        $scope.editCard = function (card) {
+            CardData.card = card;
+
+            $location.url('/edit_card')
+
+
+          //            if (!PaymentService.validateCardDetails($scope.cardDetail)) return
+          services.removecard(card.card_id,function (response) {
+            if(response.response_status == '1') {
+            }
+            popups.showAlert(response.response_msg)
+
+          })
+
+        }
+
+        $scope.makeDefault = function (isDef,cardId) {
+
+            if(isDef) return
+
+            services.makeCardDefault(cardId,function (response) {
+
+            })
+        }
+
+        function getAllCards() {
+          services.customercards(function (respons) {
+            if(respons.response_status == '1') {
+              $scope.def = respons.response_data.customer_cards.def
+              $scope.allCards = respons.response_data.customer_cards.cards;
+
+              for(var i= 0; i<$scope.allCards.length; i++) {
+                $scope.allCards[i].def = false;
+                if($scope.allCards[i].id == $scope.def) {
+                  $scope.allCards[i].def = true;
+                }
+              }
+              console.log($scope.allCards)
+            }
+          })
+        }
+    })
+    .controller('PaymentCtrl', function ($scope, $ionicLoading, PaymentService, services,popups,CardData,$location,$stateParams) {
+
+
 
         $scope.cardInputBox = []
 
-        services.customercards(function (respons) {
-            if(respons.response_status == '1') {
-                $scope.def = respons.response_data.customer_cards.def
-                $scope.allCards = respons.response_data.customer_cards.cards;
 
-                for(var i= 0; i<$scope.allCards.length; i++) {
-                    $scope.allCards[i].def = false;
-                    if($scope.allCards[i].id == $scope.def) {
-                        $scope.allCards[i].def = true;
-                    }
-                }
-
-                console.log($scope.allCards)
-            }
-        })
         //card payment
         function acceptContact(params) {
             userRequests.acceptContactRequest(params, function (response) {
@@ -39,6 +72,9 @@ angular.module('starter')
             });
         }
 
+        $scope.showCvvMessage = function () {
+            popups.showAlert('3 digit number that appears to the right of your card.')
+        }
         function doPayment(response) {
             console.log(response)
             var params = {'source': response.id, 'amount': '20'};
@@ -90,6 +126,8 @@ angular.module('starter')
                             if(response.response_status == '1') {
                                 popups.showAlert(response.response_msg)
                                 $scope.cardDetail = {}
+                            }else {
+                              popups.showAlert(response.response_msg)
                             }
                         })
                         break;
@@ -113,30 +151,17 @@ angular.module('starter')
                 }
             });
         };
+
         $scope.getCardType = function (cardNumber) {
             console.log(PaymentService.GetCardType(cardNumber))
         }
 
-        $scope.editCard = function (card) {
-            CardData.card = card;
-
-            $location.url('/edit_card')
-        }
         $scope.addCard = function () {
             generateToken();
         }
-
-        $scope.makeDefault = function (isDef,cardId) {
-
-            if(isDef) return
-
-            services.makeCardDefault(cardId,function (response) {
-
-            })
-        }
     })
     .controller('AddCardCtrl',function ($scope, $ionicLoading, PaymentService, services,popups) {
-        
+
     })
     .controller('EditCardCtrl',function ($scope,CardData,services,PaymentService,$ionicViewService,popups) {
         $scope.card = CardData.card;
@@ -150,6 +175,9 @@ angular.module('starter')
             exp_month: CardData.card.exp_month+'',
             exp_year: CardData.card.exp_year+'',
             card_id:CardData.card.id
+        }
+        $scope.showCvvMessage = function () {
+            popups.showAlert('3 digit number that appears to the right of your card.')
         }
 
         $scope.dropDownData = {

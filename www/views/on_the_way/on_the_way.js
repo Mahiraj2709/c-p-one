@@ -49,7 +49,7 @@ angular.module('starter')
                 $scope.requestId = "REQUEST ID-" + appointmentData.app_appointment_id;
                 $scope.cancelRequestData.request_date = appointmentData.appointment_date
                 //make appointment data availabe to the on the way screen
-                //AppointmentData.appointment = customerData;*/
+                AppointmentData.appointment = appointmentData;
                 onChangeHandler();
                 OnWayService.getDistanceMatrix(new google.maps.LatLng(LocationData.latitude, LocationData.longitude),
                     new google.maps.LatLng($scope.cleanerData.customer_latitude, $scope.cleanerData.customer_longitude),

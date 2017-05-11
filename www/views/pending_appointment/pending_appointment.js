@@ -25,6 +25,13 @@ angular.module('starter')
         $scope.getStatus = function (statusCode) {
             return AppointmentService.getRequestValueWithCode(statusCode)
         }
+
+        $scope.hideExpired = function (appt_date) {
+          var currentDate = new Date();
+          var appointmentDate = new Date(appt_date.replace(/-/g, "/"));
+
+          return appointmentDate <= currentDate
+        }
     })
     .service('PendingAppointmentServices',function ($ionicLoading,$http,CONSTANTS ) {
     this.getAppointment = function ( callback) {
@@ -51,7 +58,7 @@ angular.module('starter')
             .success(function (d) {
                 $ionicLoading.hide();
 
-                console.log(JSON.stringify())
+                console.log(d)
                 if (d.response_status == "1") {
                     callback(d.response_data.appointment)
                 } else {

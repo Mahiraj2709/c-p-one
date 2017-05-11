@@ -33,6 +33,17 @@ angular.module('starter')
             $location.url('history_detail/'+appointmentId)
         };
 
+
+      $scope.getPrice = function (appt) {
+        if(appt.promocode_value != undefined || appt.promocode_value != undefined){
+
+          var totalPrice = Number(appt.confirm_price);
+          var promocodeValue = Number(appt.promocode_value);;
+          return totalPrice - promocodeValue;
+        }else {
+          return appt.confirm_price;
+        }
+      }
         //date formatter   yourDate.toISOString().split('T')[0]
     })
     .service('HistoryServices',function ($ionicLoading,$http,CONSTANTS ) {
@@ -72,4 +83,5 @@ angular.module('starter')
                     $ionicLoading.hide();
                 });
         }
+
     })

@@ -12,8 +12,7 @@ angular.module('starter')
             formdata.append('session_token', window.localStorage.getItem("sess_tok"));
             formdata.append("language", "en");
             formdata.append("view_cleaner_id", cleanerId);
-
-            console.log(formdata);
+//            console.log(formdata);
             var request = {
                 method: 'POST',
                 url: CONSTANTS.BASE_URL + 'viewprofile',

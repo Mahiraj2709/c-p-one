@@ -20,10 +20,6 @@ angular.module('starter')
             });
         });
 
-        $scope.closeVideoPlayer = function () {
-            console.log('plese remove view from new request!')
-            $scope.modal.remove();
-        }
 
         // Execute action on remove modal
         $scope.$on('modal.removed', function() {

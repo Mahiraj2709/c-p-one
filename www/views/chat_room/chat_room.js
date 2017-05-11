@@ -2,8 +2,11 @@
  * Created by admin on 1/5/2017.
  */
 angular.module('starter')
-    .controller('ChatCtrl', function ($scope, $rootScope, CONSTANTS, $timeout, services,
+    .controller('ChatCtrl', function ($scope, $rootScope, CONSTANTS, $timeout, services,$ionicHistory,
                                       $ionicScrollDelegate, ChatMessages, $stateParams) {
+        $scope.myGoBack = function() {
+            $ionicHistory.goBack();
+        };
         $rootScope.profile_pic = CONSTANTS.PROFILE_IMAGE_URL + $rootScope.userDetail.profile_pic;
         $scope.hideTime = true;
         console.log($stateParams.appointment_id);
@@ -12,6 +15,7 @@ angular.module('starter')
         $scope.sendMessage = function () {
             var d = new Date();
             d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
+            if($scope.data.message == undefined || $scope.data.message == '') return
             services.sendMessage($scope.data.message, $stateParams.appointment_id);
             ChatMessages.pushChat({
                 userType: '1',
@@ -108,11 +112,11 @@ angular.module('starter')
             $rootScope.messages.push({
                 userType: '2',
                 text: chat.message,
-                profile_pic: CONSTANTS.MECH_PROFILE_IMAGE_URL + chat.customer_profile_pic,
-                fname: chat.customer_fname,
-                lname: chat.customer_lname,
+                profile_pic: CONSTANTS.MECH_PROFILE_IMAGE_URL + chat.cleaner_profile_pic,
+                fname: chat.cleaner_fname,
+                lname: chat.cleaner_lname,
                 created_dt: chat.created_dt,
-                mobile: chat.customer_mobile,
+                mobile: chat.cleaner_mobile,
                 time: '323'
             })
             $rootScope.$apply()

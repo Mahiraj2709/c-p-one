@@ -1,0 +1,35 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark custom-dark">
+        <h1 class="title">Choose Card</h1>
+        <div class="buttons">
+            <button class="button" ng-click="closeChooseCardModal()">
+                Close
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <section class="bg-main">
+            <div class="main">
+                <form>
+                    <aside class="cards_view">
+                        <h2> {{allCards.length === 0 ? 'NO ': '' }}ADDED CARD </h2>
+                        <ul>
+                            <li ng-repeat="card in allCards">
+                                <input name="can_req_opt" ng-model='card.def' ng-change="makeDefault(card.def,card.id)"
+                                       type="radio" ng-value="card.def"> ************{{card.last4}} <span> <img ng-hide="true"
+                                    src="img/edit-icon.png" alt=""></span></li>
+                        </ul>
+                    </aside>
+
+                    <!--
+                                        <div class="full" ng-click="PayNow()"> <span class="btns pink_btn">  Pay Now  </span> </div>
+                                        <aside class="line-sec gray-line"> <span> </span> <span> OR</span> <span> </span> </aside>
+                    -->
+                    <div class="full" ng-click="addNewCard()"><span class="btns pink_btn">  Add New Card  </span></div>
+
+                </form>
+            </div>
+        </section>
+
+    </ion-content>
+</ion-modal-view>

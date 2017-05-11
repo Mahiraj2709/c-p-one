@@ -1,5 +1,5 @@
 <ion-view title="Login">
-    <ion-content ng-controller="LoginCtrl" class="home">
+    <ion-content scroll="false" ng-controller="LoginCtrl" class="home">
 
         <section class="bg-sec">            <div class="main">
                 <aside class="logo_section"> <img src="img/logo.png" alt=""> </aside>
@@ -17,7 +17,7 @@
                     </div>
                     <aside class="forgot-pass"><a ui-sref="forgot_password">Forgot Password? </a> </aside>
 
-                    <aside class="btn_set"> 
+                    <aside class="btn_set">
                         <a >
                             <div class="half" ng-click="loginUser()"> <span class="btns pink_btn"> Login</span> </div>
                         </a>
@@ -33,6 +33,8 @@
                         <span ng-click="twitterLogin()"> <i class="fa fa-twitter"  ></i> </span>
                         <span ng-click="instaLogin()"> <i class="fa fa-instagram" aria-hidden="true" ></i>  </span>
                     </aside>
+
+                    <aside class="download_clener"> <span>Looking for Cleanosaur cleaner app? <u ng-click="openPlayStore()">click here</u></span></aside>
                 </form>
             </div>
         </section>

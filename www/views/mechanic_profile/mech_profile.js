@@ -12,7 +12,7 @@ angular.module('starter')
             }
         })
 
-        $scope.getCustomerData = function () {
+        $scope.$on('$ionicView.loaded', function () {
             MechanicData.getMechanicProfile($stateParams.cleaner_id, function (mechData) {
                 $scope.mechData = mechData;
                 //set the four images for the profile
@@ -22,9 +22,11 @@ angular.module('starter')
                     $scope.profileImages.push(CONSTANTS.MECH_PROFILE_IMAGE_URL + mechData.cleaner_album_profile_pic[i].profile_pic);
                 }
             });
-        }
+        })
 
-        $scope.videoLink = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
+
+        $scope.mechanic_video = $sce.trustAsResourceUrl(CONSTANTS.MECH_PROFILE_IMAGE_URL + AppointmentData.profile_video);
+
         $scope.openVideoPlayer = function () {
             //video player modal
             if (AppointmentData.profile_video == undefined) {
@@ -32,7 +34,7 @@ angular.module('starter')
                 return
             }
 
-            $ionicModal.fromTemplateUrl('views/custom_dialog/video_player.html', {
+            $ionicModal.fromTemplateUrl('views/custom_dialog/cleaner_video_player.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function (modal) {
@@ -41,7 +43,7 @@ angular.module('starter')
             });
         };
 
-        $scope.closeVideoPlayer = function () {
+        $scope.closeCleanerVideoPlayer = function () {
             $scope.modal.remove();
         }
         $scope.launchMechOnWay = function () {

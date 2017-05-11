@@ -1,26 +1,34 @@
-<ion-view>
-    <ion-content ng-controller="MechProfileCtrl" ng-init="getCustomerData()">
+<ion-view title="Cleanosaur Profile">
+    <ion-content>
         <section class="bg-main">
             <div class="main">
                 <aside class="figure-container">
-                    <figure class="profile-pic"> <img alt="" src="img/user-photo.png" ng-src="{{profile_pic}}" width="50" height="50"> </figure>
-                    <figcaption class="user-detail">  {{mechData.first_name}} {{mechData.last_name}}</figcaption>
+                    <figure class="profile-pic"><img alt="" src="img/user-photo.png" ng-src="{{profile_pic}}" width="50"
+                                                     height="50"></figure>
+                    <figcaption class="user-detail"> {{mechData.first_name}} {{mechData.last_name}}</figcaption>
                 </aside>
                 <aside class="ratings">
-                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=1}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=2}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=3}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=4}" aria-hidden="true"></i>
-                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=5}" aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=1}"
+                       aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=2}"
+                       aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=3}"
+                       aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=4}"
+                       aria-hidden="true"></i>
+                    <i class="fa fa-star" ng-class="{'ratingYellow':cleanerFeedback.avg_rating >=5}"
+                       aria-hidden="true"></i>
 
                 </aside>
                 <aside class="request_sec">
                     <ul>
-                        <li> <span> 70%</span> requests accepted  </li> <li> <span> 30%</span> cleans canceled </li> <li> <span> 3.0 </span> Current Rating </li>
+                        <li><span> {{cleanerFeedback.percent_accept}}%</span> requests accepted</li>
+                        <li><span> {{cleanerFeedback.percent_cancel}}%</span> cleans canceled</li>
+                        <li><span>{{cleanerFeedback.avg_rating}} </span> Current Rating</li>
                     </ul>
                 </aside>
 
-                <aside class="view_vdo_btn" ng-click="openVideoPlayer()"> <span> Nice to meet you </span>  </aside>
+                <aside class="view_vdo_btn" ng-click="openVideoPlayer()"><span> Nice to meet you </span></aside>
                 <aside class="profile_about">
                     <h3>About Him</h3>
                     <p>{{mechData.about_your_description}}</p>
@@ -28,28 +36,37 @@
                 <section class="photos_sec">
                     <h3>Photos</h3>
                     <div class="full">
-                        <aside class="half"> <img src="img/scr-7-img1.jpg"  ng-src="{{profileImages[0]}}" ng-hide="!profileImages[0]" alt=""> <span class="up_icon"> <img src="img/upload-icon.png" width="20" height="20" alt=""></span> </aside>
-                        <aside class="half fr"> <img src="img/scr-7-img2.jpg"  ng-src="{{profileImages[1]}}" ng-hide="!profileImages[1]" alt="">  <span class="up_icon"> <img src="img/upload-icon.png" width="20" height="20" alt=""></span> </aside>
+                        <aside class="half"><img src="img/scr-7-img1.jpg" ng-src="{{profileImages[0]}}"
+                                                 ng-hide="!profileImages[0]" alt=""> <span class="up_icon"> <img
+                                src="img/upload-icon.png" width="20" height="20" alt=""></span></aside>
+                        <aside class="half fr"><img src="img/scr-7-img2.jpg" ng-src="{{profileImages[1]}}"
+                                                    ng-hide="!profileImages[1]" alt=""> <span class="up_icon"> <img
+                                src="img/upload-icon.png" width="20" height="20" alt=""></span></aside>
                     </div>
                     <div class="full">
-                        <aside class="half"> <img src="img/scr-7-img3.jpg" ng-src="{{profileImages[2]}}" ng-hide="!profileImages[2]" alt=""> <span class="up_icon"> <img src="img/upload-icon.png" width="20" height="20" alt=""></span> </aside>
-                        <aside class="half fr"> <img src="img/scr-7-img4.jpg" ng-src="{{profileImages[3]}}" ng-hide="!profileImages[3]" alt=""> <span class="up_icon"> <img src="img/upload-icon.png" width="20" height="20" alt=""></span> </aside>
+                        <aside class="half"><img src="img/scr-7-img3.jpg" ng-src="{{profileImages[2]}}"
+                                                 ng-hide="!profileImages[2]" alt=""> <span class="up_icon"> <img
+                                src="img/upload-icon.png" width="20" height="20" alt=""></span></aside>
+                        <aside class="half fr"><img src="img/scr-7-img4.jpg" ng-src="{{profileImages[3]}}"
+                                                    ng-hide="!profileImages[3]" alt=""> <span class="up_icon"> <img
+                                src="img/upload-icon.png" width="20" height="20" alt=""></span></aside>
                     </div>
                 </section>
                 <aside class="profile_details">
                     <ul>
-                        <li ng-hide="true"> <strong>Date Of Birth  </strong> - {{mechData.date_of_birth}} </li>
-                        <li><strong>Email  </strong> - {{mechData.email}} </li>
+                        <li ng-hide="true"><strong>Date Of Birth </strong> - {{mechData.date_of_birth}}</li>
+                        <li><strong>Email </strong> - {{mechData.email}}</li>
                         <li><strong> Phone No </strong> - {{mechData.mobile}}</li>
-                        <li ng-hide="true"><strong>Car Model </strong> - {{mechData.model_id}} </li>
-                        <li ng-hide="true"><strong> Car Make </strong> -  {{mechData.make_id}} </li>
-                        <li> <strong>I AM: </strong> - {{mechData.reference_mode}} </li>
-                        <li ng-hide="true"> <strong> Average Clean Time - </strong>  1:35 Hrs  </li>
+                        <li ng-hide="true"><strong>Car Model </strong> - {{mechData.model_id}}</li>
+                        <li ng-hide="true"><strong> Car Make </strong> - {{mechData.make_id}}</li>
+                        <li><strong>I AM: </strong> - {{mechData.reference_mode}}</li>
+                        <li ng-hide="true"><strong> Average Clean Time - </strong> 1:35 Hrs</li>
                     </ul>
                 </aside>
-                <aside class="btn_set" ng-click="launchMechOnWay()"> <div class="full"> <span class="btns pink_btn">  RAWR!  </span> </div> </aside>
+                <aside class="btn_set" ng-click="launchMechOnWay()">
+                    <div class="full"><span class="btns pink_btn">  RAWR!  </span></div>
+                </aside>
             </div>
         </section>
-
     </ion-content>
 </ion-view>

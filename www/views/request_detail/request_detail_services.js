@@ -11,7 +11,7 @@ angular.module('starter')
         };
         return factory;
     })
-    .service('SendRequest', function ($http, $ionicLoading,CONSTANTS,$ionicPopup,$location,$ionicHistory) {
+    .service('SendRequest', function ($http, $ionicLoading,CONSTANTS,$ionicPopup,$location,$ionicHistory,popups) {
         this.getPropertyType = function (property_id,callback) {
             $ionicLoading.show({
                 template: "Loading data..."
@@ -42,6 +42,10 @@ angular.module('starter')
                     if (d.response_status == "1") {
                         return callback(d.response_data);
                     } else {
+                        if(d.response_status == '2'){
+                            $location.url('add_card')
+                        }
+                        popups.showAlert(d.response_msg);
                     }
                 })
                 .error(function (err) {
@@ -53,11 +57,15 @@ angular.module('starter')
         }
         function validAppointmentDate(date) {
             var currentDate = new Date();
-            var appointmentDate = new Date(date);
+            var appointmentDate = new Date(date.replace(/-/g, "/"));
+
+            console.log('current data ' + currentDate)
+            console.log('appointmentDate ' + appointmentDate)
+            console.log('condition ' + (appointmentDate >= currentDate))
 
             return appointmentDate >= currentDate
         }
-        this.sendRequest = function (requestData) {
+        this.sendRequest = function (requestData,defaultCard,callback) {
 
             console.log(requestData);
             var formdata = new FormData;
@@ -80,6 +88,9 @@ angular.module('starter')
                 showAlert("Please enter valid price!");
             }else if (requestData.confirm_price <= 0) {
                 showAlert("Price can't be zero!");
+            }else if (defaultCard == undefined) {
+                callback()
+                //showAlert("You have not selected any card!");
             }else {
                 //call signup api
                 for (var key in requestData) {
@@ -132,6 +143,7 @@ angular.module('starter')
                             });
                             //return callback(d.response_data);
                         } else {
+                          popups.showAlert(d.response_msg)
                         }
                     })
                     .error(function (err) {
@@ -141,7 +153,7 @@ angular.module('starter')
 //                    showAlert(er
                     });
             }
-            
+
             function showAlert(message) {
                 $ionicPopup.alert({
                     title: 'Attention!',

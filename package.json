@@ -21,9 +21,12 @@
     "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
-    "cordova-plugin-splashscreen",
     "cordova-plugin-contacts",
-    "cordova-plugin-facebook4"
+    "cordova-plugin-android-permissions@0.10.0",
+    "cordova-plugin-splashscreen",
+    "phonegap-plugin-push@~1.9.2",
+    "phonegap-plugin-push",
+    "cordova-plugin-facebook4@~1.7.4"
   ],
   "cordovaPlatforms": []
 }

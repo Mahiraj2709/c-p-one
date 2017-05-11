@@ -2,7 +2,7 @@
  * Created by admin on 1/3/2017.
  */
 angular.module('starter')
-    .service('SearchCleaner', function ($ionicLoading, $http, CONSTANTS) {
+    .service('SearchCleaner', function ($ionicLoading, $http, CONSTANTS,cleanUtils) {
         this.searchNearbyCleaner = function (latLng, address, callback) {
             var formdata = new FormData;
             formdata.append('device_type', CONSTANTS.deviceType());
@@ -32,6 +32,10 @@ angular.module('starter')
                             return callback(d.response_data.cleaner);
                         }
                     } else {
+                        if(d.response_key == KEY_SESSION_OUT) {
+                            cleanUtils.sessionOut()
+                        }else {
+                        }
                     }
                 })
                 .error(function (err) {

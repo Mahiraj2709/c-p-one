@@ -1,4 +1,4 @@
-<ion-view title="Review Your Cleanosaur Request" cache-view="false">
+<ion-view title="Pay for Your Cleanosaur Request" cache-view="false">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -20,10 +20,11 @@
                 </aside>
 
               <aside class=".rating_line_third">
-                <p> <span class="btns black_btn popup_rwr_btn"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
+                <p> <span class="btns black_btn popup_rwr_btn" ng-click="showAppointment()"> REQUEST ID {{reqeustCompeteData.app_appointment_id}} </span> </p>
               </aside>
                 <aside class="rating_line_sec">
-                    <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{reqeustCompeteData.confirm_price | currency}}</span></p>
+                    <p><strong>{{reqeustCompeteData.property_type}}</strong> - <span>{{totalPrice | currency}}</span></p>
+                    <p ng-hide="reqeustCompeteData.price_description.promocode_value == null"><strong>Promo Code Value </strong> - <span>{{reqeustCompeteData.price_description.promocode_value | currency}}</span></p>
                     <p><strong>Clean Time</strong> - <span>{{reqeustCompeteData.duration}} Mins</span></p>
                 </aside>
                 <p> <strong>Write Review</strong> </p>
@@ -33,7 +34,7 @@
                     <label> Tip $</label>
                     <input placeholder="0" required="required" type="number" ng-model="rateObj.tip">
                 </aside>
-                <aside class="btn_set" ng-click="rateYourMechanic()"> <div class="full"> <span class="btns pink_btn">  RAWRR!  </span> </div> </aside>
+                <aside class="btn_set" ng-click="rateYourMechanic()"> <div class="full"> <span class="btns pink_btn">  SEND PAYMENT  </span> </div> </aside>
             </div>
         </section>
     </ion-content>

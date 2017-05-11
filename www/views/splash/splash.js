@@ -8,6 +8,7 @@ angular.module('starter')
         }).then(function (t) {
             console.log('Token saved:', t.token);
         });
+
         /*$timeout(function () {
 
          var loggedIn = localStorage.getItem('login');
@@ -65,7 +66,7 @@ angular.module('starter')
         $rootScope.$on('cloud:push:notification', function (event, data) {
                 var msg = data.message;
                 //$scope.showAlert(msg.title + ': ' + msg.text);
-                console.log(msg);
+                console.log(JSON.stringify(msg.payload));
                 // When button is clicked, the popup will be shown...
                 if (msg.payload != undefined) {
                     var action = msg.payload.action
@@ -75,6 +76,7 @@ angular.module('starter')
                                 //requst send by custoemr
                                 AppointmentData.app_appointment_id = msg.payload.app_appointment_id
                                 AppointmentData.profile_video = msg.payload.profile_video
+                                AppointmentData.cleaner_avg_rating = msg.payload.cleaner_avg_rating
                                 $rootScope.payload = msg.payload;
                                 $rootScope.cleaner_profile_pic = CONSTANTS.MECH_PROFILE_IMAGE_URL + msg.payload.profileImage;
                                 //popups.requestAcceptedPopup($scope)
@@ -96,6 +98,13 @@ angular.module('starter')
                                 popups.showAlert(msg.payload.message)
                                 $rootScope.reqeustCompetePayload = msg.payload;
                                 $location.url('rate_mech/' + msg.payload.app_appointment_id);
+                                break
+                            case 7:
+                                //request canceled by the customer
+                                popups.showAlert(msg.payload.message)
+                                $ionicHistory.clearCache().then(function () {
+                                    $location.url('/home');
+                                });
                                 break
                             case 13:
                                 //chat message
